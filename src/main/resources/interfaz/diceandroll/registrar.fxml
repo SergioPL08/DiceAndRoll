@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="479.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #4F68F6,#FFF);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.RegistrarController">
+   <children>
+      <Pane layoutX="77.0" layoutY="49.0" prefHeight="478.0" prefWidth="325.0">
+         <children>
+            <Pane layoutY="76.0" prefHeight="402.0" prefWidth="325.0" style="-fx-background-color: #FFF;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Registrar" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri" size="25.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="19.0" layoutY="65.0" prefHeight="317.0" prefWidth="274.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Nombre de usuario">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="Contraseña" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Calibri" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TextFieldUser" prefHeight="44.0" prefWidth="0.0" GridPane.rowIndex="1">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <PasswordField fx:id="TextFieldPass" prefHeight="44.0" prefWidth="0.0" GridPane.rowIndex="3">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </PasswordField>
+                        <Label text="Confirmar" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Calibri" size="16.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="TextFieldConfirm" prefHeight="44.0" prefWidth="0.0" GridPane.rowIndex="5">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </PasswordField>
+                        <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="388.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6">
+                           <children>
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#registrar" style="-fx-background-color: #4F68F6;" text="Registrar" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Pane HBox.hgrow="ALWAYS" />
+                              <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #4F68F6;" text="Volver" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <Label fx:id="msg" alignment="CENTER_RIGHT" layoutX="122.0" layoutY="8.0" prefHeight="58.0" prefWidth="182.0" textFill="#ff7676" wrapText="true" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="58.0" fitWidth="387.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logoNombre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
