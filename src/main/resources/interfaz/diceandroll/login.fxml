@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="58.0" fitWidth="387.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/logoNombre.png" />
+                  <Image url="@../../img/logo/logoNombre.png" />
                </image>
             </ImageView>
             <Pane layoutX="4.0" layoutY="71.0" prefHeight="402.0" prefWidth="325.0" style="-fx-background-color: #FFF;">

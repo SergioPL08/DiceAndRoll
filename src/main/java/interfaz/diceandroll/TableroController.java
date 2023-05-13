@@ -6,7 +6,9 @@ package interfaz.diceandroll;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -14,8 +16,10 @@ import javafx.scene.layout.Pane;
  *
  * @author Sergio
  */
-public class FichaPersonajeController implements Initializable {
+public class TableroController implements Initializable {
 
+    @FXML
+    private AnchorPane contenedor;
     private Pane panelPrincipal;
 
     /**
@@ -23,8 +27,9 @@ public class FichaPersonajeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        
+    }   
+    
     public void setPanePrincipal(Pane panelPrincipal){
         this.panelPrincipal=panelPrincipal;
     }

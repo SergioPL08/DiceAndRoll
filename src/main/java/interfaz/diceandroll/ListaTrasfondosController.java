@@ -7,6 +7,7 @@ package interfaz.diceandroll;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -15,12 +16,17 @@ import javafx.fxml.Initializable;
  */
 public class ListaTrasfondosController implements Initializable {
 
+    private Pane panelPrincipal;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
+    public void setPanePrincipal(Pane panelPrincipal){
+        this.panelPrincipal=panelPrincipal;
+    }
 }

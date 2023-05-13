@@ -7,6 +7,7 @@ package interfaz.diceandroll;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -14,6 +15,8 @@ import javafx.fxml.Initializable;
  * @author Sergio
  */
 public class ListaConjurosController implements Initializable {
+
+    private Pane panelPrincipal;
 
     /**
      * Initializes the controller class.
@@ -23,4 +26,7 @@ public class ListaConjurosController implements Initializable {
         // TODO
     }    
     
+    public void setPanePrincipal(Pane panelPrincipal){
+        this.panelPrincipal=panelPrincipal;
+    }
 }

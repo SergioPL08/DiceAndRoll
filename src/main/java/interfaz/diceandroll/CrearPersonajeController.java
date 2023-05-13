@@ -7,6 +7,7 @@ package interfaz.diceandroll;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -22,5 +23,6 @@ public class CrearPersonajeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
     
 }

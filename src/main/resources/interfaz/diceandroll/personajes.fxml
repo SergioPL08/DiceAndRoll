@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="PanePersonajes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.PersonajesController">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="57.0" prefHeight="59.0" prefWidth="901.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="57.0">
          <children>
@@ -59,7 +59,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
                <children>
                   <Label layoutX="106.0" layoutY="34.0" text="Drafin">
                      <font>
@@ -78,7 +78,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1">
                <children>
                   <Label layoutX="106.0" layoutY="33.0" text="Tiberius Leonard III Laurence">
                      <font>
@@ -96,7 +96,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2">
                <children>
                   <Label layoutX="106.0" layoutY="33.0" text="Shallan Silverwraith">
                      <font>
@@ -115,7 +115,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="1">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="1">
                <children>
                   <Label layoutX="106.0" layoutY="32.0" text="Safir Teltuth">
                      <font>
@@ -134,7 +134,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Label layoutX="106.0" layoutY="32.0" text="Caithlyn">
                      <font>
@@ -153,7 +153,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Label layoutX="106.0" layoutY="34.0" text="Hilda">
                      <font>
@@ -172,7 +172,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="2">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="2">
                <children>
                   <Label layoutX="106.0" layoutY="32.0" text="Alfonso">
                      <font>
@@ -191,7 +191,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Label layoutX="106.0" layoutY="32.0" text="Kibet">
                      <font>
@@ -210,7 +210,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Pane onMouseClicked="#seleccionarPersonaje" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <Label layoutX="106.0" layoutY="32.0" text="Chapa">
                      <font>

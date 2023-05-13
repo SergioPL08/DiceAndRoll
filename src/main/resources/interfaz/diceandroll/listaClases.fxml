@@ -1,11 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ListaClasesController">
-    
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ListaClasesController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutX="32.0" layoutY="37.0" prefHeight="59.0" prefWidth="901.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="57.0">
+         <children>
+            <TextField fx:id="textFieldBuscador" minWidth="-Infinity" prefHeight="30.0" prefWidth="576.0" promptText="Buscar por nombre" style="-fx-background-color: #FFF; -fx-border-color: #DCDCDC; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </TextField>
+            <Pane maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Pane>
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonAplicarFiltro" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Buscar" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="13.0" right="13.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="961.0" layoutY="49.0" prefHeight="55.0" prefWidth="301.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="57.0">
+         <children>
+            <ComboBox fx:id="comboBox" prefHeight="27.0" prefWidth="297.0" promptText="Ordenar por" style="-fx-background-color: #FFF;" stylesheets="@../../style.css" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+            </ComboBox>
+         </children>
+      </HBox>
+      <GridPane fx:id="gridPane" hgap="50.0" layoutX="30.0" layoutY="128.0" prefHeight="403.0" prefWidth="1240.0" vgap="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="138.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane fx:id="clase1" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false">
+               <children>
+                  <Label fx:id="nombreClase1" layoutX="106.0" layoutY="34.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen1" fitHeight="75.0" fitWidth="89.0" layoutX="17.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase1" layoutX="106.0" layoutY="55.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase2" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="1">
+               <children>
+                  <Label fx:id="nombreClase2" layoutX="106.0" layoutY="33.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen2" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase2" layoutX="106.0" layoutY="54.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase3" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="2">
+               <children>
+                  <Label fx:id="nombreClase3" layoutX="106.0" layoutY="33.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen3" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase3" layoutX="106.0" layoutY="54.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase4" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="nombreClase4" layoutX="106.0" layoutY="32.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen4" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase4" layoutX="106.0" layoutY="53.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase5" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="nombreClase5" layoutX="106.0" layoutY="32.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen5" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase5" layoutX="106.0" layoutY="53.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase6" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="nombreClase6" layoutX="106.0" layoutY="34.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen6" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase6" layoutX="106.0" layoutY="55.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase7" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="nombreClase7" layoutX="106.0" layoutY="32.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen7" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase7" layoutX="106.0" layoutY="53.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase8" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="nombreClase8" layoutX="106.0" layoutY="32.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen8" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase8" layoutX="106.0" layoutY="53.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="clase9" onMouseClicked="#abrirClase" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="nombreClase9" layoutX="106.0" layoutY="32.0">
+                     <font>
+                        <Font name="Calibri Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagen9" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/no_image.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="libroClase9" layoutX="106.0" layoutY="53.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <Label layoutX="40.0" layoutY="35.0" text="Clases" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="Calibri Bold" size="25.0" />
+         </font>
+      </Label>
+      <HBox layoutX="44.0" layoutY="603.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <HBox prefHeight="34.0" prefWidth="65.0" spacing="5.0">
+               <children>
+                  <Button fx:id="botonVolverInicio" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonVolverInicioArray" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&lt;&lt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botonRetrocederUno" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonRetrocederUnoArray" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&lt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="hboxPaginacion" prefHeight="25.0" prefWidth="17.0" spacing="5.0" />
+            <HBox prefHeight="25.0" prefWidth="76.0" spacing="5.0">
+               <children>
+                  <Button fx:id="botonAvanzarUno" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonAvanzarUnoArray" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botonAlFinal" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonIrAlFinalArray" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

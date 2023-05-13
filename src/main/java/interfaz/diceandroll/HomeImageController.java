@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Sergio
  */
-public class FichaPersonajeController implements Initializable {
+public class HomeImageController implements Initializable {
 
     private Pane panelPrincipal;
 
@@ -25,6 +25,7 @@ public class FichaPersonajeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
     public void setPanePrincipal(Pane panelPrincipal){
         this.panelPrincipal=panelPrincipal;
     }

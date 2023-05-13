@@ -1,11 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarClaseController">
-    
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarClaseController">
+   <children>
+      <Label fx:id="labelNombreClase" layoutX="23.0" layoutY="23.0" text="Clase">
+         <font>
+            <Font name="Calibri Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDescripcion" alignment="TOP_LEFT" layoutX="31.0" layoutY="319.0" prefHeight="265.0" prefWidth="279.0" wrapText="true" />
+      <ImageView fx:id="imagenClase" fitHeight="234.0" fitWidth="267.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="330.0" layoutY="66.0" prefHeight="521.0" prefWidth="403.0">
+         <children>
+            <Label layoutY="-4.0" text="Origen: ">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNombreLibro" layoutX="53.0" layoutY="-4.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label layoutY="31.0" text="Requisitos multiclase: ">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelRequisitosMulticlase" layoutX="137.0" layoutY="31.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label layoutY="14.0" text="Puntos de golpe">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelPuntosDeGolpe" layoutX="105.0" layoutY="14.0" prefHeight="17.0" prefWidth="87.0" />
+            <VBox layoutY="50.0" prefHeight="449.0" prefWidth="279.0">
+               <children>
+                  <Label text="Armadura">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaArmaduras" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+                  <Label text="Armas">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaArmas" alignment="TOP_LEFT" prefWidth="279.0" style="-fx-font-weight: normal;" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Habilidades">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaHabilidades" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+                  <Label text="Tiradas de salvación">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaTiradasSalvacion" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+                  <Label text="Herramientas">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaEquipo" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+                  <Label text="Equipo">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCompetenciaEquipo" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="681.0" layoutY="49.0" prefHeight="521.0" prefWidth="512.0" style="-fx-background-color: transparent;">
+         <content>
+            <VBox fx:id="vboxHabilidades" prefHeight="516.0" prefWidth="496.0" spacing="10.0" style="-fx-background-color: transparent;" />
+         </content>
+      </ScrollPane>
+   </children>
 </AnchorPane>

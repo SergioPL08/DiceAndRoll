@@ -12,35 +12,58 @@ public class Dote {
     private int idDote;
     private String nombre;
     private String descripcion;
-    private enum caracMod{fue,des,con,inte,sab,car};
+    private String caracMod;
+    private String caracMod2;
     private int mod;
     private int idLibro;
     private int idPersonaje;
 
-     public Dote(int id, String nombre, String descripcion, int mod, int idLibro, int idPersonaje) {
-        this.idDote = id;
+    public Dote(){
+        
+    }
+    
+    public Dote(int idDote, String nombre, String descripcion, String caracMod, String caracMod2, int mod, int idLibro, int idPersonaje) {
+        this.idDote = idDote;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.caracMod = caracMod;
+        this.caracMod2 = caracMod2;
         this.mod = mod;
         this.idLibro = idLibro;
         this.idPersonaje = idPersonaje;
     }
-    
-    public Dote(int id, String nombre, String descripcion, int mod, int idLibro) {
-        this.idDote = id;
+
+    public Dote(int idDote, String nombre, String descripcion, int idLibro, int idPersonaje) {
+        this.idDote = idDote;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.idLibro = idLibro;
+        this.idPersonaje = idPersonaje;
+    }
+
+    public Dote(int idDote, String nombre, String descripcion, String caracMod, String caracMod2, int mod, int idLibro) {
+        this.idDote = idDote;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.caracMod = caracMod;
+        this.caracMod2 = caracMod2;
         this.mod = mod;
         this.idLibro = idLibro;
     }
-    
-    
-    public int getId() {
+
+    public Dote(int idDote, String nombre, String descripcion, int idLibro) {
+        this.idDote = idDote;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.idLibro = idLibro;
+    }
+
+    public int getIdDote() {
         return idDote;
     }
 
-    public void setId(int id) {
-        this.idDote = id;
+    public void setIdDote(int idDote) {
+        this.idDote = idDote;
     }
 
     public String getNombre() {
@@ -57,6 +80,22 @@ public class Dote {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getCaracMod() {
+        return caracMod;
+    }
+
+    public void setCaracMod(String caracMod) {
+        this.caracMod = caracMod;
+    }
+
+    public String getCaracMod2() {
+        return caracMod2;
+    }
+
+    public void setCaracMod2(String caracMod2) {
+        this.caracMod2 = caracMod2;
     }
 
     public int getMod() {
@@ -83,7 +122,7 @@ public class Dote {
         this.idPersonaje = idPersonaje;
     }
 
-
-    
+   
+ 
     
 }

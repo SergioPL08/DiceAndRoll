@@ -14,21 +14,24 @@ public class Clases {
     private String descripcion;
     private int puntosGolpe;
     private String requisitoMulticlase;
-    private int competenciaArmasSencillas;
-    private int competenciaArmasMarciales;
-    private int competenciaArmadurasLigeras;
-    private int competenciaArmadurasMedias;
-    private int competenciaArmadurasPesadas;
+    private boolean competenciaArmasSencillas;
+    private boolean competenciaArmasMarciales;
+    private boolean competenciaArmadurasLigeras;
+    private boolean competenciaArmadurasMedias;
+    private boolean competenciaArmadurasPesadas;
+    private boolean competenciaEscudo;
+    private String otrasCompetenciasArmas;
     private String otrasCompetencias;
     private String textoCompetenciasHabilidades;
-    private enum tipoCaster{puro,medio,ninguno};
-    private enum aptitudMagica{inte,sab,car};
-    private enum competenciaEstat1{fue,des,con,inte,sab,car};
-    private enum competenciaEstat2{fue,des,con,inte,sab,car};
+    private String tipoCaster;
+    private String aptitudMagica;
+    private String competenciaEstat1;
+    private String competenciaEstat2;
+    private String icon;
     private int idLibro;
     private int idPersonaje;
 
-    public Clases(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, int competenciaArmasSencillas, int competenciaArmasMarciales, int competenciaArmadurasLigeras, int competenciaArmadurasMedias, int competenciaArmadurasPesadas, String otrasCompetencias, String textoCompetenciasHabilidades, int idLibro, int idPersonaje) {
+    public Clases(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo,String otrasCompetenciasArmas,String otrasCompetencias, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, String icon, int idLibro) {
         this.id_clase = id_clase;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -39,33 +42,19 @@ public class Clases {
         this.competenciaArmadurasLigeras = competenciaArmadurasLigeras;
         this.competenciaArmadurasMedias = competenciaArmadurasMedias;
         this.competenciaArmadurasPesadas = competenciaArmadurasPesadas;
+        this.competenciaEscudo = competenciaEscudo;
         this.otrasCompetencias = otrasCompetencias;
+        this.otrasCompetenciasArmas = otrasCompetenciasArmas;
         this.textoCompetenciasHabilidades = textoCompetenciasHabilidades;
+        this.icon = icon;
         this.idLibro = idLibro;
         this.idPersonaje = idPersonaje;
     }
-
-    public Clases(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, int competenciaArmasSencillas, int competenciaArmasMarciales, int competenciaArmadurasLigeras, int competenciaArmadurasMedias, int competenciaArmadurasPesadas, String otrasCompetencias, String textoCompetenciasHabilidades, int idLibro) {
-        this.id_clase = id_clase;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.puntosGolpe = puntosGolpe;
-        this.requisitoMulticlase = requisitoMulticlase;
-        this.competenciaArmasSencillas = competenciaArmasSencillas;
-        this.competenciaArmasMarciales = competenciaArmasMarciales;
-        this.competenciaArmadurasLigeras = competenciaArmadurasLigeras;
-        this.competenciaArmadurasMedias = competenciaArmadurasMedias;
-        this.competenciaArmadurasPesadas = competenciaArmadurasPesadas;
-        this.otrasCompetencias = otrasCompetencias;
-        this.textoCompetenciasHabilidades = textoCompetenciasHabilidades;
-        this.idLibro = idLibro;
-    }
-
-    public int getId_clase() {
+    public int getIdClase() {
         return id_clase;
     }
 
-    public void setId_clase(int id_clase) {
+    public void setIdClase(int id_clase) {
         this.id_clase = id_clase;
     }
 
@@ -101,46 +90,51 @@ public class Clases {
         this.requisitoMulticlase = requisitoMulticlase;
     }
 
-    public int getCompetenciaArmasSencillas() {
+    public boolean isCompetenciaArmasSencillas() {
         return competenciaArmasSencillas;
     }
 
-    public void setCompetenciaArmasSencillas(int competenciaArmasSencillas) {
+    public void setCompetenciaArmasSencillas(boolean competenciaArmasSencillas) {
         this.competenciaArmasSencillas = competenciaArmasSencillas;
     }
 
-    public int getCompetenciaArmasMarciales() {
+    public boolean isCompetenciaArmasMarciales() {
         return competenciaArmasMarciales;
     }
 
-    public void setCompetenciaArmasMarciales(int competenciaArmasMarciales) {
+    public void setCompetenciaArmasMarciales(boolean competenciaArmasMarciales) {
         this.competenciaArmasMarciales = competenciaArmasMarciales;
     }
 
-    public int getCompetenciaArmadurasLigeras() {
+    public boolean isCompetenciaArmadurasLigeras() {
         return competenciaArmadurasLigeras;
     }
 
-    public void setCompetenciaArmadurasLigeras(int competenciaArmadurasLigeras) {
+    public void setCompetenciaArmadurasLigeras(boolean competenciaArmadurasLigeras) {
         this.competenciaArmadurasLigeras = competenciaArmadurasLigeras;
     }
 
-    public int getCompetenciaArmadurasMedias() {
+    public boolean isCompetenciaArmadurasMedias() {
         return competenciaArmadurasMedias;
     }
 
-    public void setCompetenciaArmadurasMedias(int competenciaArmadurasMedias) {
+    public void setCompetenciaArmadurasMedias(boolean competenciaArmadurasMedias) {
         this.competenciaArmadurasMedias = competenciaArmadurasMedias;
     }
 
-    public int getCompetenciaArmadurasPesadas() {
+    public boolean isCompetenciaArmadurasPesadas() {
         return competenciaArmadurasPesadas;
     }
 
-    public void setCompetenciaArmadurasPesadas(int competenciaArmadurasPesadas) {
+    public void setCompetenciaArmadurasPesadas(boolean competenciaArmadurasPesadas) {
         this.competenciaArmadurasPesadas = competenciaArmadurasPesadas;
     }
-
+    public boolean isCompetenciaEscudo(){
+        return competenciaEscudo;
+    }
+    public void setCompetenciaEscudo(boolean competenciaEscudo) {
+        this.competenciaEscudo= competenciaEscudo;
+    }
     public String getOtrasCompetencias() {
         return otrasCompetencias;
     }
@@ -173,5 +167,51 @@ public class Clases {
         this.idPersonaje = idPersonaje;
     }
 
-  
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getTipoCaster() {
+        return tipoCaster;
+    }
+
+    public void setTipoCaster(String tipoCaster) {
+        this.tipoCaster = tipoCaster;
+    }
+
+    public String getAptitudMagica() {
+        return aptitudMagica;
+    }
+
+    public void setAptitudMagica(String aptitudMagica) {
+        this.aptitudMagica = aptitudMagica;
+    }
+
+    public String getCompetenciaEstat1() {
+        return competenciaEstat1;
+    }
+
+    public void setCompetenciaEstat1(String competenciaEstat1) {
+        this.competenciaEstat1 = competenciaEstat1;
+    }
+
+    public String getCompetenciaEstat2() {
+        return competenciaEstat2;
+    }
+
+    public void setCompetenciaEstat2(String competenciaEstat2) {
+        this.competenciaEstat2 = competenciaEstat2;
+    }
+    
+    public String getOtrasCompetenciasArmas() {
+        return otrasCompetenciasArmas;
+    }
+
+    public void setOtrasCompetenciasArmas(String otrasCompetenciasArmas) {
+        this.otrasCompetenciasArmas = otrasCompetenciasArmas;
+    }
 }

@@ -49,16 +49,10 @@ public class RegistrarController implements Initializable {
         String user = TextFieldUser.getText();
         String pass = TextFieldPass.getText();
         String confirm = TextFieldConfirm.getText();
-        Pattern p = Pattern.compile("^(?=.*[A-Z])(?=.*\\d).{4,}$");
-        Matcher m = p.matcher(pass);
-        if(user.length()<4)
-            msg.setText("El nombre de usuario tiene que tener al menos 4 caracteres");
-        else if(pass.equals(""))
+        if(pass.equals(""))
             msg.setText("La contraseña no debe estar vacía!");
         else if(!pass.equals(confirm))
             msg.setText("Las contraseñas no coinciden");
-        else if (!m.matches())
-            msg.setText("La contraseña debe tener al menos 4 caracteres, y al menos 1 número y una mayúscula");
         else{
             String consulta = "Insert into usuario (nombre, pass) values ('"+user+"','"+pass+"')";
             System.out.println(consulta);

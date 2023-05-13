@@ -69,7 +69,7 @@ public class LoginController implements Initializable {
                 //Abrir el menu principal con el tamaño indicado y cerramos la ventana login
                 Stage stage = new Stage();
                 Parent content = FXMLLoader.load(getClass().getResource("home.fxml"));
-                Scene home = new Scene(content, 800, 600);
+                Scene home = new Scene(content, 1280, 720);
                 stage.setScene(home);
                 stage.show();
                 Node tal = (Node) event.getSource();

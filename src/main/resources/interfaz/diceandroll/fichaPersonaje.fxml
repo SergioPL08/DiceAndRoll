@@ -1,11 +1,1318 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.FichaPersonajeController">
-    
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.FichaPersonajeController">
+   <children>
+      <ImageView fitHeight="53.0" fitWidth="59.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/personajes/Drafin_retrato.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="86.0" layoutY="25.0" text="Drafin">
+         <font>
+            <Font name="Calibri Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="42.0" text="Semielfo Explorador 6">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <HBox layoutX="23.0" layoutY="99.0" prefHeight="73.0" prefWidth="611.0">
+         <children>
+            <Pane prefHeight="78.0" prefWidth="90.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Fue" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="-1" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="89.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Des" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="+3" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="89.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Con" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="+2" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="89.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Int" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="+1" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="89.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Sab" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="+2" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="89.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" text="Car" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+      <HBox layoutX="23.0" layoutY="151.0" prefHeight="42.0" prefWidth="662.0">
+         <children>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="8" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="16" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="14" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="12" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="15" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="53.0" prefWidth="51.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 18; -fx-background-radius: 18;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="37.0" prefWidth="28.0" text="10" textAlignment="CENTER">
+                     <font>
+                        <Font name="Source Sans Pro Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" right="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane layoutX="21.0" layoutY="204.0" prefHeight="119.0" prefWidth="215.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="11.0" layoutY="7.0" text="Tiradas de salvación">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox layoutX="10.0" layoutY="32.0" prefHeight="86.0" prefWidth="206.0">
+               <children>
+                  <VBox prefHeight="0.0" prefWidth="26.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="0.0" prefWidth="37.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Fue" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Des" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Con" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="0.0" prefWidth="38.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="0.0" prefWidth="26.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="9.0" top="3.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="0.0" prefWidth="41.0">
+                     <children>
+                        <Label text="Int">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Sab">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Car">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="0.0" prefWidth="41.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="-1" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="336.0" prefHeight="244.0" prefWidth="228.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="13.0" layoutY="3.0" text="Competencias">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <VBox layoutX="12.0" layoutY="23.0" prefHeight="200.0" prefWidth="207.0">
+               <children>
+                  <Label text="Armas">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" text="Armas simples y marciales" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Armaduras">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" text="Armaduras Ligeras, Medias, Escudos" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="77.0" text="Armas">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" text="Set de dados y un vehículo terrestre" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Armas">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" text="Común, elfo, gnomo, enano, gigante" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="286.0" layoutY="214.0" prefHeight="381.0" prefWidth="234.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="13.0" layoutY="3.0" text="Habilidades">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <HBox layoutX="11.0" layoutY="26.0" prefHeight="321.0" prefWidth="206.0">
+               <children>
+                  <VBox prefHeight="0.0" prefWidth="26.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" top="4.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false">
+                           <font>
+                              <Font name="Calibri Bold" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="7.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="321.0" prefWidth="35.0">
+                     <children>
+                        <Label contentDisplay="CENTER" text="Des" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Int" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Fue" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Car" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Int" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Car" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Int" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Des" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Int" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Car" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Int" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Des" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="366.0" prefWidth="138.0">
+                     <children>
+                        <Label contentDisplay="CENTER" text="Acrobacias" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Arcanos" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Atletismo" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Engañar" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Historia" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Interpretación" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Intimidar" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Investigación" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Juego de manos" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Medicina" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Naturaleza" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Percepción" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Perspicacia" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Persuasión" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Religión" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Sigilo" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Supervivencia" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label contentDisplay="CENTER" text="Trato con animales" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="TOP_RIGHT" prefHeight="362.0" prefWidth="26.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+3" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+1" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="+0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="1.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="640.0" layoutY="99.0" prefHeight="78.0" prefWidth="215.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="5.0" prefHeight="18.0" prefWidth="205.0" text="Puntos" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="55.0" text="de golpe" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER_RIGHT" layoutX="9.0" layoutY="21.0" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="52">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="105.0" layoutY="28.0" text="/">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="28.0" text="52">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="640.0" layoutY="14.0" prefHeight="78.0" prefWidth="108.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="5.0" prefHeight="18.0" prefWidth="90.0" text="Bono" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="+3" textAlignment="CENTER">
+               <font>
+                  <Font name="Source Sans Pro Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="55.0" prefHeight="18.0" prefWidth="90.0" text="Competencia" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="754.0" layoutY="14.0" prefHeight="78.0" prefWidth="108.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="5.0" prefHeight="18.0" prefWidth="83.0" text="Velocidad" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="30" textAlignment="CENTER">
+               <font>
+                  <Font name="Source Sans Pro Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="55.0" prefHeight="18.0" prefWidth="83.0" text="Pies" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="868.0" layoutY="14.0" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="5.0" prefHeight="18.0" prefWidth="65.0" text="Iniciativa" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="+3" textAlignment="CENTER">
+               <font>
+                  <Font name="Source Sans Pro Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="868.0" layoutY="99.0" prefHeight="78.0" prefWidth="100.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="5.0" text="Clase" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="55.0" text="Armadura" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <TextField layoutX="25.0" layoutY="21.0" prefHeight="37.0" prefWidth="49.0" style="-fx-background-color: transparent;" text="15">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="565.0" layoutY="214.0" prefHeight="381.0" prefWidth="432.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+         <children>
+            <HBox layoutX="14.0" layoutY="6.0" prefHeight="32.0" prefWidth="405.0">
+               <children>
+                  <Label text="Rasgos" textFill="#3583f2">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Inventario">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Conjuros">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Trasfondo">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="24.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Notas">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="14.0" layoutY="32.0" prefHeight="339.0" prefWidth="405.0" style="-fx-background-color: transparent;">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="401.0" style="-fx-background-color: transparent;">
+                     <children>
+                        <VBox layoutX="1.0" layoutY="1.0" prefHeight="327.0" prefWidth="405.0" style="-fx-background-color: transparent;">
+                           <children>
+                              <Label text="Rasgos de elfo" textFill="#00bf63">
+                                 <font>
+                                    <Font name="Calibri Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Visión en la oscuridad">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="19.0" prefWidth="398.0" text="Ves en la oscuridad en escala de grises hasta una distancia de 60 pies" wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Ancestro féerico">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="37.0" prefWidth="398.0" text="Tienes ventaja en las tiradas de salvación para no quedar hechizado y no puedes quedarte dormido por ningún efecto mágico." wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Rasgos explorador" textFill="#00bf63">
+                                 <font>
+                                    <Font name="Calibri Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Enemigo predilecto">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="53.0" prefWidth="398.0" text="Tienes ventaja en las pruebas de supervivencia para rastrear a tus enemigos favoritos y las pruebas de Inteligencia recordar información a sobre ellos. Aprendes un idioma a tu elección que hablen tus enemigos." wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Explorador de la naturaleza">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="68.0" prefWidth="398.0" text="Al hacer una prueba de Inteligencia o Sabiduría relacionada con tu terreno predilecto, tu bonus de competencia se duplica. Al viajar una hora o más por ellos, consigues ventajas adicionales: sin penalización por terreno difícil, no te pierdes y entre otras cosas." wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Lanzamiento de conjuros">
+                                 <font>
+                                    <Font name="Calibri Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="398.0" text="Has aprendido cómo usar la esencia mágica de la naturaleza para lanzar conjuros, del mismo modo que lo hacen los druidas." wrapText="true">
+                                 <font>
+                                    <Font name="Calibri" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane layoutX="1013.0" layoutY="14.0" prefHeight="579.0" prefWidth="253.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 2; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="13.0" layoutY="3.0" text="Enemigo predilecto">
+               <font>
+                  <Font name="Calibri Bold" size="17.0" />
+               </font>
+            </Label>
+            <ScrollPane fitToHeight="true" layoutX="6.0" layoutY="24.0" prefHeight="549.0" prefWidth="242.0" style="-fx-background-color: transparent;">
+               <content>
+                  <Label alignment="TOP_LEFT" prefHeight="545.0" prefWidth="225.0" text="A partir del nivel 1, tienes una experiencia notable estudiando, rastreando, cazando e incluso hablando con un cierto tipo de enemigo. Elige un tipo de enemigo predilecto: aberraciones, bestias, celestiales, constructos, fatas, gigantes, infernales, limos, monstruosidades, no muertos o plantas. Como alternativa, puedes seleccionar dos razas de humanoides (como gnolls u orcos) como enemigos predilectos. Tienes ventaja en las pruebas de Sabiduría (Supervivencia) para rastrear a tus enemigos predilectos, así como en las pruebas de Inteligencia para recordar información sobre ellos.Cuando consigues este rasgo, también aprendes un idioma de tu elección que hablen tus enemigos predilectos, si es que hablan alguno.En los niveles 6 y 14, eliges un enemigo predilecto adicional, así como su idioma. Conforme vayas subiendo de nivel, tus elecciones deberían reflejar los tipos de monstruos que te has encontrado en tus aventuras. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Label>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Button layoutX="501.0" layoutY="26.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" style="-fx-background-color: transparent;" text="Editar">
+         <font>
+            <Font name="Calibri Bold" size="19.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="EDIT" size="30" text="" wrappingWidth="33.0" />
+         </graphic></Button>
+      <VBox layoutX="122.0" layoutY="-29.0" prefHeight="200.0" prefWidth="100.0" />
+   </children>
 </AnchorPane>
