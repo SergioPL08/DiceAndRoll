@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
@@ -10,14 +12,14 @@
 
 <AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarClaseController">
    <children>
-      <Label fx:id="labelNombreClase" layoutX="23.0" layoutY="23.0" text="Clase">
+      <Label fx:id="labelNombreClase" layoutX="23.0" layoutY="23.0" text="Clase" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
          <font>
             <Font name="Calibri Bold" size="22.0" />
          </font>
       </Label>
       <Label fx:id="labelDescripcion" alignment="TOP_LEFT" layoutX="31.0" layoutY="319.0" prefHeight="265.0" prefWidth="279.0" wrapText="true" />
-      <ImageView fx:id="imagenClase" fitHeight="234.0" fitWidth="267.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
-      <Pane layoutX="330.0" layoutY="66.0" prefHeight="521.0" prefWidth="403.0">
+      <ImageView fx:id="imagenClase" fitHeight="234.0" fitWidth="267.0" layoutX="31.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="66.0" />
+      <Pane layoutX="330.0" layoutY="66.0" prefHeight="521.0" prefWidth="342.0">
          <children>
             <Label layoutY="-4.0" text="Origen: ">
                <font>
@@ -72,7 +74,7 @@
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelCompetenciaEquipo" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
+                  <Label fx:id="labelCompetenciaHerramientas" alignment="TOP_LEFT" prefWidth="279.0" wrapText="true" />
                   <Label text="Equipo">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
@@ -83,10 +85,15 @@
             </VBox>
          </children>
       </Pane>
-      <ScrollPane layoutX="681.0" layoutY="49.0" prefHeight="521.0" prefWidth="512.0" style="-fx-background-color: transparent;">
+      <ScrollPane layoutX="660.0" layoutY="49.0" prefHeight="521.0" prefWidth="512.0" style="-fx-background-color: transparent;">
          <content>
             <VBox fx:id="vboxHabilidades" prefHeight="516.0" prefWidth="496.0" spacing="10.0" style="-fx-background-color: transparent;" />
          </content>
       </ScrollPane>
+      <Button layoutX="1191.0" layoutY="31.0" mnemonicParsing="false" onAction="#volverListadoDotes" style="-fx-background-color: #3583F2;" text="Listado" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="REPLY" size="15" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

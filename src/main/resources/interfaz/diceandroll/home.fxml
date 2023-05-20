@@ -99,7 +99,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <VBox fx:id="desplegable" alignment="CENTER_LEFT" layoutX="323.0" layoutY="86.0" prefHeight="174.0" prefWidth="98.0" style="-fx-background-color: #DCDCDC;" visible="false">
+      <VBox fx:id="desplegable" alignment="CENTER_LEFT" layoutX="316.0" layoutY="86.0" prefHeight="174.0" prefWidth="116.0" style="-fx-background-color: #DCDCDC;" visible="false">
          <children>
             <Button alignment="TOP_LEFT" minWidth="-Infinity" mnemonicParsing="false" onAction="#abrirMenuListaRazas" prefHeight="43.0" prefWidth="72.0" style="-fx-background-color: transparent;" text="Razas" wrapText="true" VBox.vgrow="NEVER">
                <font>
@@ -123,7 +123,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button alignment="TOP_LEFT" minWidth="-Infinity" mnemonicParsing="false" onAction="#abrirMenuListaTrasfondos" prefHeight="43.0" prefWidth="83.0" style="-fx-background-color: transparent;" text="Trasfondos" wrapText="true" VBox.vgrow="ALWAYS">
+            <Button alignment="TOP_LEFT" minWidth="-Infinity" mnemonicParsing="false" onAction="#abrirMenuListaTrasfondos" prefHeight="29.0" prefWidth="108.0" style="-fx-background-color: transparent;" text="Trasfondos" wrapText="true" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>

@@ -101,6 +101,7 @@ public class HomeController implements Initializable {
             contenedor.getChildren().setAll(root);
             RazasController razas = fxml.getController();
             razas.setPanePrincipal(contenedor);
+            desplegable.setVisible(false);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -115,6 +116,7 @@ public class HomeController implements Initializable {
             contenedor.getChildren().setAll(root);
             ListaClasesController clases = fxml.getController();
             clases.setPanePrincipal(contenedor);
+            desplegable.setVisible(false);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -128,6 +130,7 @@ public class HomeController implements Initializable {
             contenedor.getChildren().setAll(root);
             ListaTrasfondosController trasfondos = fxml.getController();
             trasfondos.setPanePrincipal(contenedor);
+            desplegable.setVisible(false);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -141,6 +144,7 @@ public class HomeController implements Initializable {
             contenedor.getChildren().setAll(root);
             ListaDotesController dotes = fxml.getController();
             dotes.setPanePrincipal(contenedor);
+            desplegable.setVisible(false);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -154,6 +158,7 @@ public class HomeController implements Initializable {
             contenedor.getChildren().setAll(root);
             ListaConjurosController conjuros = fxml.getController();
             conjuros.setPanePrincipal(contenedor);
+            desplegable.setVisible(false);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+
 
 /**
  * FXML Controller class
@@ -18,16 +21,20 @@ import javafx.scene.layout.Pane;
  */
 public class TableroController implements Initializable {
 
+    
     @FXML
     private AnchorPane contenedor;
     private Pane panelPrincipal;
-
-    /**
+    @FXML
+    private WebView webView;
+ 
+   /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        WebEngine webengine = webView.getEngine();        
+        webengine.load("https://www.owlbear.rodeo");
     }   
     
     public void setPanePrincipal(Pane panelPrincipal){

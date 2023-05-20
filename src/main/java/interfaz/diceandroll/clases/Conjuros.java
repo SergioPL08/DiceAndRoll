@@ -12,23 +12,26 @@ public class Conjuros {
     private int idConjuro;
     private String nombre;
     private int nivel;
-    private enum escuela{Abjuración,Adivinación,Conjuración,Encantamiento,Evocación,Ilusión,Nigromancia,Transmutación};
+    private String escuela;
     private boolean v;
     private boolean s;
     private boolean m;
+    private String textoCompetenciaMaterial;
     private String tiempoLanzamiento;
     private String alcance;
     private String duracion;
     private String descripcion;
-    private int idLibro;
+    private int idLibro;    
 
-    public Conjuros(int idConjuro, String nombre, int nivel, boolean v, boolean s, boolean m, String tiempoLanzamiento, String alcance, String duracion, String descripcion, int idLibro) {
+    public Conjuros(int idConjuro, String nombre, int nivel, String escuela, boolean v, boolean s, boolean m, String textoComponenteMaterial, String tiempoLanzamiento, String alcance, String duracion, String descripcion, int idLibro) {
         this.idConjuro = idConjuro;
         this.nombre = nombre;
         this.nivel = nivel;
+        this.escuela = escuela;
         this.v = v;
         this.s = s;
         this.m = m;
+        this.textoCompetenciaMaterial = textoComponenteMaterial;
         this.tiempoLanzamiento = tiempoLanzamiento;
         this.alcance = alcance;
         this.duracion = duracion;
@@ -135,6 +138,22 @@ public class Conjuros {
 
     public void setIdLibro(int idLibro) {
         this.idLibro = idLibro;
+    }
+
+    public String getEscuela() {
+        return escuela;
+    }
+
+    public void setEscuela(String escuela) {
+        this.escuela = escuela;
+    }
+
+    public String getTextoCompetenciaMaterial() {
+        return textoCompetenciaMaterial;
+    }
+
+    public void setTextoCompetenciaMaterial(String textoCompetenciaMaterial) {
+        this.textoCompetenciaMaterial = textoCompetenciaMaterial;
     }
     
     

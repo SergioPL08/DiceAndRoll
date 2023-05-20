@@ -12,31 +12,80 @@ public class Trasfondo {
     private int id_transfondo;
     private String nombre;
     private String descripcion;
-    private enum competencia1{acrobacias,arcanos,atletismo,engañar,historia,interpretacion,intimidar,investigacion,juego_de_manos,medicina,naturaleza,percepcion,perspicacia,presuasion,religion,sigilo,supervivencia,trato_con_animales};
-    private enum competencia2{acrobacias,arcanos,atletismo,engañar,historia,interpretacion,intimidar,investigacion,juego_de_manos,medicina,naturaleza,percepcion,perspicacia,presuasion,religion,sigilo,supervivencia,trato_con_animales};
+    private String competencia1;
+    private String competencia2;
     private String otrasCompetencias;
+    private String nombreRasgo;
+    private String nombreEspecialidad;
     private String descRasgo;
+    private String descripcionEspecialidad;
+    private String descCaracSug;
     private int idLibro;
     private int idPersonaje;
 
-    public Trasfondo(int id_transfondo, String nombre, String descripcion, String otrasCompetencias, String descRasgo, int idLibro, int idPersonaje) {
+    public Trasfondo(int id_transfondo, String nombre, String descripcion, String competencia1, String competencia2, String otrasCompetencias, String nombreRasgo, String descRasgo,String nombreEspecialidad, String descripcionEspecialidad, String descCarSug,int idLibro) {
         this.id_transfondo = id_transfondo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.competencia1=competencia1;
+        this.competencia2=competencia2;
         this.otrasCompetencias = otrasCompetencias;
+        this.nombreRasgo=nombreRasgo;
         this.descRasgo = descRasgo;
+        this.nombreEspecialidad=nombreEspecialidad;
+        this.descripcionEspecialidad=descripcionEspecialidad;
+        this.descCaracSug=descCarSug;
         this.idLibro = idLibro;
-        this.idPersonaje = idPersonaje;
     }
 
-    public Trasfondo(int id_transfondo, String nombre, String descripcion, String otrasCompetencias, String descRasgo, int idLibro) {
-        this.id_transfondo = id_transfondo;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.otrasCompetencias = otrasCompetencias;
-        this.descRasgo = descRasgo;
-        this.idLibro = idLibro;
+    public String getCompetencia1() {
+        return competencia1;
     }
+
+    public void setCompetencia1(String competencia1) {
+        this.competencia1 = competencia1;
+    }
+
+    public String getCompetencia2() {
+        return competencia2;
+    }
+
+    public void setCompetencia2(String competencia2) {
+        this.competencia2 = competencia2;
+    }
+
+    public String getNombreRasgo() {
+        return nombreRasgo;
+    }
+
+    public void setNombreRasgo(String nombreRasgo) {
+        this.nombreRasgo = nombreRasgo;
+    }
+
+    public String getNombreEspecialidad() {
+        return nombreEspecialidad;
+    }
+
+    public void setNombreEspecialidad(String nombreEspecialidad) {
+        this.nombreEspecialidad = nombreEspecialidad;
+    }
+
+    public String getDescCaracSug() {
+        return descCaracSug;
+    }
+
+    public void setDescCaracSug(String descCaracSug) {
+        this.descCaracSug = descCaracSug;
+    }
+
+    public String getDescripcionEspecialidad() {
+        return descripcionEspecialidad;
+    }
+
+    public void setDescripcionEspecialidad(String descripcionEspecialidad) {
+        this.descripcionEspecialidad = descripcionEspecialidad;
+    }
+    
 
     public int getId_transfondo() {
         return id_transfondo;

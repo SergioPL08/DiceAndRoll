@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarRazaController">
-    
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarRazaController">
+   <children>
+      <Label fx:id="labelNombreRaza" layoutX="33.0" layoutY="33.0" text="Raza" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
+         <font>
+            <Font name="Calibri Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imagenClase" fitHeight="234.0" fitWidth="267.0" layoutX="23.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="350.0" />
+      <Label fx:id="labelDescripcion" alignment="TOP_LEFT" layoutX="23.0" layoutY="54.0" prefHeight="265.0" prefWidth="279.0" wrapText="true" />
+      <VBox fx:id="vboxSubrazas" layoutX="809.0" layoutY="53.0" prefHeight="533.0" prefWidth="380.0" />
+      <Pane layoutX="334.0" layoutY="49.0" prefWidth="446.0">
+         <children>
+            <Label text="Origen: ">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNombreLibro" layoutX="48.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label layoutY="17.0" text="Velocidad: ">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelVelocidad" layoutX="67.0" layoutY="17.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label layoutY="34.0" text="Rasgos raciales:">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelTextoTal" alignment="TOP_LEFT" layoutY="51.0" prefWidth="398.0" wrapText="true" />
+            <VBox fx:id="vboxCompetenciasMods" layoutY="70.0" prefHeight="70.0" prefWidth="416.0" spacing="5.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
+         </children>
+      </Pane>
+      <Label layoutX="809.0" layoutY="23.0" text="Subrazas">
+         <font>
+            <Font name="Calibri Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

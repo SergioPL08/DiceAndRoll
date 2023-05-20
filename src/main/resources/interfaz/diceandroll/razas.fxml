@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.RazasController">
+<AnchorPane id="AnchorPane" fx:id="contenedor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.RazasController">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutX="22.0" layoutY="27.0" prefHeight="59.0" prefWidth="901.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="57.0">
          <children>
@@ -63,171 +63,171 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
+            <Pane fx:id="raza1" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;">
                <children>
-                  <Label fx:id="nombre1" layoutX="106.0" layoutY="34.0" text="Dracónido">
+                  <Label fx:id="nombreRaza1" layoutX="106.0" layoutY="34.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img1" fitHeight="75.0" fitWidth="89.0" layoutX="17.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen1" fitHeight="75.0" fitWidth="89.0" layoutX="17.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="55.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza1" layoutX="106.0" layoutY="55.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1">
+            <Pane fx:id="raza2" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1">
                <children>
-                  <Label fx:id="nombre2" layoutX="106.0" layoutY="33.0" text="Elfo">
+                  <Label fx:id="nombreRaza2" layoutX="106.0" layoutY="33.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img2" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen2" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="54.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza2" layoutX="106.0" layoutY="54.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2">
+            <Pane fx:id="raza3" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2">
                <children>
-                  <Label fx:id="nombre3" layoutX="106.0" layoutY="33.0" text="Enano">
+                  <Label fx:id="nombreRaza3" layoutX="106.0" layoutY="33.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img3" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen3" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="54.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza3" layoutX="106.0" layoutY="54.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="1">
+            <Pane fx:id="raza4" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="nombre4" layoutX="106.0" layoutY="32.0" text="Gnomo">
+                  <Label fx:id="nombreRaza4" layoutX="106.0" layoutY="32.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img4" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen4" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="53.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza4" layoutX="106.0" layoutY="53.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Pane fx:id="raza5" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="nombre5" layoutX="106.0" layoutY="32.0" text="Humano">
+                  <Label fx:id="nombreRaza5" layoutX="106.0" layoutY="32.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img5" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen5" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="53.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza5" layoutX="106.0" layoutY="53.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Pane fx:id="raza6" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="nombre6" layoutX="106.0" layoutY="34.0" text="Mediano">
+                  <Label fx:id="nombreRaza6" layoutX="106.0" layoutY="34.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img6" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen6" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="55.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza6" layoutX="106.0" layoutY="55.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="2">
+            <Pane fx:id="raza7" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="nombre8" layoutX="106.0" layoutY="32.0" text="Semielfo">
+                  <Label fx:id="nombreRaza7" layoutX="106.0" layoutY="32.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img7" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen7" fitHeight="75.0" fitWidth="89.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="53.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza7" layoutX="106.0" layoutY="53.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Pane fx:id="raza8" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="nombre7" layoutX="106.0" layoutY="32.0" text="Semiorco">
+                  <Label fx:id="nombreRaza8" layoutX="106.0" layoutY="32.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img8" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen8" fitHeight="75.0" fitWidth="89.0" layoutX="20.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="53.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza8" layoutX="106.0" layoutY="53.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Pane fx:id="raza9" onMouseClicked="#abrirRaza" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EFEFEF;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="nombre9" layoutX="106.0" layoutY="32.0" text="Tiefling">
+                  <Label fx:id="nombreRaza9" layoutX="106.0" layoutY="32.0" text="">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="img9" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagen9" fitHeight="75.0" fitWidth="89.0" layoutX="21.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="libro1" layoutX="106.0" layoutY="53.0" text="Manual del jugador">
+                  <Label fx:id="libroRaza9" layoutX="106.0" layoutY="53.0" text="">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -241,5 +241,44 @@
             <Font name="Calibri Bold" size="25.0" />
          </font>
       </Label>
+      <HBox layoutX="54.0" layoutY="613.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="44.0">
+         <children>
+            <HBox prefHeight="34.0" prefWidth="65.0" spacing="5.0">
+               <children>
+                  <Button fx:id="botonVolverInicio" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonVolverInicioArray" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&lt;&lt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botonRetrocederUno" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonRetrocederUnoArray" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&lt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="hboxPaginacion" prefHeight="0.0" prefWidth="0.0" spacing="5.0" />
+            <HBox prefHeight="25.0" prefWidth="76.0" spacing="5.0">
+               <children>
+                  <Button fx:id="botonAvanzarUno" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonAvanzarUnoArray" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="botonAlFinal" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonIrAlFinalArray" prefHeight="25.0" prefWidth="33.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;&gt;" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -241,7 +241,7 @@
             <Font name="Calibri Bold" size="25.0" />
          </font>
       </Label>
-      <HBox layoutX="44.0" layoutY="603.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0">
+      <HBox layoutX="44.0" layoutY="603.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="44.0">
          <children>
             <HBox prefHeight="34.0" prefWidth="65.0" spacing="5.0">
                <children>
@@ -260,7 +260,7 @@
                   <Insets right="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="hboxPaginacion" prefHeight="25.0" prefWidth="17.0" spacing="5.0" />
+            <HBox fx:id="hboxPaginacion" prefHeight="0.0" prefWidth="0.0" spacing="5.0" />
             <HBox prefHeight="25.0" prefWidth="76.0" spacing="5.0">
                <children>
                   <Button fx:id="botonAvanzarUno" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonAvanzarUnoArray" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;" textFill="WHITE">

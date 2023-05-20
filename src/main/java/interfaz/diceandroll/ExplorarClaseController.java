@@ -9,19 +9,21 @@ import interfaz.diceandroll.clases.Libro;
 import interfaz.diceandroll.clases.Habilidad;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
@@ -43,10 +45,6 @@ import javafx.stage.Stage;
  * @author Sergio
  */
 public class ExplorarClaseController implements Initializable {
-    private static Clases clase;
-    private static Libro libro;
-    private Pane panelPrincipal;
-    private static Image imagen;
     @FXML
     private AnchorPane contenedor;
     @FXML
@@ -75,18 +73,52 @@ public class ExplorarClaseController implements Initializable {
     ArrayList<Habilidad> listaHabilidades;
     @FXML
     private VBox vboxHabilidades;
-        
+    private static Clases clase;
+    private static Libro libro;
+    private Pane panelPrincipal;
+    private static Image imagen;
+    @FXML
+    private Label labelCompetenciaHerramientas;
+       
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        String consultaCompetenciaArmas = "SELECT * FROM competencia_armas_clase "
+                + "INNER JOIN armas_base ON armas_base.id_arma = competencia_armas_clase.id_arma "
+                + "WHERE id_clase = "+clase.getIdClase();
+        ResultSet rs = Conector.getSelect(consultaCompetenciaArmas, conector);
+        ArrayList armasCompetente = new ArrayList();
+        String consultaCompetenciaEquipo = "SELECT * FROM competencias_equipo_clase "
+                + "INNER JOIN herramientas_base ON herramientas_base.id_herramienta = id_equipo "
+                + "WHERE id_clase = "+clase.getIdClase();
+        ResultSet rs2 = Conector.getSelect(consultaCompetenciaEquipo, conector);
+        ArrayList equipoCompetente = new ArrayList();
+        if(clase.isCompetenciaArmasSencillas())
+           armasCompetente.add("Armas simples");
+        if(clase.isCompetenciaArmasMarciales())
+           armasCompetente.add("Armas marciales");
+        try {
+            if(rs!=null){
+                while(rs.next()){
+                    armasCompetente.add(rs.getString("nombre"));
+                }
+            }
+            if(rs2!=null){
+                while(rs2.next()){
+                    equipoCompetente.add(rs2.getString("nombre"));
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al cargar las competencias con armas");
+            ex.printStackTrace();
+        }
         labelNombreClase.setText(clase.getNombre());
         labelDescripcion.setText(clase.getDescripcion());
         labelNombreLibro.setText(libro.getNombre());
         labelPuntosDeGolpe.setText("1d"+clase.getPuntosGolpe());
         labelRequisitosMulticlase.setText(clase.getRequisitoMulticlase());
-        String competenciaArmas = "";
         List<String> competencias = new ArrayList();
         if(clase.isCompetenciaArmadurasLigeras())
             competencias.add("Armaduras ligeras");
@@ -97,13 +129,10 @@ public class ExplorarClaseController implements Initializable {
         if(clase.isCompetenciaEscudo())
             competencias.add("Escudo");
         labelCompetenciaArmaduras.setText(String.join(", ", competencias));
-        if(clase.isCompetenciaArmasSencillas())
-            competenciaArmas += "Armas simples";
-        if(clase.isCompetenciaArmasMarciales())
-            competenciaArmas += ", Armas marciales";
-        if(clase.getOtrasCompetenciasArmas()!=null)
-            competenciaArmas += clase.getOtrasCompetenciasArmas();
-        labelCompetenciaArmas.setText(competenciaArmas);
+        List<String> ListCompetenciaArmas = armasCompetente;
+        labelCompetenciaArmas.setText(String.join(", ",ListCompetenciaArmas));
+        List<String> ListCompetenciaEquipo = equipoCompetente;
+        labelCompetenciaHerramientas.setText(String.join(", ",ListCompetenciaEquipo));
         labelCompetenciaHabilidades.setText(clase.getTextoCompetenciasHabilidades());
         String compTS="";
         System.out.println(clase.getCompetenciaEstat1());
@@ -197,6 +226,19 @@ public class ExplorarClaseController implements Initializable {
             }
         } catch (SQLException ex) {
             System.out.println("Error al rellenar las habilidades");
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void volverListadoDotes(ActionEvent event) {
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("listaClases.fxml"));
+            Parent root = fxml.load();
+            contenedor.getChildren().setAll(root);
+            ListaClasesController dotes = fxml.getController();
+            dotes.setPanePrincipal(contenedor);
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }

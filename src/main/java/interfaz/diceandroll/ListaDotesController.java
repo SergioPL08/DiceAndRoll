@@ -239,6 +239,7 @@ public class ListaDotesController implements Initializable {
     @FXML
     private void botonAplicarFiltro(ActionEvent event) {
         generaArrayDotes();
+        paginaActual=1;
         int contador=0;
         while(contador<NUM_ELEMENTOS_POR_PAGINA){
             listaPane.get(contador).setVisible(false); 

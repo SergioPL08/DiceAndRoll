@@ -26,6 +26,12 @@ public class Habilidad {
         this.bonoStat2 = bonoStat2;
     }
 
+    public Habilidad(String nombre, String descripcion, String descripcionCorta){
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.descCorta=descripcionCorta;
+    }
+    
     public int getIdHabilidad() {
         return idHabilidad;
     }

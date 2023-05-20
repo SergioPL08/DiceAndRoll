@@ -67,7 +67,7 @@ public class ListaClasesController implements Initializable {
     @FXML
     private Button botonAlFinal;
     @FXML
-    private AnchorPane contenedor;;
+    private AnchorPane contenedor;
     
     //Variables propias
     ArrayList<interfaz.diceandroll.clases.Clases> listaClases;
@@ -200,20 +200,16 @@ public class ListaClasesController implements Initializable {
                 Boolean compArmadurasMedias = clases.getBoolean("competencia_armaduras_intermedias");
                 Boolean compArmadurasPesadas = clases.getBoolean("competencia_armaduras_pesadas");
                 Boolean compEscudo = clases.getBoolean("competencia_escudo");
-                String otrasCompArmas = clases.getString("otras_competencias_armas");
-                String otrasComp = clases.getString("otras_competencias");
                 String textCompHab = clases.getString("texto_competencia_habilidades");
                 String caster = (String) clases.getString("tipo_caster");
                 String aptMag = (String) clases.getString("aptitud_magica");
                 String compStat1 = clases.getString("competencia_estadistica1");
-                System.out.println("xDDD"+compStat1);
                 String compStat2 = clases.getString("competencia_estadistica2");
-                System.out.println("UwU"+compStat2);
                 String icon = clases.getString("icon");
                 int idLibro = clases.getInt("id_libro");
                 String nombreLibro = clases.getString("libros_reglas.nombre");
                 //                                                    id_clase, nombre, "", puntosGolpe, requisitoMulticlase,competenciaS,    competenciaArmasMa,competenciaArmadurasLigeras,competenciaArmadurasMedias,competenciaArmadurasPesadas,competenciaEscudo,otrasCompetenciasArmas,otrasCompetencias,textoCompetenciasHabilidades,tipoCaster,aptitudMagica,competenciaEstat1,competenciaEstat2,icon,idLibro
-                interfaz.diceandroll.clases.Clases clase = new Clases(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,otrasCompArmas,otrasComp,textCompHab,caster,aptMag,compStat1,compStat2,icon,idLibro);
+                interfaz.diceandroll.clases.Clases clase = new Clases(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,icon,idLibro);
                 interfaz.diceandroll.clases.Libro libro = new Libro(idLibro,nombreLibro);
                 //Añadimos ambos a sus respectivas listas
                 listaClases.add(clase);
