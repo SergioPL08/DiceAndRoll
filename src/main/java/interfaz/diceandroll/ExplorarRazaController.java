@@ -33,6 +33,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
@@ -62,11 +63,9 @@ public class ExplorarRazaController implements Initializable {
     @FXML
     private Label labelVelocidad;
     @FXML
-    private VBox vboxCompetenciasMods;
-    @FXML
     private Label labelTextoTal;
     @FXML
-    private HBox hbox;
+    private AnchorPane competenciasHabilidades;
     /**
      * Initializes the controller class.
      */
@@ -89,32 +88,29 @@ public class ExplorarRazaController implements Initializable {
                 Habilidad habilidad = new Habilidad(nombreHabilidadRaza,descripcion,descCorta);
                 habilidades.add(habilidad);
             }
+            String html = 
+                    "<html>"
+                        + "<head>"
+                            + "<style>"
+                                + "body{font-family: Calibri; font-size: 14px;}"
+                            + "</style>"
+                        + "</head>" 
+                        + "</body>";
             for(Habilidad habilidad: habilidades){
-                final int indice = contador;
-                Label nombreTal = new Label(habilidades.get(contador).getNombre()+".");
-                
-               
-                WebView descripcionCual = new WebView();
-                descripcionCual.getEngine().loadContent(habilidades.get(contador).getDescripcion(),"text/html");
-                System.out.println(habilidades.get(contador).getDescripcion());
-                nombreTal.setMinHeight(Control.USE_PREF_SIZE);
-                nombreTal.setMinWidth(Control.USE_PREF_SIZE);
-                nombreTal.setMaxHeight(Control.USE_COMPUTED_SIZE);
-                nombreTal.setMaxWidth(Control.USE_COMPUTED_SIZE);
-                nombreTal.setWrapText(true);
-                nombreTal.setTextAlignment(TextAlignment.LEFT);
-                nombreTal.setStyle("-fx-font-weight: bold");
-                //descripcionCual.setMinHeight(Control.USE_PREF_SIZE);
-                //descripcionCual.setMinWidth(Control.USE_PREF_SIZE);
-                //descripcionCual.setMaxHeight(Control.USE_COMPUTED_SIZE);
-                //descripcionCual.setMaxWidth(Control.USE_COMPUTED_SIZE);
-                //descripcionCual.setWrapText(true);
-                //descripcionCual.setTextAlignment(TextAlignment.LEFT);
-                vboxCompetenciasMods.getChildren().add(nombreTal);
-                vboxCompetenciasMods.getChildren().add(descripcionCual);
+                html+="<strong>"+habilidades.get(contador).getNombre()+".</strong>\n"+habilidades.get(contador).getDescripcion()+"<br>";
                 contador++;
-                
             }
+            html+="</body>";
+                WebView webView = new WebView();
+                WebEngine webEngine = webView.getEngine();
+                webEngine.loadContent(html);
+                webView.setStyle("-fx-padding-right: 10px;");
+                competenciasHabilidades.getChildren().add(webView);
+//                
+                
+            
+                
+            
         } catch (SQLException ex) {
             System.out.println("Error al obtener rasgos de raza");
             ex.printStackTrace();

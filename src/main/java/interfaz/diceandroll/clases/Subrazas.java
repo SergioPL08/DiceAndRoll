@@ -40,6 +40,11 @@ public class Subrazas {
         this.idLibro = idLibro;
     }
 
+    public Subrazas(int idSubraza, String nombre) {
+        this.idSubraza = idSubraza;
+        this.nombre = nombre;
+    }
+    
     public int getIdSubraza() {
         return idSubraza;
     }
@@ -104,5 +109,8 @@ public class Subrazas {
         this.idPersonaje = idPersonaje;
     }
     
-    
+    @Override
+    public String toString(){
+        return nombre;
+    }
 }

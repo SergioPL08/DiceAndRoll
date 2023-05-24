@@ -4,6 +4,7 @@
  */
 package interfaz.diceandroll;
 
+import interfaz.diceandroll.ExplorarClaseController;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Clases;
@@ -339,6 +340,7 @@ public class ListaClasesController implements Initializable {
     private void botonAplicarFiltro(ActionEvent event) {
         generaArrayClases();
         int contador=0;
+        paginaActual=1;
         while(contador<NUM_ELEMENTOS_POR_PAGINA){
             listaPane.get(contador).setVisible(false); 
             File ruta = new File("..\\..\\img\\no_image.png");

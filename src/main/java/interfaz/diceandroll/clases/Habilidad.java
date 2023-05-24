@@ -11,7 +11,9 @@ package interfaz.diceandroll.clases;
 public class Habilidad {
     private int idHabilidad;
     private String nombre,descripcion,adquisicion,descCorta,stat1,stat2;
-    private int nivel,bonoStat1,bonoStat2;
+    private int nivel,bonoStat1,bonoStat2, base, bono;
+    private boolean competencia, pericia;
+    //habilidad,base,bono,competencia,pericia
 
     public Habilidad(int idHabilidad, String nombre, String descripcion, String adquisicion, String descCorta, String stat1, String stat2, int nivel, int bonoStat1, int bonoStat2) {
         this.idHabilidad = idHabilidad;
@@ -25,7 +27,22 @@ public class Habilidad {
         this.bonoStat1 = bonoStat1;
         this.bonoStat2 = bonoStat2;
     }
-
+    
+    public Habilidad(String nombre, int base, int bono, boolean competencia, boolean pericia){
+        this.nombre=nombre;
+        this.base=base;
+        this.bono=bono;
+        this.competencia=competencia;
+        this.pericia=pericia;
+    }
+    
+    public Habilidad(String nombre, int base, int bono, boolean competencia){
+        this.nombre=nombre;
+        this.base=base;
+        this.bono=bono;
+        this.competencia=competencia;
+    }
+    
     public Habilidad(String nombre, String descripcion, String descripcionCorta){
         this.nombre=nombre;
         this.descripcion=descripcion;
@@ -110,6 +127,38 @@ public class Habilidad {
 
     public void setBonoStat2(int bonoStat2) {
         this.bonoStat2 = bonoStat2;
+    }
+
+    public int getBase() {
+        return base;
+    }
+
+    public void setBase(int base) {
+        this.base = base;
+    }
+
+    public int getBono() {
+        return bono;
+    }
+
+    public void setBono(int bono) {
+        this.bono = bono;
+    }
+
+    public boolean isCompetencia() {
+        return competencia;
+    }
+
+    public void setCompetencia(boolean competencia) {
+        this.competencia = competencia;
+    }
+
+    public boolean isPericia() {
+        return pericia;
+    }
+
+    public void setPericia(boolean pericia) {
+        this.pericia = pericia;
     }
     
     

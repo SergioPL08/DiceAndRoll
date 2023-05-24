@@ -29,6 +29,13 @@ public class Razas {
         this.idLibro = idLibro;
     }
 
+    public Razas(int idRaza, String nombre) {
+        this.idRaza = idRaza;
+        this.nombre = nombre;
+    }
+    
+    
+
     public int getIdRaza() {
         return idRaza;
     }
@@ -97,6 +104,9 @@ public class Razas {
     }
 
     
-    
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
     
 }

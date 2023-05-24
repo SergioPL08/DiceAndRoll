@@ -4,6 +4,7 @@
  */
 package interfaz.diceandroll;
 
+import interfaz.diceandroll.ExplorarTrasfondoController;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Trasfondo;
 import interfaz.diceandroll.clases.Libro;

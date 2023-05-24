@@ -4,6 +4,7 @@
  */
 package interfaz.diceandroll;
 
+import interfaz.diceandroll.ExplorarDoteController;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Dote;
 import interfaz.diceandroll.clases.Libro;

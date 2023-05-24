@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="PanePersonajes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.PersonajesController">
+<AnchorPane fx:id="contenedor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.PersonajesController">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="57.0" prefHeight="59.0" prefWidth="901.0" style="-fx-border-color: #DCDCDC; -fx-border-width: 2;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="57.0">
          <children>
@@ -71,7 +72,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase1" layoutX="106.0" layoutY="55.0" text="">
+                  <Label fx:id="nombreClase1" alignment="TOP_LEFT" layoutX="106.0" layoutY="55.0" maxHeight="1.7976931348623157E308" prefHeight="55.0" prefWidth="272.0" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -90,7 +91,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase2" layoutX="106.0" layoutY="54.0" text="">
+                  <Label fx:id="nombreClase2" alignment="TOP_LEFT" layoutX="106.0" layoutY="54.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font></Label>
@@ -108,7 +109,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase3" layoutX="106.0" layoutY="54.0" text="">
+                  <Label fx:id="nombreClase3" alignment="TOP_LEFT" layoutX="106.0" layoutY="54.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -127,7 +128,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase4" layoutX="106.0" layoutY="53.0" text="">
+                  <Label fx:id="nombreClase4" alignment="TOP_LEFT" layoutX="106.0" layoutY="53.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -165,7 +166,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase6" layoutX="106.0" layoutY="55.0" text="">
+                  <Label fx:id="nombreClase6" alignment="TOP_LEFT" layoutX="106.0" layoutY="55.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -184,7 +185,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase7" layoutX="106.0" layoutY="53.0" text="">
+                  <Label fx:id="nombreClase7" alignment="TOP_LEFT" layoutX="106.0" layoutY="53.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -203,7 +204,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase8" layoutX="106.0" layoutY="53.0" text="">
+                  <Label fx:id="nombreClase8" alignment="TOP_LEFT" layoutX="106.0" layoutY="53.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -222,7 +223,7 @@
                         <Image url="@../../img/no_image.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="nombreClase9" layoutX="106.0" layoutY="53.0" text="">
+                  <Label fx:id="nombreClase9" alignment="TOP_LEFT" layoutX="106.0" layoutY="53.0" prefHeight="55.0" prefWidth="272.0" text="" wrapText="true">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -275,5 +276,10 @@
             </HBox>
          </children>
       </HBox>
+      <Button layoutX="1147.0" layoutY="18.0" mnemonicParsing="false" onAction="#abrirMenuCrearPersonaje" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Crear personaje" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

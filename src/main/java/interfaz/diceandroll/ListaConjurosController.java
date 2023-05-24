@@ -4,6 +4,7 @@
  */
 package interfaz.diceandroll;
 
+import interfaz.diceandroll.ExplorarConjuroController;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Clases;
 import interfaz.diceandroll.clases.Conjuros;

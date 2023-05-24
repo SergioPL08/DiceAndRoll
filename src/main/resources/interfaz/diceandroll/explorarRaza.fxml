@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -16,9 +16,9 @@
          </font>
       </Label>
       <ImageView fx:id="imagenClase" fitHeight="234.0" fitWidth="267.0" layoutX="23.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="350.0" />
-      <Label fx:id="labelDescripcion" alignment="TOP_LEFT" layoutX="23.0" layoutY="54.0" prefHeight="265.0" prefWidth="279.0" wrapText="true" />
+      <Label fx:id="labelDescripcion" alignment="TOP_LEFT" layoutX="23.0" layoutY="54.0" prefHeight="265.0" prefWidth="279.0" wrapText="true" AnchorPane.leftAnchor="23.0" />
       <VBox fx:id="vboxSubrazas" layoutX="809.0" layoutY="53.0" prefHeight="533.0" prefWidth="380.0" />
-      <Pane layoutX="334.0" layoutY="49.0" prefWidth="446.0">
+      <Pane layoutX="334.0" layoutY="49.0" prefWidth="446.0" AnchorPane.leftAnchor="334.0" AnchorPane.topAnchor="49.0">
          <children>
             <Label text="Origen: ">
                <font>
@@ -38,10 +38,11 @@
                </font>
             </Label>
             <Label fx:id="labelTextoTal" alignment="TOP_LEFT" layoutY="51.0" prefWidth="398.0" wrapText="true" />
-            <VBox fx:id="vboxCompetenciasMods" layoutY="70.0" prefHeight="70.0" prefWidth="416.0" spacing="5.0">
-               <padding>
-                  <Insets top="5.0" />
-               </padding></VBox>
+            <ScrollPane layoutY="69.0" prefWidth="446.0" style="-fx-background-color: transparent; -fx-background-insets: 0;">
+              <content>
+                <AnchorPane fx:id="competenciasHabilidades" />
+              </content>
+            </ScrollPane>
          </children>
       </Pane>
       <Label layoutX="809.0" layoutY="23.0" text="Subrazas">
