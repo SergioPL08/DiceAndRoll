@@ -8,6 +8,6 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Subclases {
+public class Subclase {
     
 }

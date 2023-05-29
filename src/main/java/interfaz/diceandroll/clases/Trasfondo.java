@@ -22,6 +22,15 @@ public class Trasfondo {
     private String descCaracSug;
     private int idLibro;
     private int idPersonaje;
+    private String rasgoPersonalidad;
+    private String ideales;
+    private String vinculos;
+    private String Defectos;
+    private String alineamiento;
+    private String apariencia;
+    private String edad;
+    private String idiomas;
+    private String historia;
 
     public Trasfondo(int id_transfondo, String nombre, String descripcion, String competencia1, String competencia2, String otrasCompetencias, String nombreRasgo, String descRasgo,String nombreEspecialidad, String descripcionEspecialidad, String descCarSug,int idLibro) {
         this.id_transfondo = id_transfondo;
@@ -37,7 +46,21 @@ public class Trasfondo {
         this.descCaracSug=descCarSug;
         this.idLibro = idLibro;
     }
+    public Trasfondo(int id_trasfondo, String nombre, String nombreRasgo, String descRasco, String comp1, String comp2, String compEquipo){
+        this.id_transfondo=id_trasfondo;
+        this.nombre=nombre;
+        this.nombreRasgo=nombreRasgo;
+        this.descRasgo=descRasco;
+        this.competencia1=comp1;
+        this.competencia2=comp2;
+        this.otrasCompetencias=compEquipo;
+    }
 
+    public Trasfondo() {
+    }
+
+    
+    
     public String getCompetencia1() {
         return competencia1;
     }
@@ -142,5 +165,86 @@ public class Trasfondo {
     public void setIdPersonaje(int idPersonaje) {
         this.idPersonaje = idPersonaje;
     }
+
+    
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
+    public String getRasgoPersonalidad() {
+        return rasgoPersonalidad;
+    }
+
+    public void setRasgoPersonalidad(String rasgoPersonalidad) {
+        this.rasgoPersonalidad = rasgoPersonalidad;
+    }
+    
+    
+
+    public String getVinculos() {
+        return vinculos;
+    }
+
+    public void setVinculos(String vinculos) {
+        this.vinculos = vinculos;
+    }
+
+    public String getDefectos() {
+        return Defectos;
+    }
+
+    public void setDefectos(String Defectos) {
+        this.Defectos = Defectos;
+    }
+
+    public String getIdeales() {
+        return ideales;
+    }
+
+    public void setIdeales(String ideales) {
+        this.ideales = ideales;
+    }
+
+    public String getAlineamiento() {
+        return alineamiento;
+    }
+
+    public void setAlineamiento(String alineamiento) {
+        this.alineamiento = alineamiento;
+    }
+
+    public String getApariencia() {
+        return apariencia;
+    }
+
+    public void setApariencia(String apariencia) {
+        this.apariencia = apariencia;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getIdiomas() {
+        return idiomas;
+    }
+
+    public void setIdiomas(String idiomas) {
+        this.idiomas = idiomas;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+    
     
 }

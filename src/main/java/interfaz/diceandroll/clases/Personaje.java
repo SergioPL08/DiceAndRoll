@@ -8,7 +8,7 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Personajes {
+public class Personaje {
     private int idPersonaje;
     private String nombre;
     private int idRaza;
@@ -18,8 +18,9 @@ public class Personajes {
     private int vidaMaxima, vidaActual, iniciativa, claseArmadura, competencia;
     private int fue,des,con,inte,sab,car;
     private int idUsuario;
+    private int total;
 
-    public Personajes(int idPersonaje, String nombre, int idRaza, String nombreRaza, String nombreSubRaza, String velocidad, int vidaMaxima, int vidaActual, int iniciativa, int claseArmadura, int competencia, int fue, int des, int con, int inte, int sab, int car) {
+    public Personaje(int idPersonaje, String nombre, int idRaza, String nombreRaza, String nombreSubRaza, String velocidad, int vidaMaxima, int vidaActual, int iniciativa, int claseArmadura, int competencia, int fue, int des, int con, int inte, int sab, int car) {
         this.idPersonaje = idPersonaje;
         this.nombre = nombre;
         this.idRaza = idRaza;
@@ -39,6 +40,17 @@ public class Personajes {
         this.car = car;
     }
 
+    public Personaje(String nombre,int fue,int des,int con,int inte,int sab,int car,int total){
+        this.nombre=nombre;
+        this.fue=fue;
+        this.des=des;
+        this.con=con;
+        this.inte=inte;
+        this.sab=sab;
+        this.car=car;
+        this.total=total;
+    }
+    
     public int getIdPersonaje() {
         return idPersonaje;
     }
@@ -183,6 +195,14 @@ public class Personajes {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
     
     

@@ -237,7 +237,7 @@
             <Font name="Calibri Bold" size="25.0" />
          </font>
       </Label>
-      <HBox layoutX="54.0" layoutY="613.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="44.0">
+      <HBox fx:id="hboxNavegacion" layoutX="54.0" layoutY="613.0" prefHeight="11.0" prefWidth="200.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="44.0">
          <children>
             <HBox prefHeight="34.0" prefWidth="65.0" spacing="5.0">
                <children>

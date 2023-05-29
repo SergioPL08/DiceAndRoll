@@ -8,7 +8,7 @@ import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Habilidad;
 import interfaz.diceandroll.clases.Libro;
-import interfaz.diceandroll.clases.Razas;
+import interfaz.diceandroll.clases.Raza;
 import interfaz.diceandroll.conector.Conector;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -44,7 +44,7 @@ import javafx.stage.Stage;
  * @author Sergio
  */
 public class ExplorarRazaController implements Initializable {
-    public static Razas raza;
+    public static Raza raza;
     public static Libro libro;
     public static Image icon;
     @FXML
@@ -140,12 +140,12 @@ public class ExplorarRazaController implements Initializable {
     });
     */
     
-    public ExplorarRazaController(Razas raza, Libro libro, Image icon){
+    public ExplorarRazaController(Raza raza, Libro libro, Image icon){
         this.raza=raza;
         this.libro=libro;
         this.icon=icon;
     }
-    public ExplorarRazaController(Razas raza, Libro libro){
+    public ExplorarRazaController(Raza raza, Libro libro){
         this.raza=raza;
         this.libro=libro;
     }

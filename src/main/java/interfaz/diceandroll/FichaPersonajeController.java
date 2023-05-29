@@ -7,7 +7,7 @@ package interfaz.diceandroll;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Habilidad;
-import interfaz.diceandroll.clases.Personajes;
+import interfaz.diceandroll.clases.Personaje;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +33,7 @@ import javafx.scene.layout.Pane;
 public class FichaPersonajeController implements Initializable {
 
     private Pane panelPrincipal;
-    private static Personajes personaje;
+    private static Personaje personaje;
     private static String clase;
     @FXML
     private AnchorPane contenedor;
@@ -559,7 +559,7 @@ public class FichaPersonajeController implements Initializable {
     public FichaPersonajeController(){
         
     }
-    public FichaPersonajeController(Personajes personaje,String clase){
+    public FichaPersonajeController(Personaje personaje,String clase){
         this.personaje=personaje;
         this.clase=clase;
     }

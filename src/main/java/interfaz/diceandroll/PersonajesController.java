@@ -20,7 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import interfaz.diceandroll.clases.Libro;
-import interfaz.diceandroll.clases.Personajes;
+import interfaz.diceandroll.clases.Personaje;
 import interfaz.diceandroll.clases.Usuario;
 import java.io.File;
 import java.sql.ResultSet;
@@ -116,7 +116,7 @@ public class PersonajesController implements Initializable {
     @FXML
     private Button botonAlFinal;
     private Pane panelPrincipal;
-    ArrayList<interfaz.diceandroll.clases.Personajes> listaPersonajes;
+    ArrayList<interfaz.diceandroll.clases.Personaje> listaPersonajes;
     ArrayList<Image> listaImagenes;
     ArrayList<Pane> listaPane;
     ArrayList<Label> listaNombre;
@@ -129,7 +129,7 @@ public class PersonajesController implements Initializable {
     private int paginaActual=1;
     int inicio;
     private final int NUM_ELEMENTOS_POR_PAGINA = 9;
-    Personajes personaje;
+    Personaje personaje;
     @FXML
     private Pane personaje1;
     @FXML
@@ -150,6 +150,9 @@ public class PersonajesController implements Initializable {
     private Pane personaje9;
     @FXML
     private AnchorPane contenedor;
+    private static Usuario usuario;
+    @FXML
+    private HBox hboxNavegacion;
     /**
      * Initializes the controller class.
      */
@@ -166,12 +169,20 @@ public class PersonajesController implements Initializable {
         ObservableList<String> listaValores = FXCollections.observableArrayList(filtrosOrdenacion);
         //Inicializamos las listas
         comboBox.setItems(listaValores);
-        //Llamamos al método que recoge todas las clases y rellena el grid
-        getPersonajes();
-        //Desactivamos los botones de navegación en caso necesario (los botones de retroceder si estamos en la primera página o los de avanzar si estamos en la última, además de desactivar el botón de la página actual)
-        desactivarBotones();
 
     }    
+    
+    public void init(Usuario usuario, Pane panePrincipal){
+        this.usuario = usuario;
+        this.panelPrincipal = panePrincipal;
+        //Llamamos al método que recoge todas las clases y rellena el grid
+        getPersonajes();
+        if(listaPersonajes.size()<1){
+            hboxNavegacion.setVisible(false);
+        }
+        //Desactivamos los botones de navegación en caso necesario (los botones de retroceder si estamos en la primera página o los de avanzar si estamos en la última, además de desactivar el botón de la página actual)
+        desactivarBotones();
+    }
     
     public void generaArrayPersonajes(){
         listaPane.clear();
@@ -238,16 +249,18 @@ public class PersonajesController implements Initializable {
             "INNER JOIN raza ON personaje.raza = raza.id_raza " +
             "LEFT JOIN subraza_personaje  ON personaje.id_personaje = subraza_personaje.id_personaje " +
             "LEFT JOIN subraza ON subraza_personaje.id_subraza = subraza.id_subraza " +
-            "GROUP BY personaje.id_personaje ";
+            "WHERE usuario ="+usuario.getIdUsuario()+" ";
+            
             //Si queremos filtrar por nombre, aquí lo podemos hacer 
             if(!buscador.equals(""))
-                consulta += " WHERE personaje.nombre LIKE '%"+buscador+"%' ";
+                consulta += " AND personaje.nombre LIKE '%"+buscador+"%' ";
+            consulta += " GROUP BY personaje.id_personaje ";
             //Si queremos ordenar por nombre ascendente o descendente o por libro de reglas
             if(filtro!=null){
                 if(filtro.equals("Nombre [a-z]"))
-                    consulta += " order by personaje.nombre asc ";
+                    consulta += " ORDER BY personaje.nombre asc ";
                 else if(filtro.equals("Nombre [z-a]"))
-                    consulta += " order by personaje.nombre desc ";
+                    consulta += " ORDER BY personaje.nombre desc ";
             }
             else
                 consulta += " order by personaje.nombre";
@@ -273,7 +286,7 @@ public class PersonajesController implements Initializable {
                 int inte = personajes.getInt("inte");
                 int sab = personajes.getInt("sab");
                 int car = personajes.getInt("car");
-                interfaz.diceandroll.clases.Personajes personaje = new Personajes(idPersonaje,nombre,idRaza,nombreRaza,nombreSubraza,vel,puntosGolpeMax,puntosGolpeAct,iniciativa,ca,bonoComp,fue,des,con,inte,sab,car);
+                interfaz.diceandroll.clases.Personaje personaje = new Personaje(idPersonaje,nombre,idRaza,nombreRaza,nombreSubraza,vel,puntosGolpeMax,puntosGolpeAct,iniciativa,ca,bonoComp,fue,des,con,inte,sab,car);
                 //Añadimos ambos a sus respectivas listas
                 listaPersonajes.add(personaje);
                 //System.out.println(icon);
@@ -377,7 +390,7 @@ public class PersonajesController implements Initializable {
         while (iter.hasNext() && contador < NUM_ELEMENTOS_POR_PAGINA && inicio + contador < listaPersonajes.size()) {
             listaPane.get(contador).setVisible(true);
             listaNombre.get(contador).setText(listaPersonajes.get(inicio + contador).getNombre());
-            Personajes personaje = listaPersonajes.get(inicio + contador);
+            Personaje personaje = listaPersonajes.get(inicio + contador);
             String raza = personaje.getNombreRaza();
             String subRaza = personaje.getNombreSubRaza();
             String textoRaza = "";
@@ -396,7 +409,7 @@ public class PersonajesController implements Initializable {
             listaPane.get(contador-1).setVisible(true);
             //System.out.println(contador);
             listaNombre.get(contador-1).setText(listaPersonajes.get(inicio + contador-1).getNombre());
-            Personajes personaje = listaPersonajes.get(inicio + contador-1);
+            Personaje personaje = listaPersonajes.get(inicio + contador-1);
             String raza = personaje.getNombreRaza();
             String subRaza = personaje.getNombreSubRaza();
             String textoRaza = "";
@@ -544,7 +557,7 @@ public class PersonajesController implements Initializable {
      * @param libro 
      */
     
-    private void abrirMenuFichaPersonaje(Personajes personaje, String clase) {
+    private void abrirMenuFichaPersonaje(Personaje personaje, String clase) {
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fichaPersonaje.fxml"));
         FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase);
@@ -586,7 +599,7 @@ public class PersonajesController implements Initializable {
     private void abrirMenuCrearPersonaje(ActionEvent event) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("crearPersonaje.fxml"));
-            CrearPersonajeController crearPersonaje = new CrearPersonajeController();
+            CrearPersonajeController crearPersonaje = new CrearPersonajeController(usuario);
             Parent root = fxmlLoader.load();
             crearPersonaje.setPanePrincipal(contenedor);
             fxmlLoader.setController(crearPersonaje);
@@ -595,5 +608,11 @@ public class PersonajesController implements Initializable {
             ex.printStackTrace();
         }
     }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
 }
 

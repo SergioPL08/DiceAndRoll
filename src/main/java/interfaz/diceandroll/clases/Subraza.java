@@ -8,18 +8,18 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Subrazas {
+public class Subraza {
     private int idSubraza;
     private String nombre;
     private String descripcion;
-    private enum statMod{fue,des,con,inte,sab,car};
+    private String statMod;
     private int mod;
     private String competencia;
     private int idRaza;
     private int idLibro;
     private int idPersonaje;
 
-    public Subrazas(int idSubraza, String nombre, String descripcion, int mod, String competencia, int idRaza, int idLibro, int idPersonaje) {
+    public Subraza(int idSubraza, String nombre, String descripcion, int mod, String competencia, int idRaza, int idLibro, int idPersonaje) {
         this.idSubraza = idSubraza;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -30,7 +30,8 @@ public class Subrazas {
         this.idPersonaje = idPersonaje;
     }
 
-    public Subrazas(int idSubraza, String nombre, String descripcion, int mod, String competencia, int idRaza, int idLibro) {
+    
+    public Subraza(int idSubraza, String nombre, String descripcion, int mod, String competencia, int idRaza, int idLibro) {
         this.idSubraza = idSubraza;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -40,7 +41,15 @@ public class Subrazas {
         this.idLibro = idLibro;
     }
 
-    public Subrazas(int idSubraza, String nombre) {
+    public Subraza(int idSubraza,String nombre,String caracMod,int mod,String comp){
+        this.idSubraza=idSubraza;
+        this.nombre=nombre;
+        this.statMod=caracMod;
+        this.mod=mod;
+        this.competencia=comp;
+    }
+    
+    public Subraza(int idSubraza, String nombre) {
         this.idSubraza = idSubraza;
         this.nombre = nombre;
     }

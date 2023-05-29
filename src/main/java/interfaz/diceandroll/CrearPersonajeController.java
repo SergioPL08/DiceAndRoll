@@ -4,12 +4,15 @@
  */
 package interfaz.diceandroll;
 
-import interfaz.diceandroll.clases.Clases;
-import interfaz.diceandroll.clases.Razas;
-import interfaz.diceandroll.clases.Subrazas;
+import interfaz.diceandroll.clases.Clase;
+import interfaz.diceandroll.clases.Raza;
+import interfaz.diceandroll.clases.Subraza;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.PersonajesController;
+import interfaz.diceandroll.clases.Personaje;
+import interfaz.diceandroll.clases.Trasfondo;
+import interfaz.diceandroll.clases.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -51,26 +54,20 @@ public class CrearPersonajeController implements Initializable {
     @FXML
     private ImageView imagenPersonaje;
     @FXML
-    private Button botonVolverInicio;
-    @FXML
     private Button botonRetrocederUno;
-    @FXML
-    private HBox hboxPaginacion;
     @FXML
     private Button botonAvanzarUno;
     @FXML
-    private Button botonAlFinal;
-    @FXML
     private TextField textFieldNombrePersronaje;
     @FXML
-    private ComboBox<Clases> comboBoxClase;
+    private ComboBox<Clase> comboBoxClase;
     @FXML
-    private ComboBox<Razas> comboBoxRaza;
+    private ComboBox<Raza> comboBoxRaza;
     @FXML
-    private ComboBox<Subrazas> comboBoxSubraza;
-    ArrayList<Clases> listaClases;
-    ArrayList<Razas> listaRazas;
-    ArrayList<Subrazas> listaSubrazas;
+    private ComboBox<Subraza> comboBoxSubraza;
+    ArrayList<Clase> listaClases;
+    ArrayList<Raza> listaRazas;
+    ArrayList<Subraza> listaSubrazas;
     ArrayList<Button> listaBotonesRestar;
     ArrayList<Button> listaBotonesSumar;
     ArrayList<Label> listaValoresCaracteristicas;
@@ -130,8 +127,14 @@ public class CrearPersonajeController implements Initializable {
     @FXML
     private Button botonSumar6;
     private int contador=12;
-    
-    
+    @FXML
+    private Label labelMensajeError;
+    private static Personaje personaje;
+    private static Clase claseTal;
+    private static Raza razaTal;
+    private static Subraza subraza;
+    private static Trasfondo trasfondo;
+    private static Usuario usuario;
     /**
      * Initializes the controller class.
      */
@@ -145,16 +148,16 @@ public class CrearPersonajeController implements Initializable {
             while(rsClases.next()){
                 int idClase = rsClases.getInt("id_clase");
                 String nombreClase = rsClases.getString("nombre");
-                Clases clase = new Clases(idClase, nombreClase);
+                Clase clase = new Clase(idClase, nombreClase);
                 listaClases.add(clase);
             }
         } catch (SQLException ex) {
             System.out.println("Error al cargar las clases");
             ex.printStackTrace();
         }
-        ObservableList<Clases> listaComboBoxClases = FXCollections.observableArrayList(listaClases);
+        ObservableList<Clase> listaComboBoxClases = FXCollections.observableArrayList(listaClases);
         comboBoxClase.setItems(listaComboBoxClases);
-        Clases clase = new Clases(ID_CLASE_VALOR_POR_DEFECTO, NOMBRE_CLASE_VALOR_POR_DEFECTO);
+        Clase clase = new Clase(ID_CLASE_VALOR_POR_DEFECTO, NOMBRE_CLASE_VALOR_POR_DEFECTO);
         comboBoxClase.setValue(clase);
         
         String consultaRazas = "SELECT * FROM raza";
@@ -163,19 +166,84 @@ public class CrearPersonajeController implements Initializable {
             while(rsRazas.next()){
                 int idRaza = rsRazas.getInt("id_raza");
                 String nombreRaza = rsRazas.getString("nombre");
-                Razas raza = new Razas(idRaza, nombreRaza);
+                Raza raza = new Raza(idRaza, nombreRaza);
                 listaRazas.add(raza);
             }
         } catch (SQLException ex) {
             System.out.println("Error al cargar las razas");
             ex.printStackTrace();
         }
-        ObservableList<Razas> listaComboBoxRazas = FXCollections.observableArrayList(listaRazas);
+        ObservableList<Raza> listaComboBoxRazas = FXCollections.observableArrayList(listaRazas);
         comboBoxRaza.setItems(listaComboBoxRazas);
-        Razas raza = new Razas(ID_RAZA_VALOR_POR_DEFECTO, NOMBRE_RAZA_VALOR_POR_DEFECTO);
+        Raza raza = new Raza(ID_RAZA_VALOR_POR_DEFECTO, NOMBRE_RAZA_VALOR_POR_DEFECTO);
         comboBoxRaza.setValue(raza);
         comboBoxRaza.setItems(listaComboBoxRazas);
+        if(personaje!=null){
+            textFieldNombrePersronaje.setText(personaje.getNombre());
+            labelValorFue.setText(String.valueOf(personaje.getFue()));
+            labelValorDes.setText(String.valueOf(personaje.getDes()));
+            labelValorCon.setText(String.valueOf(personaje.getCon()));
+            labelValorInt.setText(String.valueOf(personaje.getInte()));
+            labelValorSab.setText(String.valueOf(personaje.getSab()));
+            labelValorCar.setText(String.valueOf(personaje.getCar()));
+            String signo = "";
+            if(personaje.getFue()>10)
+                signo="+";
+            labelModFue.setText(signo+String.valueOf((personaje.getFue()-10)/2));
+            signo="";
+            if(personaje.getDes()>10)
+                signo="+";
+            labelModDes.setText(signo+String.valueOf((personaje.getDes()-10)/2));
+            signo="";
+            if(personaje.getCon()>10)
+                signo="+";
+            labelModCon.setText(signo+String.valueOf((personaje.getCon()-10)/2));
+            signo="";
+            if(personaje.getInte()>10)
+                signo="+";
+            labelModInt.setText(signo+String.valueOf((personaje.getInte()-10)/2));
+            signo="";
+            if(personaje.getSab()>10)
+                signo="+";
+            labelModSab.setText(signo+String.valueOf((personaje.getSab()-10)/2));
+            signo="";
+            if(personaje.getCar()>10)
+                signo="+";
+            labelModCar.setText(signo+String.valueOf((personaje.getCar()-10)/2));
+            signo="";
+            labelTotal.setText(String.valueOf(personaje.getTotal()));
+        }
+        if(razaTal!=null){
+            cargaSubraza();
+            comboBoxRaza.setValue(razaTal);
+        }
+        if(subraza!=null)
+            comboBoxSubraza.setValue(subraza);
+        if(claseTal!=null)
+            comboBoxClase.setValue(claseTal);
+        
+        //System.out.println("Personaje: "+personaje);
+        //System.out.println("Clase: "+claseTal);
+        //System.out.println("Raza: "+razaTal);
+        System.out.println(trasfondo);
     }    
+    
+    public CrearPersonajeController(){
+        
+    }
+    
+    public CrearPersonajeController(Usuario usuario){
+        this.usuario = usuario;
+    }
+    
+    public CrearPersonajeController(Usuario usuario, Personaje personaje, Clase clase, Raza raza, Subraza subraza, Trasfondo trasfondo){
+        this.usuario = usuario;
+        this.personaje=personaje;
+        this.claseTal=clase;
+        this.razaTal=raza;
+        this.subraza=subraza;
+        this.trasfondo=trasfondo;
+    }
     
     public void setPanePrincipal(Pane panelPrincipal){
         this.panelPrincipal=panelPrincipal;
@@ -194,6 +262,10 @@ public class CrearPersonajeController implements Initializable {
             confirmacion.setHeaderText("¿Estás seguro?");
             confirmacion.setContentText("Se perderán todos los datos no guardados");
             ButtonType respuesta = confirmacion.showAndWait().orElse(ButtonType.CANCEL);
+            personaje=null;
+            claseTal=null;
+            razaTal=null;
+            subraza=null;
             if(respuesta == ButtonType.OK){
                 contenedor.getChildren().setAll(root);
             }
@@ -240,39 +312,26 @@ public class CrearPersonajeController implements Initializable {
         
    }
 
-    @FXML
-    private void botonVolverInicioArray(ActionEvent event) {
-    }
-
-    @FXML
-    private void botonRetrocederUnoArray(ActionEvent event) {
-    }
-
-    @FXML
-    private void botonAvanzarUnoArray(ActionEvent event) {
-    }
-
-    @FXML
-    private void botonIrAlFinalArray(ActionEvent event) {
-    }
 
     @FXML
     private void seleccionarSubraza(ActionEvent event) {
+        /*
         String consultaSubRazas = "SELECT * FROM subraza WHERE id_raza = "+comboBoxRaza.getValue().getIdRaza();
         ResultSet rsSubRazas = Conector.getSelect(consultaSubRazas, conector);
         try {
             while(rsSubRazas.next()){
                 int idSubRaza = rsSubRazas.getInt("id_subraza");
                 String nombreSubRaza = rsSubRazas.getString("nombre");
-                Subrazas subraza = new Subrazas(idSubRaza, nombreSubRaza);
+                Subraza subraza = new Subraza(idSubRaza, nombreSubRaza);
                 listaSubrazas.add(subraza);
             }
         } catch (SQLException ex) {
             System.out.println("Error al cargar las subrazas");
             ex.printStackTrace();
         }
-        ObservableList<Subrazas> listaComboBoxSubrazas = FXCollections.observableArrayList(listaSubrazas);
+        ObservableList<Subraza> listaComboBoxSubrazas = FXCollections.observableArrayList(listaSubrazas);
         comboBoxSubraza.setItems(listaComboBoxSubrazas);
+        */
     }
 
     @FXML
@@ -332,5 +391,74 @@ public class CrearPersonajeController implements Initializable {
         }
     }
 
+    private void abrirPagina(Personaje personaje, Clase clase, Raza raza, Subraza subraza, Trasfondo trasfondo){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("crearPersonajePagina2.fxml"));
+            CrearPersonajePagina2Controller personajes = new CrearPersonajePagina2Controller(usuario,personaje,clase,raza,subraza);
+            Parent root = fxmlLoader.load();
+            personajes.setPanePrincipal(contenedor);
+            fxmlLoader.setController(personajes); 
+            contenedor.getChildren().setAll(root); 
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
+    @FXML
+    private void botonAvanzarPagina(ActionEvent event) {
+        String nombre = textFieldNombrePersronaje.getText();
+        Clase clase = comboBoxClase.getValue();
+        Raza raza = comboBoxRaza.getValue();
+        Subraza subraza = comboBoxSubraza.getValue();
+        if(comboBoxSubraza.getValue()!=null)
+            subraza = comboBoxSubraza.getValue();
+        int fue = Integer.parseInt(labelValorFue.getText());
+        int des = Integer.parseInt(labelValorDes.getText());
+        int con = Integer.parseInt(labelValorCon.getText());
+        int inte = Integer.parseInt(labelValorInt.getText());
+        int sab = Integer.parseInt(labelValorSab.getText());
+        int car = Integer.parseInt(labelValorCar.getText());
+        int total = Integer.parseInt(labelTotal.getText());
+        Personaje personaje = new Personaje(nombre,fue,des,con,inte,sab,car,total);
+        abrirPagina(personaje,clase,raza,subraza,this.trasfondo);
+        
+        
+    }
+
+    
+    @FXML
+    private void botonVolverPagina(ActionEvent event) {
+    }
+
+    @FXML
+    private void seleccionarRaza(ActionEvent event) {
+        cargaSubraza();
+    }
+
+    public void cargaSubraza(){
+        listaSubrazas.clear();
+        comboBoxSubraza.setItems(null);
+        Raza raza = comboBoxRaza.getValue();
+        String consulta = "SELECT * FROM subraza where id_raza="+raza.getIdRaza();
+        ResultSet rs = Conector.getSelect(consulta, conector);
+        listaSubrazas.add(null);
+        try {
+            while(rs.next()){
+                int idSubraza = rs.getInt("id_subraza");
+                String nombre = rs.getString("nombre");
+                String caracMod = rs.getString("carac_mod");
+                int mod = rs.getInt("modificador");
+                String comp = rs.getString("competencia");
+                Subraza subraza = new Subraza(idSubraza,nombre,caracMod,mod,comp);
+                listaSubrazas.add(subraza);
+            }
+            if(!listaSubrazas.isEmpty()){
+                ObservableList<Subraza> listaComboBoxSubrazas = FXCollections.observableArrayList(listaSubrazas);
+                comboBoxSubraza.setItems(listaComboBoxSubrazas);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al cargar las subrazas");
+            ex.printStackTrace();
+        }
+    }
 }

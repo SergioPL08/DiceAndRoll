@@ -8,7 +8,7 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Conjuros {
+public class Conjuro {
     private int idConjuro;
     private String nombre;
     private int nivel;
@@ -23,7 +23,7 @@ public class Conjuros {
     private String descripcion;
     private int idLibro;    
 
-    public Conjuros(int idConjuro, String nombre, int nivel, String escuela, boolean v, boolean s, boolean m, String textoComponenteMaterial, String tiempoLanzamiento, String alcance, String duracion, String descripcion, int idLibro) {
+    public Conjuro(int idConjuro, String nombre, int nivel, String escuela, boolean v, boolean s, boolean m, String textoComponenteMaterial, String tiempoLanzamiento, String alcance, String duracion, String descripcion, int idLibro) {
         this.idConjuro = idConjuro;
         this.nombre = nombre;
         this.nivel = nivel;
@@ -39,7 +39,7 @@ public class Conjuros {
         this.idLibro = idLibro;
     }
 
-    public Conjuros(int idConjuro, String nombre, int nivel, boolean v, boolean s, boolean m, String tiempoLanzamiento, String alcance, String duracion, String descripcion) {
+    public Conjuro(int idConjuro, String nombre, int nivel, boolean v, boolean s, boolean m, String tiempoLanzamiento, String alcance, String duracion, String descripcion) {
         this.idConjuro = idConjuro;
         this.nombre = nombre;
         this.nivel = nivel;

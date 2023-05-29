@@ -8,7 +8,7 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Razas {
+public class Raza {
     private int idRaza;
     private String nombre;
     private String descripcion;
@@ -18,7 +18,7 @@ public class Razas {
     private int idLibro;
     private int idPersonaje;
 
-    public Razas(int idRaza, String nombre, String descripcion, String velocidad, int nMod1, int nMod2,int idLibro) {
+    public Raza(int idRaza, String nombre, String descripcion, String velocidad, int nMod1, int nMod2,int idLibro) {
         this.idRaza = idRaza;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -29,7 +29,7 @@ public class Razas {
         this.idLibro = idLibro;
     }
 
-    public Razas(int idRaza, String nombre) {
+    public Raza(int idRaza, String nombre) {
         this.idRaza = idRaza;
         this.nombre = nombre;
     }

@@ -34,11 +34,10 @@ public class TableroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        WebEngine webengine = webView.getEngine();        
-        webengine.loadContent("<html><p>tal <strong>y tal</strong></p></html>");
-        //webengine.load("https://www.owlbear.rodeo");
-        //webengine.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36");
-        //webengine.setJavaScriptEnabled(true);
+        WebEngine webengine = webView.getEngine();
+        webengine.load("https://www.owlbear.rodeo");
+        webengine.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36");
+        webengine.setJavaScriptEnabled(true);
     }   
     
     public void setPanePrincipal(Pane panelPrincipal){

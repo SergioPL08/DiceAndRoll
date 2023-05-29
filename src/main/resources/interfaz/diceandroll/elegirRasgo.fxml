@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="603.0" prefWidth="600.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ElegirRasgoController">
+   <children>
+      <Label fx:id="labelNombre" layoutX="17.0" layoutY="14.0" text="Rasgos">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textAreaRasgos" layoutX="17.0" layoutY="47.0" prefHeight="148.0" prefWidth="566.0" wrapText="true" />
+      <Label fx:id="labelTextoTal" layoutX="17.0" layoutY="202.0" text="Puedes usar las sugerencias de tu trasfondo" />
+      <HBox fx:id="hboxTal" alignment="CENTER_LEFT" layoutX="14.0" layoutY="225.0" prefHeight="37.0" prefWidth="566.0" spacing="15.0">
+         <children>
+            <Label fx:id="labelDado" text="D6" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelRasgos" text="Rasgos" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#alAzar" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Al azar" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <Button fx:id="botonAplicar" layoutX="449.0" layoutY="564.0" mnemonicParsing="false" onAction="#aplicar" prefHeight="31.0" prefWidth="58.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Aplicar" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="93.0" />
+      <Button fx:id="botonCancelar" layoutX="515.0" layoutY="564.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #FFF;" stylesheets="@../../style.css" text="Cancelar" textFill="#3583f2" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="20.0" />
+      <ScrollPane fx:id="scrollPane" layoutX="-6.0" layoutY="480.0" prefHeight="284.0" prefWidth="574.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="262.0">
+         <content>
+            <VBox fx:id="vboxRasgos" prefHeight="279.0" prefWidth="556.0" spacing="12.0">
+               <padding>
+                  <Insets left="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -4,9 +4,9 @@
  */
 package interfaz.diceandroll;
 
-import interfaz.diceandroll.clases.Clases;
+import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Libro;
-import interfaz.diceandroll.clases.Conjuros;
+import interfaz.diceandroll.clases.Conjuro;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ import javafx.scene.text.TextFlow;
  * @author Sergio
  */
 public class ExplorarConjuroController implements Initializable {
-    private static Clases clase;
-    private static Conjuros conjuro;
+    private static Clase clase;
+    private static Conjuro conjuro;
     private static Libro libro;
     @FXML
     private AnchorPane contenedor;
@@ -90,7 +90,7 @@ public class ExplorarConjuroController implements Initializable {
         
     }
     
-    public ExplorarConjuroController(Conjuros conjuro,Libro libro) {
+    public ExplorarConjuroController(Conjuro conjuro,Libro libro) {
         this.conjuro = conjuro;
         this.libro = libro;
     }

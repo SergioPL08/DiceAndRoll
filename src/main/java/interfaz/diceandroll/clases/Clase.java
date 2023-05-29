@@ -8,7 +8,7 @@ package interfaz.diceandroll.clases;
  *
  * @author Sergio
  */
-public class Clases {
+public class Clase {
     private int id_clase;
     private String nombre;
     private String descripcion;
@@ -31,12 +31,12 @@ public class Clases {
     private int idLibro;
     private int idPersonaje;
 
-    public Clases(int id_clase, String nombre) {
+    public Clase(int id_clase, String nombre) {
         this.id_clase = id_clase;
         this.nombre = nombre;
     }
     
-    public Clases(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, String icon, int idLibro) {
+    public Clase(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, String icon, int idLibro) {
         this.id_clase = id_clase;
         this.nombre = nombre;
         this.descripcion = descripcion;

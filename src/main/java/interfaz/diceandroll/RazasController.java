@@ -6,7 +6,7 @@ package interfaz.diceandroll;
 
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Libro;
-import interfaz.diceandroll.clases.Razas;
+import interfaz.diceandroll.clases.Raza;
 import interfaz.diceandroll.conector.Conector;
 import java.io.File;
 import java.io.IOException;
@@ -110,7 +110,7 @@ public class RazasController implements Initializable {
 
     
 
-    ArrayList<interfaz.diceandroll.clases.Razas> listaRazas;
+    ArrayList<interfaz.diceandroll.clases.Raza> listaRazas;
     ArrayList<interfaz.diceandroll.clases.Libro> listaLibros;
     ArrayList<Image> listaImagenes;
     ArrayList<Pane> listaPane;
@@ -123,7 +123,7 @@ public class RazasController implements Initializable {
     private int paginaActual=1;
     int inicio;
     private final int NUM_ELEMENTOS_POR_PAGINA = 9;
-    Razas raza;
+    Raza raza;
     private Pane panelPrincipal;
     @FXML
     private Label nombreRaza2;
@@ -259,7 +259,7 @@ public class RazasController implements Initializable {
                 int nMod2 = razas.getInt("num_bono_2");
                 String nombreLibro = razas.getString("libros_reglas.nombre");
                 int idLibro = razas.getInt("id_libro");
-                interfaz.diceandroll.clases.Razas raza = new Razas(id_raza,nombre,descr,vel,nMod1,nMod2,idLibro);
+                interfaz.diceandroll.clases.Raza raza = new Raza(id_raza,nombre,descr,vel,nMod1,nMod2,idLibro);
                 interfaz.diceandroll.clases.Libro libro = new Libro(idLibro,nombreLibro);
                 //Añadimos ambos a sus respectivas listas
                 listaRazas.add(raza);
@@ -451,7 +451,7 @@ public class RazasController implements Initializable {
      * @param raza
      * @param libro 
      */
-    private void abrirMenuExplorarRaza(Razas raza,Libro libro) {
+    private void abrirMenuExplorarRaza(Raza raza,Libro libro) {
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("explorarRaza.fxml"));
         ExplorarRazaController explorarRazaController = new ExplorarRazaController(raza,libro);

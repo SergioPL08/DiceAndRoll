@@ -7,7 +7,7 @@ package interfaz.diceandroll;
 import interfaz.diceandroll.ExplorarClaseController;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
-import interfaz.diceandroll.clases.Clases;
+import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Libro;
 import java.io.File;
 import java.io.IOException;
@@ -71,7 +71,7 @@ public class ListaClasesController implements Initializable {
     private AnchorPane contenedor;
     
     //Variables propias
-    ArrayList<interfaz.diceandroll.clases.Clases> listaClases;
+    ArrayList<interfaz.diceandroll.clases.Clase> listaClases;
     ArrayList<interfaz.diceandroll.clases.Libro> listaLibros;
     ArrayList<Image> listaImagenes;
     ArrayList<Pane> listaPane;
@@ -84,7 +84,7 @@ public class ListaClasesController implements Initializable {
     private int paginaActual=1;
     int inicio;
     private final int NUM_ELEMENTOS_POR_PAGINA = 9;
-    Clases clase;
+    Clase clase;
     private Pane panelPrincipal;
 
     
@@ -210,7 +210,7 @@ public class ListaClasesController implements Initializable {
                 int idLibro = clases.getInt("id_libro");
                 String nombreLibro = clases.getString("libros_reglas.nombre");
                 //                                                    id_clase, nombre, "", puntosGolpe, requisitoMulticlase,competenciaS,    competenciaArmasMa,competenciaArmadurasLigeras,competenciaArmadurasMedias,competenciaArmadurasPesadas,competenciaEscudo,otrasCompetenciasArmas,otrasCompetencias,textoCompetenciasHabilidades,tipoCaster,aptitudMagica,competenciaEstat1,competenciaEstat2,icon,idLibro
-                interfaz.diceandroll.clases.Clases clase = new Clases(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,icon,idLibro);
+                interfaz.diceandroll.clases.Clase clase = new Clase(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,icon,idLibro);
                 interfaz.diceandroll.clases.Libro libro = new Libro(idLibro,nombreLibro);
                 //Añadimos ambos a sus respectivas listas
                 listaClases.add(clase);
@@ -424,7 +424,7 @@ public class ListaClasesController implements Initializable {
      * @param clase
      * @param libro 
      */
-    private void abrirMenuExplorarClase(Clases clase,Libro libro,Image imagen) {
+    private void abrirMenuExplorarClase(Clase clase,Libro libro,Image imagen) {
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("explorarClase.fxml"));
         ExplorarClaseController explorarClaseController = new ExplorarClaseController(clase,libro,imagen);
@@ -438,7 +438,7 @@ public class ListaClasesController implements Initializable {
     }
 
     
-    public Clases getClase(){
+    public Clase getClase(){
         return this.clase;
     }
 

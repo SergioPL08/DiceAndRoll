@@ -4,7 +4,7 @@
  */
 package interfaz.diceandroll;
 
-import interfaz.diceandroll.clases.Clases;
+import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Libro;
 import interfaz.diceandroll.clases.Habilidad;
 import interfaz.diceandroll.conector.Conector;
@@ -73,7 +73,7 @@ public class ExplorarClaseController implements Initializable {
     ArrayList<Habilidad> listaHabilidades;
     @FXML
     private VBox vboxHabilidades;
-    private static Clases clase;
+    private static Clase clase;
     private static Libro libro;
     private Pane panelPrincipal;
     private static Image imagen;
@@ -153,7 +153,7 @@ public class ExplorarClaseController implements Initializable {
         
     }
     
-    public ExplorarClaseController(Clases clase,Libro libro,Image imagen) {
+    public ExplorarClaseController(Clase clase,Libro libro,Image imagen) {
         this.clase = clase;
         this.libro = libro;
         this.imagen = imagen;

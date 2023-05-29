@@ -7,8 +7,7 @@ package interfaz.diceandroll;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import interfaz.diceandroll.clases.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +36,7 @@ public class HomeController implements Initializable {
     private Button botonPersonajes;
     @FXML
     private AnchorPane panePrincipal;
-
+    private static Usuario usuario;
 
     /**
      * Initializes the controller class.
@@ -45,9 +44,16 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         LoginController.getLogin();
-        abrirHome();   
+        abrirHome();
+    }
+
+    public HomeController() {
     }
         
+    public HomeController(Usuario usuario){
+        this.usuario=usuario;
+    }
+    
      
 
     @FXML
@@ -61,6 +67,7 @@ public class HomeController implements Initializable {
     @FXML
     private void cerrarSesion(ActionEvent event) {
         try {
+            usuario = null;
             Stage stage = new Stage();
             Parent content = FXMLLoader.load(getClass().getResource("login.fxml"));
             Scene home = new Scene(content, 527, 577);
@@ -82,7 +89,7 @@ public class HomeController implements Initializable {
             Parent root = fxml.load();
             contenedor.getChildren().setAll(root);
             PersonajesController personajes = fxml.getController();
-            personajes.setPanePrincipal(contenedor);
+            personajes.init(usuario, contenedor);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -6,8 +6,8 @@ package interfaz.diceandroll;
 
 import interfaz.diceandroll.ExplorarConjuroController;
 import static interfaz.diceandroll.App.conector;
-import interfaz.diceandroll.clases.Clases;
-import interfaz.diceandroll.clases.Conjuros;
+import interfaz.diceandroll.clases.Clase;
+import interfaz.diceandroll.clases.Conjuro;
 import interfaz.diceandroll.clases.Libro;
 import interfaz.diceandroll.conector.Conector;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class ListaConjurosController implements Initializable {
     @FXML
     private ComboBox<String> comboboxEscuela;
     @FXML
-    private ComboBox<Clases> comboBoxClase;
+    private ComboBox<Clase> comboBoxClase;
     @FXML
     private ComboBox<String> comboBoxNombre;
     @FXML
@@ -64,8 +64,8 @@ public class ListaConjurosController implements Initializable {
     private Button botonAlFinal;
 
     
-    ArrayList<interfaz.diceandroll.clases.Conjuros> listaConjuros;
-    ArrayList<interfaz.diceandroll.clases.Clases> listaClases;
+    ArrayList<interfaz.diceandroll.clases.Conjuro> listaConjuros;
+    ArrayList<interfaz.diceandroll.clases.Clase> listaClases;
     ArrayList<interfaz.diceandroll.clases.Libro> listaLibros;
     ArrayList<Pane> listaPane;
     ArrayList<Label> listaNombre;
@@ -76,7 +76,7 @@ public class ListaConjurosController implements Initializable {
     private int paginaActual=1;
     int inicio;
     private final int NUM_ELEMENTOS_POR_PAGINA = 12;
-    Conjuros conjuro;
+    Conjuro conjuro;
     private Pane panelPrincipal;
     @FXML
     private AnchorPane contenedor;
@@ -235,7 +235,7 @@ public class ListaConjurosController implements Initializable {
         generaArrays();
         String buscador = textFieldBuscador.getText();
         String nombreBuscador = comboBoxNombre.getValue();
-        Clases claseBuscador = comboBoxClase.getValue();
+        Clase claseBuscador = comboBoxClase.getValue();
         Integer nivelBuscador = comboBoxNivel.getValue();
         //String tipoDaño = comboBoxTipoDaño.getValue();
         String escuelaBuscador = comboboxEscuela.getValue();
@@ -306,7 +306,7 @@ public class ListaConjurosController implements Initializable {
                 String descripcion = conjuros.getString("conjuro.descripcion");
                 String nombreLibro = conjuros.getString("libros_reglas.nombre");
                 int idLibro = conjuros.getInt("conjuro.id_libro");
-                interfaz.diceandroll.clases.Conjuros conjuro = new Conjuros(idConjuro,nombre,nivel,escuela,compVerbal,compSomatico,compMaterial,textCompMaterial,tiempoLanzamiento,alcance,duracion,descripcion,idLibro);
+                interfaz.diceandroll.clases.Conjuro conjuro = new Conjuro(idConjuro,nombre,nivel,escuela,compVerbal,compSomatico,compMaterial,textCompMaterial,tiempoLanzamiento,alcance,duracion,descripcion,idLibro);
                 interfaz.diceandroll.clases.Libro libro = new Libro(idLibro,nombreLibro);
                 //Añadimos ambos a sus respectivas listas
                 listaConjuros.add(conjuro);
@@ -505,7 +505,7 @@ public class ListaConjurosController implements Initializable {
      * @param clase
      * @param libro 
      */
-    private void abrirMenuExplorarConjuro(Conjuros conjuro,Libro libro) {
+    private void abrirMenuExplorarConjuro(Conjuro conjuro,Libro libro) {
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("explorarConjuro.fxml"));
         ExplorarConjuroController explorarConjuroController = new ExplorarConjuroController(conjuro,libro);
