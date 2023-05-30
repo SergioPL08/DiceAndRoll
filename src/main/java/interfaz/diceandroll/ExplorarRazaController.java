@@ -75,7 +75,7 @@ public class ExplorarRazaController implements Initializable {
         ArrayList<Habilidad> habilidades = new ArrayList();
         labelNombreRaza.setText(raza.getNombre());
         labelDescripcion.setText(raza.getDescripcion());
-        labelVelocidad.setText(raza.getVelocidad());
+        labelVelocidad.setText(String.valueOf(raza.getVelocidad())+" pies");
         labelTextoTal.setText("Los personajes "+raza.getNombre()+" tienen los siguientes rasgos:");
         labelNombreLibro.setText(libro.getNombre());
         String consultaRasgosRaza="SELECT * FROM rasgo_raza where id_raza="+raza.getIdRaza();

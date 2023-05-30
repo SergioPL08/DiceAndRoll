@@ -148,7 +148,8 @@ public class CrearPersonajeController implements Initializable {
             while(rsClases.next()){
                 int idClase = rsClases.getInt("id_clase");
                 String nombreClase = rsClases.getString("nombre");
-                Clase clase = new Clase(idClase, nombreClase);
+                int puntosGolpe = rsClases.getInt("puntos_golpe");
+                Clase clase = new Clase(idClase, nombreClase, puntosGolpe);
                 listaClases.add(clase);
             }
         } catch (SQLException ex) {
@@ -166,7 +167,8 @@ public class CrearPersonajeController implements Initializable {
             while(rsRazas.next()){
                 int idRaza = rsRazas.getInt("id_raza");
                 String nombreRaza = rsRazas.getString("nombre");
-                Raza raza = new Raza(idRaza, nombreRaza);
+                int velocidad = rsRazas.getInt("velocidad");
+                Raza raza = new Raza(idRaza, nombreRaza, velocidad);
                 listaRazas.add(raza);
             }
         } catch (SQLException ex) {
@@ -252,28 +254,29 @@ public class CrearPersonajeController implements Initializable {
     @FXML
     private void botonVolver(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("personajes.fxml"));
-            PersonajesController personajes = new PersonajesController();
-            Parent root = fxmlLoader.load();
-            personajes.setPanePrincipal(contenedor);
-            fxmlLoader.setController(personajes);
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Confirmación");
             confirmacion.setHeaderText("¿Estás seguro?");
             confirmacion.setContentText("Se perderán todos los datos no guardados");
             ButtonType respuesta = confirmacion.showAndWait().orElse(ButtonType.CANCEL);
-            personaje=null;
-            claseTal=null;
-            razaTal=null;
-            subraza=null;
             if(respuesta == ButtonType.OK){
+                FXMLLoader fxml = new FXMLLoader(getClass().getResource("personajes.fxml"));
+                Parent root = fxml.load();
                 contenedor.getChildren().setAll(root);
+                PersonajesController personajes = fxml.getController();
+                personajes.init(usuario, contenedor);
+                personaje=null;
+                claseTal=null;
+                trasfondo=null;
+                razaTal=null;
+                subraza=null;
             }
             
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+    
     
     private void inicializaArrays(){
         listaClases = new ArrayList();

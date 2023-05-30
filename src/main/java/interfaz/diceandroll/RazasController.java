@@ -254,7 +254,7 @@ public class RazasController implements Initializable {
                 int id_raza = razas.getInt("id_raza");
                 String nombre = razas.getString("raza.nombre");
                 String descr = razas.getString("descripcion");
-                String vel = razas.getString("velocidad");
+                int vel = razas.getInt("velocidad");
                 int nMod1 = razas.getInt("num_bono_1");
                 int nMod2 = razas.getInt("num_bono_2");
                 String nombreLibro = razas.getString("libros_reglas.nombre");

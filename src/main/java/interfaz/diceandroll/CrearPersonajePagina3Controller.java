@@ -10,8 +10,12 @@ import interfaz.diceandroll.clases.Raza;
 import interfaz.diceandroll.clases.Subraza;
 import interfaz.diceandroll.clases.Trasfondo;
 import interfaz.diceandroll.clases.Usuario;
+import interfaz.diceandroll.conector.Conector;
+import static interfaz.diceandroll.App.conector;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -116,23 +120,22 @@ public class CrearPersonajePagina3Controller implements Initializable {
     @FXML
     private void botonVolver(ActionEvent event) {
         try{
-            //String tal = event.getSource();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("personajes.fxml"));
-            PersonajesController personajes = new PersonajesController();
-            Parent root = fxmlLoader.load();
-            personajes.setPanePrincipal(contenedor);
-            fxmlLoader.setController(personajes);
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Confirmación");
             confirmacion.setHeaderText("¿Estás seguro?");
             confirmacion.setContentText("Se perderán todos los datos no guardados");
             ButtonType respuesta = confirmacion.showAndWait().orElse(ButtonType.CANCEL);
-            personaje=null;
-            clase=null;
-            raza=null;
-            subraza=null;
             if(respuesta == ButtonType.OK){
+                FXMLLoader fxml = new FXMLLoader(getClass().getResource("personajes.fxml"));
+                Parent root = fxml.load();
                 contenedor.getChildren().setAll(root);
+                PersonajesController personajes = fxml.getController();
+                personajes.init(usuario, contenedor);
+                personaje=null;
+                clase=null;
+                trasfondo=null;
+                raza=null;
+                subraza=null;
             }
             
         } catch (IOException ex) {
@@ -181,9 +184,39 @@ public class CrearPersonajePagina3Controller implements Initializable {
         if(personaje.getNombre().equals("")){
             labelMensajeError.setText("Introduce el nombre del personaje");
         }
-        String insertPersonaje = "INSERT INTO personaje "
-                + "(nombre,puntos_de_golpe_maximos,puntos_de_golpe_actuales,iniciativa,velocidad,ca,competencia,fue,des,con,inte,sab,car,raza,usuario) "
-                + "values('"+personaje.getNombre()+"',"+clase.getPuntosGolpe()+","+clase.getPuntosGolpe()+","+personaje.getDes()+",'"+raza.getVelocidad()+"',10)";
+        try {
+            conector.setAutoCommit(false);
+            String insertPersonaje = "INSERT INTO personaje "
+                    + "(nombre,puntos_de_golpe_maximos,puntos_de_golpe_actuales,iniciativa,velocidad,ca,competencia,fue,des,con,inte,sab,car,raza,usuario) "
+                    + "VALUES('"+personaje.getNombre()+"',"+(clase.getPuntosGolpe()+(personaje.getCon()-10)/2)+","+(clase.getPuntosGolpe()+(personaje.getCon()-10)/2)+","+personaje.getDes()+",'"+raza.getVelocidad()+"',10,2"
+                    + ","+personaje.getFue()+","+personaje.getDes()+","+personaje.getCon()+","+personaje.getInte()+","+personaje.getSab()+","+personaje.getCar()
+                    + ","+raza.getIdRaza()+","+usuario.getIdUsuario()+")";
+            String consultaIdPersonaje = "SELECT AUTO_INCREMENT AS id_personaje FROM INFORMATION_SCHEMA.TABLES \n" +
+                "WHERE TABLE_SCHEMA = 'alu_sergio_dungeon' \n" +
+                "AND TABLE_NAME = 'personaje'";
+            ResultSet rs = Conector.getSelect(consultaIdPersonaje, conector);
+            int idPersonaje = -1;
+            if(rs.next())
+                idPersonaje = rs.getInt("id_personaje");
+            else
+                throw new SQLException();
+            String insertClase = "INSERT INTO clase_personaje "
+                + "(id_personaje,id_clase,nivel_clase) VALUES ("+idPersonaje+","+clase.getIdClase()+",1)";
+            Conector.insertTable(insertPersonaje, conector);
+            Conector.insertTable(insertClase, conector);
+            conector.commit();
+            labelMensajeError.setStyle("-fx-text-fill: #00BF63");
+            labelMensajeError.setText("Personaje creado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            try {
+                conector.rollback();
+            } catch (SQLException ex1) {
+                ex.printStackTrace();
+            }
+        }
+        
+        
     }
 
 }

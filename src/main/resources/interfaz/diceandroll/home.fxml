@@ -39,17 +39,6 @@
                   <FontAwesomeIconView glyphName="USERS" />
                </graphic>
             </Button>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#abrirMenuListaCampañas" prefHeight="43.0" prefWidth="109.0" style="-fx-background-color: transparent;" text="Campañas" wrapText="true" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font name="Calibri" size="16.0" />
-               </font>
-               <effect>
-                  <Blend />
-               </effect>
-               <graphic>
-                  <FontAwesomeIconView glyphName="BOOK" />
-               </graphic>
-            </Button>
             <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#mostrarDesplegable" prefHeight="43.0" prefWidth="98.0" style="-fx-background-color: transparent;" text="Explorar" wrapText="true" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Calibri" size="16.0" />
@@ -99,7 +88,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <VBox fx:id="desplegable" alignment="CENTER_LEFT" layoutX="316.0" layoutY="86.0" prefHeight="174.0" prefWidth="116.0" style="-fx-background-color: #DCDCDC;" visible="false">
+      <VBox fx:id="desplegable" alignment="CENTER_LEFT" layoutX="316.0" layoutY="86.0" prefHeight="174.0" prefWidth="116.0" style="-fx-background-color: #DCDCDC;" visible="false" AnchorPane.leftAnchor="202.0">
          <children>
             <Button alignment="TOP_LEFT" minWidth="-Infinity" mnemonicParsing="false" onAction="#abrirMenuListaRazas" prefHeight="43.0" prefWidth="72.0" style="-fx-background-color: transparent;" text="Razas" wrapText="true" VBox.vgrow="NEVER">
                <font>
@@ -169,6 +158,5 @@
             </Button>
          </children>
       </VBox>
-      <FontAwesomeIconView />
    </children>
 </AnchorPane>

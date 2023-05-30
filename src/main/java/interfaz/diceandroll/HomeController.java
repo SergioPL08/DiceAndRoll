@@ -15,7 +15,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -67,15 +69,22 @@ public class HomeController implements Initializable {
     @FXML
     private void cerrarSesion(ActionEvent event) {
         try {
-            usuario = null;
-            Stage stage = new Stage();
-            Parent content = FXMLLoader.load(getClass().getResource("login.fxml"));
-            Scene home = new Scene(content, 527, 577);
-            stage.setScene(home);
-            stage.show();
-            Node tal = (Node) event.getSource();
-            Stage ventAct = (Stage) tal.getScene().getWindow();
-            ventAct.close();
+            Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacion.setTitle("Confirmación");
+            confirmacion.setHeaderText("¿Estás seguro?");
+            confirmacion.setContentText("Estás a punto de cerrar la sesión, tendrás que volver a inciar sesión cuando vuelvas");
+            ButtonType respuesta = confirmacion.showAndWait().orElse(ButtonType.CANCEL);
+            if(respuesta == ButtonType.OK){
+                usuario = null;
+                Stage stage = new Stage();
+                Parent content = FXMLLoader.load(getClass().getResource("login.fxml"));
+                Scene home = new Scene(content, 527, 577);
+                stage.setScene(home);
+                stage.show();
+                Node tal = (Node) event.getSource();
+                Stage ventAct = (Stage) tal.getScene().getWindow();
+                ventAct.close();
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }

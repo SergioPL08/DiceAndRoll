@@ -278,7 +278,7 @@ public class PersonajesController implements Initializable {
                 int puntosGolpeAct = personajes.getInt("puntos_de_golpe_actuales");
                 int iniciativa = personajes.getInt("iniciativa");
                 int ca = personajes.getInt("ca");
-                String vel = personajes.getString("velocidad");
+                int vel = personajes.getInt("velocidad");
                 int bonoComp = personajes.getInt("competencia");
                 int fue = personajes.getInt("fue");
                 int des = personajes.getInt("des");
@@ -297,9 +297,9 @@ public class PersonajesController implements Initializable {
             //Como cada personaje puede tener varias clases, tenemos que hacer una consulta aparte para mostrar las clases del personaje y añadirlas a una lista
             String consultaClases = "SELECT * from clase_personaje "
                     + "INNER JOIN clase ON clase_personaje.id_clase = clase.id_clase "
-                    + "INNER JOIN personaje on clase_personaje.id_personaje = personaje.id_personaje ";
+                    + "INNER JOIN personaje on clase_personaje.id_personaje = personaje.id_personaje WHERE personaje.usuario= "+usuario.getIdUsuario();
             if(!buscador.equals(""))
-                consultaClases += " WHERE personaje.nombre LIKE '%"+buscador+"%' ";
+                consultaClases += " AND personaje.nombre LIKE '%"+buscador+"%' ";
             //Si queremos ordenar por nombre ascendente o descendente o por libro de reglas
             if(filtro!=null){
                 if(filtro.equals("Nombre [a-z]"))
@@ -309,7 +309,7 @@ public class PersonajesController implements Initializable {
             }
             else
                 consultaClases += " order by personaje.nombre, nivel_clase desc";
-            //System.out.println(consultaClases);
+            System.out.println(consultaClases);
             ResultSet rsClases = Conector.getSelect(consultaClases, conector);
             int contador = 0;
             int personajeAnterior=-1;
@@ -319,18 +319,14 @@ public class PersonajesController implements Initializable {
                 int idClase = rsClases.getInt("clase.id_clase");
                 String nombreClase = rsClases.getString("clase.nombre");
                 int nivelClase = rsClases.getInt("nivel_clase");
-                if(personajeAnterior==-1||personajeAnterior==idPersonaje){
-                    clases.add(nombreClase+" "+nivelClase);
-                    personajeAnterior=idPersonaje;
-                    
-                }
-                else{
+                if (personajeAnterior != -1 && personajeAnterior != idPersonaje) {
                     listaClases.add(String.join(" ", clases));
                     contador++;
-                    personajeAnterior=-1;
                     clases.clear();
-                    clases.add(nombreClase + " " + nivelClase);
                 }
+
+                clases.add(nombreClase + " " + nivelClase);
+                personajeAnterior = idPersonaje;
             }
             if (!clases.isEmpty()) {
                 listaClases.add(String.join(" ", clases));
@@ -471,6 +467,7 @@ public class PersonajesController implements Initializable {
     private void botonAplicarFiltro(ActionEvent event) {
         generaArrayPersonajes();
         int contador=0;
+        paginaActual=1;
         while(contador<NUM_ELEMENTOS_POR_PAGINA){
             listaPane.get(contador).setVisible(false); 
             File ruta = new File("..\\..\\img\\no_image.png");

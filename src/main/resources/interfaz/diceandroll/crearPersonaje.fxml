@@ -38,7 +38,7 @@
                         <Font name="Calibri Bold" size="19.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldNombrePersronaje" style="-fx-background-color: #EFEFEF; -fx-border-radius: 10;" text="Alfonso" />
+                  <TextField fx:id="textFieldNombrePersronaje" style="-fx-background-color: #EFEFEF; -fx-border-radius: 10;" text="Juan" />
                   <Label text="Clase" textFill="#4f68f6">
                      <font>
                         <Font name="Calibri Bold" size="19.0" />

@@ -31,6 +31,12 @@ public class Clase {
     private int idLibro;
     private int idPersonaje;
 
+    public Clase(int id_clase, String nombre, int puntosGolpe) {
+        this.id_clase = id_clase;
+        this.nombre = nombre;
+        this.puntosGolpe = puntosGolpe;
+    }
+    
     public Clase(int id_clase, String nombre) {
         this.id_clase = id_clase;
         this.nombre = nombre;

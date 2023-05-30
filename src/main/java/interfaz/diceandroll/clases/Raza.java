@@ -12,13 +12,13 @@ public class Raza {
     private int idRaza;
     private String nombre;
     private String descripcion;
-    private String velocidad;
+    private int velocidad;
     int mod1;
     int mod2;
     private int idLibro;
     private int idPersonaje;
 
-    public Raza(int idRaza, String nombre, String descripcion, String velocidad, int nMod1, int nMod2,int idLibro) {
+    public Raza(int idRaza, String nombre, String descripcion, int velocidad, int nMod1, int nMod2,int idLibro) {
         this.idRaza = idRaza;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -32,6 +32,12 @@ public class Raza {
     public Raza(int idRaza, String nombre) {
         this.idRaza = idRaza;
         this.nombre = nombre;
+    }
+    
+    public Raza(int idRaza, String nombre, int velocidad) {
+        this.idRaza = idRaza;
+        this.nombre = nombre;
+        this.velocidad = velocidad;
     }
     
     
@@ -60,16 +66,13 @@ public class Raza {
         this.descripcion = descripcion;
     }
 
-    public String getVelocidad() {
+    public int getVelocidad() {
         return velocidad;
     }
 
-    public void setVelocidad(String velocidad) {
+    public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-
-   
-
     public int getMod1() {
         return mod1;
     }

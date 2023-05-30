@@ -14,13 +14,13 @@ public class Personaje {
     private int idRaza;
     private String nombreRaza;
     private String nombreSubRaza;    
-    private String velocidad;
+    private int velocidad;
     private int vidaMaxima, vidaActual, iniciativa, claseArmadura, competencia;
     private int fue,des,con,inte,sab,car;
     private int idUsuario;
     private int total;
 
-    public Personaje(int idPersonaje, String nombre, int idRaza, String nombreRaza, String nombreSubRaza, String velocidad, int vidaMaxima, int vidaActual, int iniciativa, int claseArmadura, int competencia, int fue, int des, int con, int inte, int sab, int car) {
+    public Personaje(int idPersonaje, String nombre, int idRaza, String nombreRaza, String nombreSubRaza, int velocidad, int vidaMaxima, int vidaActual, int iniciativa, int claseArmadura, int competencia, int fue, int des, int con, int inte, int sab, int car) {
         this.idPersonaje = idPersonaje;
         this.nombre = nombre;
         this.idRaza = idRaza;
@@ -90,14 +90,12 @@ public class Personaje {
     public void setNombreSubRaza(String nombreSubRaza) {
         this.nombreSubRaza = nombreSubRaza;
     }
-    
-    
 
-    public String getVelocidad() {
+    public int getVelocidad() {
         return velocidad;
     }
 
-    public void setVelocidad(String velocidad) {
+    public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 

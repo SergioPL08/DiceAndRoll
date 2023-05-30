@@ -7,7 +7,6 @@ package interfaz.diceandroll;
 import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Personaje;
 import interfaz.diceandroll.clases.Raza;
-import interfaz.diceandroll.clases.Trasfondo;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Subraza;
@@ -18,8 +17,6 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +39,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -182,23 +178,22 @@ public class CrearPersonajePagina2Controller implements Initializable {
     @FXML
     private void botonVolver(ActionEvent event) {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("personajes.fxml"));
-            PersonajesController personajes = new PersonajesController();
-            Parent root = fxmlLoader.load();
-            personajes.setPanePrincipal(contenedor);
-            fxmlLoader.setController(personajes);
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Confirmación");
             confirmacion.setHeaderText("¿Estás seguro?");
             confirmacion.setContentText("Se perderán todos los datos no guardados");
             ButtonType respuesta = confirmacion.showAndWait().orElse(ButtonType.CANCEL);
-            personaje=null;
-            clase=null;
-            raza=null;
-            subraza=null;
-            trasfondo=null;
             if(respuesta == ButtonType.OK){
+                FXMLLoader fxml = new FXMLLoader(getClass().getResource("personajes.fxml"));
+                Parent root = fxml.load();
                 contenedor.getChildren().setAll(root);
+                PersonajesController personajes = fxml.getController();
+                personajes.init(usuario, contenedor);
+                personaje=null;
+                trasfondo=null;
+                clase=null;
+                raza=null;
+                subraza=null;
             }
             
         } catch (IOException ex) {
