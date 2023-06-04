@@ -17,6 +17,9 @@ public class Raza {
     int mod2;
     private int idLibro;
     private int idPersonaje;
+    private int numBono1;
+    private int numBono2;
+    
 
     public Raza(int idRaza, String nombre, String descripcion, int velocidad, int nMod1, int nMod2,int idLibro) {
         this.idRaza = idRaza;
@@ -106,6 +109,23 @@ public class Raza {
         this.idPersonaje = idPersonaje;
     }
 
+    public int getNumBono1() {
+        return numBono1;
+    }
+
+    public void setNumBono1(int numBono1) {
+        this.numBono1 = numBono1;
+    }
+
+    public int getNumBono2() {
+        return numBono2;
+    }
+
+    public void setNumBono2(int numBono2) {
+        this.numBono2 = numBono2;
+    }
+
+    
     
     @Override
     public String toString(){

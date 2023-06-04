@@ -17,10 +17,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.TextFlow;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 /**
  * FXML Controller class
@@ -36,8 +39,6 @@ public class ExplorarConjuroController implements Initializable {
     Pane panelPrincipal;
     @FXML
     private Label labelNombreConjuro;
-    @FXML
-    private Label labelDescripcion;
     @FXML
     private Label labelNombreLibro;
     @FXML
@@ -56,6 +57,8 @@ public class ExplorarConjuroController implements Initializable {
     private Label labelNombreLibro1;
     @FXML
     private Label labelComponentesConjuro;
+    @FXML
+    private VBox vboxDescripcion;
     
     /**
      * Initializes the controller class.
@@ -82,7 +85,27 @@ public class ExplorarConjuroController implements Initializable {
                 labelAlcance.setText(conjuro.getAlcance());
                 labelTiempoLanzamiento.setText(conjuro.getTiempoLanzamiento());
                 labelDuracion.setText(conjuro.getDuracion());
-                labelDescripcion.setText(conjuro.getDescripcion());
+                String html = 
+                    "<html>"
+                        + "<head>"
+                            + "<style>"
+                                + "body{font-family: Calibri; font-size: 14px;}"
+                            + "</style>"
+                        + "</head>" 
+                        + "</body>"
+                        + conjuro.getDescripcion()
+                        +"</body>";
+                WebView webViewDescripcion = new WebView();
+                WebEngine webEngine = webViewDescripcion.getEngine();
+                webEngine.loadContent(html);
+                webViewDescripcion.setStyle("-fx-padding-right: 10px;");
+                vboxDescripcion.setMinHeight(Control.USE_PREF_SIZE);
+                vboxDescripcion.setMaxHeight(Control.USE_PREF_SIZE);
+                vboxDescripcion.setPrefHeight(Control.USE_COMPUTED_SIZE);
+                vboxDescripcion.setMaxWidth(Control.USE_PREF_SIZE);
+                vboxDescripcion.setMinWidth(Control.USE_PREF_SIZE);
+                vboxDescripcion.getChildren().add(webViewDescripcion);
+                        
         }    
     }    
     

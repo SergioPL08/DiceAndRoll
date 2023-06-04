@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarClaseController">
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarClaseController">
    <children>
       <Label fx:id="labelNombreClase" layoutX="23.0" layoutY="23.0" text="Clase" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="23.0">
          <font>
@@ -85,9 +85,29 @@
             </VBox>
          </children>
       </Pane>
-      <ScrollPane layoutX="660.0" layoutY="49.0" prefHeight="521.0" prefWidth="512.0" style="-fx-background-color: transparent;">
+      <ScrollPane layoutX="660.0" layoutY="49.0" prefHeight="521.0" prefWidth="512.0" style="-fx-background-color: #FFF;">
          <content>
-            <VBox fx:id="vboxHabilidades" prefHeight="516.0" prefWidth="496.0" spacing="10.0" style="-fx-background-color: transparent;" />
+            <VBox fx:id="vboxHabilidades" prefHeight="516.0" prefWidth="496.0" spacing="10.0" style="-fx-background-color: #FFF;">
+               <children>
+                  <Label text="Rasgos de clase" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxRasgosClase" prefWidth="100.0" />
+                  <Label fx:id="labelRasgosEspeciales" text="Rasgos especiales" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxRasgosEleccion" prefWidth="100.0" />
+                  <Label text="Subclases" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxSubclases" prefWidth="100.0" />
+               </children></VBox>
          </content>
       </ScrollPane>
       <Button layoutX="1191.0" layoutY="31.0" mnemonicParsing="false" onAction="#volverListadoDotes" style="-fx-background-color: #3583F2;" text="Listado" textFill="WHITE">

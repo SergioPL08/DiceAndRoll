@@ -7,6 +7,7 @@ package interfaz.diceandroll;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.CrearPersonajeController;
+import interfaz.diceandroll.clases.Clase;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -123,6 +124,7 @@ public class PersonajesController implements Initializable {
     ArrayList<Label> listaClase;
     ArrayList<Button> listaBotones;
     ArrayList<ImageView> listaImageview;
+    ArrayList<Clase> listaClasesPersonaje;
     List<String> listaClases;
     private int indice = 0;
     private int totalPaginas;
@@ -165,6 +167,7 @@ public class PersonajesController implements Initializable {
         listaBotones = new ArrayList();
         listaImageview = new ArrayList();
         listaImagenes = new ArrayList();
+        listaClasesPersonaje = new ArrayList();
         String[] filtrosOrdenacion = {"Nombre [a-z]","Nombre [z-a]"};
         ObservableList<String> listaValores = FXCollections.observableArrayList(filtrosOrdenacion);
         //Inicializamos las listas
@@ -324,7 +327,6 @@ public class PersonajesController implements Initializable {
                     contador++;
                     clases.clear();
                 }
-
                 clases.add(nombreClase + " " + nivelClase);
                 personajeAnterior = idPersonaje;
             }
@@ -413,7 +415,7 @@ public class PersonajesController implements Initializable {
                 textoRaza = subRaza;
             else
                 textoRaza = raza;
-            listaClase.get(contador).setText((textoRaza)+" "+(listaClases.get(inicio + contador-1)));
+            listaClase.get(contador-1).setText((textoRaza)+" "+(listaClases.get(inicio + contador-1)));
             //listaImageview.get(contador-1).setImage(listaImagenes.get(inicio+contador-1));
             contador++;
         }
@@ -543,7 +545,7 @@ public class PersonajesController implements Initializable {
         personaje = listaPersonajes.get(indice);
         String clase = listaClases.get(indice);
         //Image imagen = listaImagenes.get(indice);
-        
+        Clase clasePersonaje=listaClasesPersonaje.get(0);
         abrirMenuFichaPersonaje(personaje,clase);
     }
     
@@ -554,7 +556,7 @@ public class PersonajesController implements Initializable {
      * @param libro 
      */
     
-    private void abrirMenuFichaPersonaje(Personaje personaje, String clase) {
+    private void abrirMenuFichaPersonaje(Personaje personaje, String clase){
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fichaPersonaje.fxml"));
         FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase);

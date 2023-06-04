@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.CrearPersonajePagina4Controller">
+   <children>
+      <ImageView fx:id="imagenPersonaje" fitHeight="90.0" fitWidth="93.0" layoutX="56.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="64.0">
+         <image>
+            <Image url="@../../img/no_image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="56.0" text="Añadir personaje" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="26.0">
+         <font>
+            <Font name="Calibri Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="1233.0" layoutY="44.0" mnemonicParsing="false" onAction="#botonVolver" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Volver" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <graphic>
+            <Label text="&lt;" textFill="WHITE" />
+         </graphic>
+      </Button>
+      <HBox layoutX="200.0" layoutY="118.0" prefHeight="458.0" prefWidth="1013.0" spacing="50.0" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="105.0">
+         <children>
+            <VBox fx:id="vboxRasgosClase" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="493.0" spacing="10.0">
+               <children>
+                  <Label fx:id="labelRasgosAutomaticos" text="Rasgos automáticos" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxRasgosClaseAutomaticos" prefWidth="576.0" />
+                  <Label fx:id="labelRasgosElegir" text="Rasgos a elegir" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vboxRasgosClaseElegir" prefWidth="100.0" />
+                  <Label fx:id="labelEligeRasgos" text="Elige uno de los siguientes rasgos:" />
+                  <ComboBox fx:id="comboBoxHabilidadesSeleccion" />
+                  <Label fx:id="labelSubclase" text="Subclase" textFill="#4f68f6">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelEligeSubclase" text="Elige una de las siguientes subclases" />
+                  <ComboBox fx:id="comboBoxSubclase" />
+               </children>
+            </VBox>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="355.0" spacing="10.0">
+               <children>
+                  <Label fx:id="labelCompetenciasClase" text="Competencias clase">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="competenciasClase" editable="false" onMouseClicked="#abrirListaSeleccionarCompetenciasClase" />
+                  <Label fx:id="labelTextoCompetenciaClase" alignment="TOP_LEFT" prefWidth="499.0" text="Competencia: " wrapText="true" />
+                  <Label fx:id="labelBonoRaza1" text="Raza: bono caracteristicas">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="competenciasRaza1" editable="false" onMouseClicked="#abrirListaSeleccionarBonosRaza1" />
+                  <Label fx:id="labelTextoBonoRaza1" alignment="TOP_LEFT" prefWidth="499.0" text="Competencia: " wrapText="true" />
+                  <Label fx:id="labelBonoRaza2" text="Raza: bono caracteristicas">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="competenciasRaza2" editable="false" onMouseClicked="#abrirListaSeleccionarBonosRaza2" />
+                  <Label fx:id="labelTextoBonoRaza2" alignment="TOP_LEFT" prefWidth="499.0" text="Competencia: " wrapText="true" />
+                  <Label fx:id="labelPericia" text="Pericia">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="pericia" editable="false" onMouseClicked="#abrirListaSeleccionarPericia" />
+                  <Label fx:id="labelTextoPericia" alignment="TOP_LEFT" prefWidth="499.0" text="+ Competencia a 2 habilidades a elegir: " wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="botonAvanzarUno" disable="true" layoutX="178.0" layoutY="596.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="295.0">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="botonRetrocederUno" layoutX="101.0" layoutY="553.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#botonVolverPagina" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="295.0">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="1139.0" layoutY="590.0" mnemonicParsing="false" onAction="#botonCrearPersonaje" style="-fx-background-color: #3583F2;" stylesheets="@../../style.css" text="Crear personaje" textFill="WHITE" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="580.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelMensajeError" alignment="TOP_LEFT" layoutX="224.0" layoutY="36.0" prefHeight="64.0" prefWidth="344.0" textFill="#f5605f" wrapText="true">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="78.0" text="Rasgos de clase" textFill="#4f68f6">
+         <font>
+            <Font name="Calibri Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

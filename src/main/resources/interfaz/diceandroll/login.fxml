@@ -58,12 +58,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <TextField fx:id="TextFieldUser" prefHeight="44.0" prefWidth="0.0" text="Sesio08" GridPane.rowIndex="1">
+                        <TextField fx:id="TextFieldUser" prefHeight="44.0" prefWidth="0.0" text="Juan42" GridPane.rowIndex="1">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <PasswordField fx:id="TextFieldPass" prefHeight="44.0" prefWidth="0.0" text="conTraseña1234" GridPane.rowIndex="3">
+                        <PasswordField fx:id="TextFieldPass" prefHeight="44.0" prefWidth="0.0" text="Juan42" GridPane.rowIndex="3">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>

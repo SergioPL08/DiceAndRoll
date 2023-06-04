@@ -214,16 +214,16 @@
             </Pane>
          </children>
       </HBox>
-      <Pane layoutX="21.0" layoutY="204.0" prefHeight="119.0" prefWidth="215.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <Pane layoutX="21.0" layoutY="204.0" prefHeight="119.0" prefWidth="228.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 3; -fx-border-radius: 20; -fx-background-radius: 20;">
          <children>
             <Label layoutX="11.0" layoutY="7.0" text="Tiradas de salvación">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>
             </Label>
-            <HBox layoutX="10.0" layoutY="32.0" prefHeight="86.0" prefWidth="206.0">
+            <HBox layoutX="11.0" layoutY="28.0" prefHeight="86.0" prefWidth="206.0">
                <children>
-                  <VBox prefHeight="0.0" prefWidth="26.0">
+                  <VBox prefHeight="0.0" prefWidth="26.0" spacing="4.0">
                      <children>
                         <RadioButton fx:id="radioButtonTSFue" mnemonicParsing="false">
                            <font>
@@ -254,7 +254,7 @@
                         <Insets bottom="20.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox prefHeight="0.0" prefWidth="37.0">
+                  <VBox prefHeight="0.0" prefWidth="37.0" spacing="4.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Fue" textAlignment="CENTER">
                            <font>
@@ -290,7 +290,7 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="labelTSFue" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSFue" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="+1" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -298,7 +298,7 @@
                               <Insets bottom="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="labelTSDes" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSDes" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -306,7 +306,7 @@
                               <Insets bottom="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="labelTSCon" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSCon" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -316,7 +316,7 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox prefHeight="0.0" prefWidth="26.0">
+                  <VBox prefHeight="0.0" prefWidth="26.0" spacing="4.0">
                      <children>
                         <RadioButton fx:id="radioButtonTSInt" mnemonicParsing="false">
                            <font>
@@ -344,7 +344,7 @@
                         </RadioButton>
                      </children>
                   </VBox>
-                  <VBox prefHeight="0.0" prefWidth="41.0">
+                  <VBox prefHeight="0.0" prefWidth="41.0" spacing="4.0">
                      <children>
                         <Label text="Int">
                            <font>
@@ -374,7 +374,7 @@
                   </VBox>
                   <VBox prefHeight="0.0" prefWidth="41.0">
                      <children>
-                        <Label fx:id="labelTSInt" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSInt" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -382,7 +382,7 @@
                               <Insets bottom="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="labelTSSab" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSSab" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -390,7 +390,7 @@
                               <Insets bottom="3.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="labelTSCar" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="22.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSCar" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -433,12 +433,12 @@
                         <Font name="Calibri" size="12.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="18.0" prefWidth="77.0" text="Armas">
+                  <Label prefHeight="18.0" prefWidth="99.0" text="Herramientas">
                      <font>
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
+                  <Label fx:id="labelCompetenciaHerramientas" alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
@@ -667,7 +667,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="labelCaracteristicaAsociada7" contentDisplay="CENTER" text="Sab" textAlignment="CENTER">
+                        <Label fx:id="labelCaracteristicaAsociada7" contentDisplay="CENTER" text="Car" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="12.0" />
                            </font>
@@ -921,7 +921,7 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="labelAcrobacias" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelAcrobacias" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
@@ -1107,7 +1107,7 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelCompetencia" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+            <Label fx:id="labelCompetencia" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="23.0" prefHeight="33.0" prefWidth="87.0" text="0" textAlignment="CENTER">
                <font>
                   <Font name="Source Sans Pro Bold" size="25.0" />
                </font>
@@ -1126,7 +1126,7 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelVelocidad" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+            <Label fx:id="labelVelocidad" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="23.0" prefHeight="33.0" prefWidth="83.0" text="0" textAlignment="CENTER">
                <font>
                   <Font name="Source Sans Pro Bold" size="25.0" />
                </font>
@@ -1145,7 +1145,7 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelIniciativa" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="23.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+            <Label fx:id="labelIniciativa" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="23.0" prefHeight="33.0" prefWidth="61.0" text="0" textAlignment="CENTER">
                <font>
                   <Font name="Source Sans Pro Bold" size="25.0" />
                </font>
@@ -1164,7 +1164,7 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="labelCA" layoutX="25.0" layoutY="21.0" prefHeight="37.0" prefWidth="49.0" style="-fx-background-color: transparent;" text="0">
+            <TextField fx:id="labelCA" alignment="CENTER" layoutX="10.0" layoutY="21.0" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: transparent;" text="0">
                <font>
                   <Font name="Calibri Bold" size="20.0" />
                </font>

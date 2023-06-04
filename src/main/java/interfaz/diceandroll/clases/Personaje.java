@@ -40,7 +40,8 @@ public class Personaje {
         this.car = car;
     }
 
-    public Personaje(String nombre,int fue,int des,int con,int inte,int sab,int car,int total){
+    public Personaje(int idPersonaje,String nombre,int fue,int des,int con,int inte,int sab,int car,int total){
+        this.idPersonaje=idPersonaje;
         this.nombre=nombre;
         this.fue=fue;
         this.des=des;

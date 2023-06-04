@@ -6,12 +6,14 @@ package interfaz.diceandroll;
 
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
+import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Habilidad;
 import interfaz.diceandroll.clases.Personaje;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +37,8 @@ public class FichaPersonajeController implements Initializable {
     private Pane panelPrincipal;
     private static Personaje personaje;
     private static String clase;
+    private static Clase clasePersonaje;
+    private static Clase clase2;
     @FXML
     private AnchorPane contenedor;
     @FXML
@@ -178,6 +182,8 @@ public class FichaPersonajeController implements Initializable {
     ArrayList<Habilidad> listaTS;
     ArrayList<String> listaNombreHabilidades;
     ArrayList<String> listaCaracteristicas;
+    ArrayList<Clase> listaClases;
+    
     @FXML
     private Label labelCaracteristicaAsociada1;
     @FXML
@@ -228,6 +234,8 @@ public class FichaPersonajeController implements Initializable {
     private RadioButton radioButtonTSCar;
     @FXML
     private ImageView imagenPersonaje;
+    @FXML
+    private Label labelCompetenciaHerramientas;
 
     /**
      * Initializes the controller class.
@@ -243,6 +251,7 @@ public class FichaPersonajeController implements Initializable {
         listaLabelTS = new ArrayList();
         listaNombreHabilidades = new ArrayList();
         listaTS = new ArrayList();
+        listaClases = new ArrayList();
         inicializarArrays();
         String signo = "";
         nombrePersonaje.setText(personaje.getNombre());
@@ -371,6 +380,7 @@ public class FichaPersonajeController implements Initializable {
         
         
         String consultaTS = "SELECT * FROM ts_personaje WHERE id_personaje="+personaje.getIdPersonaje();
+        System.out.println(consultaTS);
         ResultSet rsTS = Conector.getSelect(consultaTS, conector);
         contador = 0;
         int contadorTS = 0;
@@ -442,6 +452,77 @@ public class FichaPersonajeController implements Initializable {
                 }
                 contador++;
             }
+            //String clasePersonaje = clase.;
+            String consultaClase = "SELECT * FROM clase WHERE nombre=\""+clase+"\"";
+            System.out.println(consultaClase);
+            ResultSet rs = Conector.getSelect(consultaClase, conector);
+            while(rs.next()){
+                int idClase = rs.getInt("id_clase");
+                String nombre = rs.getString("clase.nombre");
+                int puntosGolpe = rs.getInt("puntos_golpe");
+                String resquisito_multiclase = rs.getString("requisito_multiclase1");
+                Boolean compArmasSimples = rs.getBoolean("competencia_armas_sencillas");
+                Boolean compArmasMarciales = rs.getBoolean("competencia_armas_marciales");
+                Boolean compArmadurasLigeras = rs.getBoolean("competencia_armaduras_ligeras");
+                Boolean compArmadurasMedias = rs.getBoolean("competencia_armaduras_intermedias");
+                Boolean compArmadurasPesadas = rs.getBoolean("competencia_armaduras_pesadas");
+                Boolean compEscudo = rs.getBoolean("competencia_escudo");
+                String textCompHab = rs.getString("texto_competencia_habilidades");
+                String caster = (String) rs.getString("tipo_caster");
+                String aptMag = (String) rs.getString("aptitud_magica");
+                String compStat1 = rs.getString("competencia_estadistica1");
+                String compStat2 = rs.getString("competencia_estadistica2");
+                int idLibro = rs.getInt("id_libro");
+                clase2 = new Clase(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,"",idLibro);
+                listaClases.add(clase2);
+            }
+            ArrayList armasCompetente = new ArrayList();
+            String consultaCompetenciaEquipo = "SELECT * FROM competencias_equipo_clase "
+                    + "INNER JOIN herramientas_base ON herramientas_base.id_herramienta = id_equipo "
+                    + "WHERE id_clase = "+listaClases.get(0).getIdClase();
+            ResultSet rs2 = Conector.getSelect(consultaCompetenciaEquipo, conector);
+            ArrayList equipoCompetente = new ArrayList();
+            if(listaClases.get(0).isCompetenciaArmasSencillas())
+               armasCompetente.add("Armas simples");
+            if(listaClases.get(0).isCompetenciaArmasMarciales())
+               armasCompetente.add("Armas marciales");
+            try {
+                if(rs!=null){
+                    while(rs.next()){
+                        armasCompetente.add(rs.getString("nombre"));
+                    }
+                }
+                if(rs2!=null){
+                    while(rs2.next()){
+                        equipoCompetente.add(rs2.getString("nombre"));
+                    }
+                }
+            } catch (SQLException ex) {
+                System.out.println("Error al cargar las competencias con armas");
+                ex.printStackTrace();
+            }
+            if(clase2.isCompetenciaArmasSencillas())
+               armasCompetente.add("Armas simples");
+            if(clase2.isCompetenciaArmasMarciales())
+           armasCompetente.add("Armas marciales");
+            for(Clase clase:listaClases){
+                List<String> competencias = new ArrayList();
+            if(clase.isCompetenciaArmadurasLigeras())
+                competencias.add("Armaduras ligeras");
+            if(clase.isCompetenciaArmadurasMedias())
+                competencias.add("Armaduras intermedias");
+            if(clase.isCompetenciaArmadurasPesadas())
+                competencias.add("Armaduras pesadas");
+            if(clase.isCompetenciaEscudo())
+                competencias.add("Escudo");
+            labelCompetenciaArmaduras.setText(String.join(", ", competencias));
+            List<String> ListCompetenciaArmas = armasCompetente;
+            labelCompetenciaArmas.setText(String.join(", ",ListCompetenciaArmas));
+            List<String> ListCompetenciaEquipo = equipoCompetente;
+            labelCompetenciaHerramientas.setText(String.join(", ",ListCompetenciaEquipo));
+            //labelCompetenciaHabilidades.setText(clase.getTextoCompetenciasHabilidades());
+            }
+            
         }
         catch(SQLException ex){
             System.out.println("Error al cargar la lista de TS del personaje");
@@ -563,6 +644,7 @@ public class FichaPersonajeController implements Initializable {
         this.personaje=personaje;
         this.clase=clase;
     }
+    
 
     @FXML
     private void abrirMenuEditarPersonaje(ActionEvent event) {

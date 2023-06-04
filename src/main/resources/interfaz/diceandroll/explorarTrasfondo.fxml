@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="731.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarTrasfondoController">
+<AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="731.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.ExplorarTrasfondoController">
     <stylesheets>
         <URL value="@explorartrasfondo.css" />
     </stylesheets>
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1280.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
-          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="1265.0">
+          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="1265.0" style="-fx-background-color: #FFF;">
                <children>
                   <Label fx:id="labelNombreTrasfondo" layoutX="25.0" layoutY="11.0" text="Nombre trasfondo">
                      <font>
@@ -30,38 +30,6 @@
                      </font>
                   </Label>
                   <Label fx:id="labelNombreLibro" layoutX="72.0" layoutY="37.0" prefHeight="17.0" prefWidth="364.0" />
-                  <VBox fx:id="vboxHabilidades" layoutX="544.0" layoutY="62.0" prefWidth="715.0" spacing="10.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="62.0">
-                     <children>
-                        <Label fx:id="labelDescripcionRasgos" alignment="TOP_LEFT" prefWidth="713.0" wrapText="true" />
-                        <Label onMouseClicked="#abrilCerralRasgoPersonalidad" text="Rasgos de personalidad">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="-5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <VBox fx:id="vboxRasgosPersonalidad" prefWidth="100.0" />
-                        <Label onMouseClicked="#abrilCerralIdeal" text="Ideales">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <VBox fx:id="vboxIdeales" prefWidth="100.0" />
-                        <Label onMouseClicked="#abrilCerralVinculo" text="Vínculos">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <VBox fx:id="vboxVinculos" prefWidth="100.0" />
-                        <Label onMouseClicked="#abrilCerralDefecto" text="Defectos">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <VBox fx:id="vboxDefectos" prefWidth="100.0" />
-                     </children>
-                  </VBox>
                   <VBox fx:id="vbox1" layoutX="25.0" layoutY="67.0" prefHeight="122.0" prefWidth="516.0" spacing="5.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="724.0" AnchorPane.topAnchor="67.0">
                      <children>
                         <Label fx:id="labelDescripcion" alignment="TOP_LEFT" prefWidth="512.0" wrapText="true" />
@@ -80,6 +48,42 @@
                         <VBox fx:id="vboxExpecialidades" prefWidth="328.0" />
                      </children>
                   </VBox>
+                  <ScrollPane fx:id="scrollpaneRasgos" layoutX="555.0" layoutY="67.0" prefHeight="595.0" prefWidth="650.0" style="-fx-border-color: #FFF; -fx-background-color: #FFF;">
+                     <content>
+                        <VBox fx:id="vboxHabilidades" prefHeight="184.0" prefWidth="646.0" spacing="10.0" style="-fx-background-color: #FFF;">
+                           <children>
+                              <Label fx:id="labelDescripcionRasgos" alignment="TOP_LEFT" prefWidth="713.0" wrapText="true" />
+                              <Label onMouseClicked="#abrilCerralRasgoPersonalidad" text="Rasgos de personalidad">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="-5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox fx:id="vboxRasgosPersonalidad" prefWidth="100.0" />
+                              <Label onMouseClicked="#abrilCerralIdeal" text="Ideales">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="vboxIdeales" prefWidth="100.0" />
+                              <Label onMouseClicked="#abrilCerralVinculo" text="Vínculos">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="vboxVinculos" prefWidth="100.0" />
+                              <Label onMouseClicked="#abrilCerralDefecto" text="Defectos">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="vboxDefectos" prefWidth="100.0" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
         </content>

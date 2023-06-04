@@ -26,3 +26,6 @@
     -fx-graphic: url("./img/logo/logoNombre.png");
     -fx-graphic-text-gap: 10;
 }
+.scroll-pane > .viewport  {
+     -fx-background-color: #FFF; 
+    }

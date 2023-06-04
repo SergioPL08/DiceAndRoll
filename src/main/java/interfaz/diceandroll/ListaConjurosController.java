@@ -477,7 +477,7 @@ public class ListaConjurosController implements Initializable {
     
     
     /**
-     * Abrimos la ventana de información detallada de la clase seleccionada
+     * Abrimos la ventana de información detallada de el conjuro seleccionado
      * @param event 
      */
     @FXML

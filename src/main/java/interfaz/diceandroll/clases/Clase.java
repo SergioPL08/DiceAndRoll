@@ -29,8 +29,11 @@ public class Clase {
     private String competenciaEstat2;
     private String icon;
     private int idLibro;
+    private int nivelSubclase;
     private int idPersonaje;
-
+    private int numHabNv1;
+            
+            
     public Clase(int id_clase, String nombre, int puntosGolpe) {
         this.id_clase = id_clase;
         this.nombre = nombre;
@@ -41,8 +44,62 @@ public class Clase {
         this.id_clase = id_clase;
         this.nombre = nombre;
     }
+    public Clase(int id_clase, String nombre,String descripcion) {
+        this.id_clase = id_clase;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    public Clase(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo, String otrasCompetenciasArmas, String otrasCompetencias, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica, String competenciaEstat1, String competenciaEstat2, String icon, int idLibro, int nivelSubclase) {
+        this.id_clase = id_clase;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosGolpe = puntosGolpe;
+        this.requisitoMulticlase = requisitoMulticlase;
+        this.competenciaArmasSencillas = competenciaArmasSencillas;
+        this.competenciaArmasMarciales = competenciaArmasMarciales;
+        this.competenciaArmadurasLigeras = competenciaArmadurasLigeras;
+        this.competenciaArmadurasMedias = competenciaArmadurasMedias;
+        this.competenciaArmadurasPesadas = competenciaArmadurasPesadas;
+        this.competenciaEscudo = competenciaEscudo;
+        this.otrasCompetenciasArmas = otrasCompetenciasArmas;
+        this.otrasCompetencias = otrasCompetencias;
+        this.textoCompetenciasHabilidades = textoCompetenciasHabilidades;
+        this.tipoCaster = tipoCaster;
+        this.aptitudMagica = aptitudMagica;
+        this.competenciaEstat1 = competenciaEstat1;
+        this.competenciaEstat2 = competenciaEstat2;
+        this.icon = icon;
+        this.idLibro = idLibro;
+        this.nivelSubclase = nivelSubclase;
+    }
+    public Clase(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, 
+            boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo, String textoCompetenciasHabilidades, 
+            String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, String icon, int idLibro) {
+        this.id_clase = id_clase;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.puntosGolpe = puntosGolpe;
+        this.requisitoMulticlase = requisitoMulticlase;
+        this.competenciaArmasSencillas = competenciaArmasSencillas;
+        this.competenciaArmasMarciales = competenciaArmasMarciales;
+        this.competenciaArmadurasLigeras = competenciaArmadurasLigeras;
+        this.competenciaArmadurasMedias = competenciaArmadurasMedias;
+        this.competenciaArmadurasPesadas = competenciaArmadurasPesadas;
+        this.competenciaEscudo = competenciaEscudo;
+        this.textoCompetenciasHabilidades = textoCompetenciasHabilidades;
+        this.tipoCaster = tipoCaster;
+        this.aptitudMagica = aptitudMagica;
+        this.competenciaEstat1 = competenciaEstat1;
+        this.competenciaEstat2 = competenciaEstat2;
+        this.icon = icon;
+        this.idLibro = idLibro;
+    }
     
-    public Clase(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, boolean competenciaEscudo, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, String icon, int idLibro) {
+    public Clase(int id_clase, String nombre, String descripcion, int puntosGolpe, String requisitoMulticlase, boolean competenciaArmasSencillas, 
+            boolean competenciaArmasMarciales, boolean competenciaArmadurasLigeras, boolean competenciaArmadurasMedias, boolean competenciaArmadurasPesadas, 
+            boolean competenciaEscudo, String textoCompetenciasHabilidades, String tipoCaster, String aptitudMagica,String competenciaEstat1,String competenciaEstat2, 
+            String icon, int nivelSubclase, int numHabNv1, int idLibro) {
         this.id_clase = id_clase;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -59,8 +116,11 @@ public class Clase {
         this.textoCompetenciasHabilidades = textoCompetenciasHabilidades;
         this.icon = icon;
         this.idLibro = idLibro;
+        this.numHabNv1=this.numHabNv1;
+        this.nivelSubclase=nivelSubclase;
         this.idPersonaje = idPersonaje;
     }
+    
     public int getIdClase() {
         return id_clase;
     }
@@ -225,6 +285,32 @@ public class Clase {
     public void setOtrasCompetenciasArmas(String otrasCompetenciasArmas) {
         this.otrasCompetenciasArmas = otrasCompetenciasArmas;
     }
+
+    public int getId_clase() {
+        return id_clase;
+    }
+
+    public void setId_clase(int id_clase) {
+        this.id_clase = id_clase;
+    }
+
+    public int getNivelSubclase() {
+        return nivelSubclase;
+    }
+
+    public void setNivelSubclase(int nivelSubclase) {
+        this.nivelSubclase = nivelSubclase;
+    }
+
+    public int getNumHabNv1() {
+        return numHabNv1;
+    }
+
+    public void setNumHabNv1(int numHabNv1) {
+        this.numHabNv1 = numHabNv1;
+    }
+    
+    
     
     @Override
     public String toString(){

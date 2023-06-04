@@ -37,6 +37,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -70,7 +72,9 @@ public class ExplorarClaseController implements Initializable {
     @FXML
     private Label labelNombreClase;
     Habilidad hab;
-    ArrayList<Habilidad> listaHabilidades;
+    ArrayList<Habilidad> listaHabilidadesClase;
+    ArrayList<Habilidad> listaHabilidadesEspeciales;
+    ArrayList<Habilidad> listaTodasHabilidades;
     @FXML
     private VBox vboxHabilidades;
     private static Clase clase;
@@ -79,6 +83,14 @@ public class ExplorarClaseController implements Initializable {
     private static Image imagen;
     @FXML
     private Label labelCompetenciaHerramientas;
+    @FXML
+    private VBox vboxRasgosClase;
+    @FXML
+    private VBox vboxRasgosEleccion;
+    @FXML
+    private VBox vboxSubclases;
+    @FXML
+    private Label labelRasgosEspeciales;
        
     /**
      * Initializes the controller class.
@@ -166,7 +178,9 @@ public class ExplorarClaseController implements Initializable {
     
     private void rellenaHabilidades(){
         try {
-            listaHabilidades = new ArrayList();
+            listaHabilidadesClase = new ArrayList();
+            listaHabilidadesEspeciales = new ArrayList();
+            listaTodasHabilidades = new ArrayList();
             String consulta = "SELECT * FROM habilidad_clase WHERE id_clase = "+clase.getIdClase()+" ORDER BY adquisicion,nivel,nombre";
             ResultSet rs = Conector.getSelect(consulta, conector);
             
@@ -183,9 +197,16 @@ public class ExplorarClaseController implements Initializable {
                 int bonoStat1 = rs.getInt("bono_caracteristica1");
                 int bonoStat2 = rs.getInt("bono_caracteristica2");
                 hab = new Habilidad(idHabilidad, nombre, descripcion, adquisicion, descCorta, stat1, stat2, nivel, bonoStat1, bonoStat2);
-                listaHabilidades.add(hab);
+                if(adquisicion.equals("automatico")){
+                    listaHabilidadesClase.add(hab);
+                    listaTodasHabilidades.add(hab);
+                }
+                else{
+                    listaHabilidadesEspeciales.add(hab);
+                    listaTodasHabilidades.add(hab);
+                }
             }
-            for(Habilidad hab: listaHabilidades){
+            for(Habilidad hab: listaTodasHabilidades){
                 Label nombre = new Label(hab.getNombre());
                 Label nivel = new Label("Nivel "+hab.getNivel());
                 HBox hbox = new HBox();
@@ -199,8 +220,14 @@ public class ExplorarClaseController implements Initializable {
                 hbox.getChildren().addAll(nombre,separacion,nivel);
                 hbox.setHgrow(hbox, Priority.ALWAYS);
                 hbox.setStyle("-fx-background-color: #");
-                vboxHabilidades.getChildren().add(hbox);
-                vboxHabilidades.setAlignment(Pos.TOP_LEFT);
+                if(hab.getAdquisicion().equals("automatico")){
+                    vboxRasgosClase.getChildren().add(hbox);
+                    vboxRasgosClase.setAlignment(Pos.TOP_LEFT);
+                }
+                else{
+                    vboxRasgosEleccion.getChildren().add(hbox);
+                    vboxRasgosEleccion.setAlignment(Pos.TOP_LEFT);
+                }
                 HBox.setHgrow(nombre, Priority.ALWAYS);
                 HBox.setHgrow(separacion, Priority.ALWAYS);   
                 hbox.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -209,13 +236,36 @@ public class ExplorarClaseController implements Initializable {
                         Stage ventanaEmergente = new Stage();
                         VBox vboxDetalle = new VBox();
                         Label labellNombre = new Label(hab.getNombre());
-                        labellNombre.setStyle("-fx-text-fill: #3583F2");
-                        Label labelDescripcion = new Label(hab.getDescripcion());
-                        labelDescripcion.setWrapText(true);
-                        labelDescripcion.setMaxWidth(Double.MAX_VALUE);
-                        labelDescripcion.setPrefWidth(500);
+                        labellNombre.setStyle("-fx-text-fill: #3583F2; -fx-font-size:20; -fx-alingment:center; -fx-font-weight:bold");
+                        VBox vboxDescripcion = new VBox();
+                        String html = 
+                            "<html>"
+                                + "<head>"
+                                    + "<style>"
+                                        + "body{font-family: Calibri; font-size: 14px;}"
+                                    + "</style>"
+                                + "</head>" 
+                                + "</body>"
+                                + hab.getDescripcion()
+                                +"</body>";
+                        WebView webViewDescripcion = new WebView();
+                        WebEngine webEngine = webViewDescripcion.getEngine();
+                        webEngine.loadContent(html);
+                        webViewDescripcion.setStyle("-fx-padding-right: 10px;");
+                        vboxDescripcion.setMinHeight(Control.USE_PREF_SIZE);
+                        vboxDescripcion.setMaxHeight(Control.USE_PREF_SIZE);
+                        vboxDescripcion.setPrefHeight(Control.USE_COMPUTED_SIZE);
+                        vboxDescripcion.setMaxWidth(Control.USE_PREF_SIZE);
+                        vboxDescripcion.setMinWidth(Control.USE_PREF_SIZE);
+                        webViewDescripcion.setPrefSize(400, 550);
+                        vboxDescripcion.setPrefWidth(500);
                         ScrollPane sp = new ScrollPane();
-                        vboxDetalle.getChildren().addAll(labellNombre, labelDescripcion);
+                        vboxDescripcion.getChildren().add(webViewDescripcion);
+                        vboxDetalle.getChildren().addAll(labellNombre);
+                        vboxDetalle.getChildren().addAll(vboxDescripcion);
+                        
+                        vboxDetalle.setStyle("-fx-background-color:#FFF");
+                        vboxDescripcion.setStyle("-fx-background-color:#FFF; -fx-padding:0 0 0 13");
                         sp.setContent(vboxDetalle);
                         Scene scene = new Scene(sp, 500, 600);
                         scene.getStylesheets().add("style.css");
@@ -223,6 +273,9 @@ public class ExplorarClaseController implements Initializable {
                         ventanaEmergente.show();
                     }
                 });
+            }
+            if(listaHabilidadesEspeciales.isEmpty()){
+                labelRasgosEspeciales.setManaged(false);
             }
         } catch (SQLException ex) {
             System.out.println("Error al rellenar las habilidades");

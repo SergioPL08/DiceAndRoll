@@ -72,10 +72,6 @@ public class CrearPersonajeController implements Initializable {
     ArrayList<Button> listaBotonesSumar;
     ArrayList<Label> listaValoresCaracteristicas;
     ArrayList<Label> listaModCaracteristicas;
-    private int ID_CLASE_VALOR_POR_DEFECTO = 7;
-    private String NOMBRE_CLASE_VALOR_POR_DEFECTO = "Guerrero";
-    private int ID_RAZA_VALOR_POR_DEFECTO = 6;
-    private String NOMBRE_RAZA_VALOR_POR_DEFECTO = "Humano";
     @FXML
     private Label labelValorFue;
     @FXML
@@ -147,9 +143,31 @@ public class CrearPersonajeController implements Initializable {
         try {
             while(rsClases.next()){
                 int idClase = rsClases.getInt("id_clase");
-                String nombreClase = rsClases.getString("nombre");
+                String nombre = rsClases.getString("clase.nombre");
                 int puntosGolpe = rsClases.getInt("puntos_golpe");
-                Clase clase = new Clase(idClase, nombreClase, puntosGolpe);
+                String resquisito_multiclase = rsClases.getString("requisito_multiclase1");
+                Boolean compArmasSimples = rsClases.getBoolean("competencia_armas_sencillas");
+                Boolean compArmasMarciales = rsClases.getBoolean("competencia_armas_marciales");
+                Boolean compArmadurasLigeras = rsClases.getBoolean("competencia_armaduras_ligeras");
+                Boolean compArmadurasMedias = rsClases.getBoolean("competencia_armaduras_intermedias");
+                Boolean compArmadurasPesadas = rsClases.getBoolean("competencia_armaduras_pesadas");
+                Boolean compEscudo = rsClases.getBoolean("competencia_escudo");
+                String textCompHab = rsClases.getString("texto_competencia_habilidades");
+                String caster = (String) rsClases.getString("tipo_caster");
+                String aptMag = (String) rsClases.getString("aptitud_magica");
+                String compStat1 = rsClases.getString("competencia_estadistica1");
+                String compStat2 = rsClases.getString("competencia_estadistica2");
+                String icon = rsClases.getString("icon");
+                int nivelSubclase = rsClases.getInt("nivel_subclase");
+                int numHabNv1 = rsClases.getInt("num_habilidades_elegir_nv1");
+                int idLibro = rsClases.getInt("id_libro");
+                Clase clase = new Clase(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,
+                        compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,
+                        textCompHab,caster,aptMag,compStat1,compStat2,icon,nivelSubclase,numHabNv1,idLibro);
+                clase.setCompetenciaEstat1(compStat1);
+                clase.setCompetenciaEstat2(compStat2);
+                System.out.println("numHabNv1: "+numHabNv1);
+                clase.setNumHabNv1(numHabNv1);
                 listaClases.add(clase);
             }
         } catch (SQLException ex) {
@@ -158,8 +176,7 @@ public class CrearPersonajeController implements Initializable {
         }
         ObservableList<Clase> listaComboBoxClases = FXCollections.observableArrayList(listaClases);
         comboBoxClase.setItems(listaComboBoxClases);
-        Clase clase = new Clase(ID_CLASE_VALOR_POR_DEFECTO, NOMBRE_CLASE_VALOR_POR_DEFECTO);
-        comboBoxClase.setValue(clase);
+        comboBoxClase.setValue(listaComboBoxClases.get(6));
         
         String consultaRazas = "SELECT * FROM raza";
         ResultSet rsRazas = Conector.getSelect(consultaRazas, conector);
@@ -168,7 +185,11 @@ public class CrearPersonajeController implements Initializable {
                 int idRaza = rsRazas.getInt("id_raza");
                 String nombreRaza = rsRazas.getString("nombre");
                 int velocidad = rsRazas.getInt("velocidad");
+                int numBono1 = rsRazas.getInt("num_bono_1");
+                int numBono2 = rsRazas.getInt("num_bono_2");
                 Raza raza = new Raza(idRaza, nombreRaza, velocidad);
+                raza.setNumBono1(numBono1);
+                raza.setNumBono2(numBono2);
                 listaRazas.add(raza);
             }
         } catch (SQLException ex) {
@@ -177,9 +198,8 @@ public class CrearPersonajeController implements Initializable {
         }
         ObservableList<Raza> listaComboBoxRazas = FXCollections.observableArrayList(listaRazas);
         comboBoxRaza.setItems(listaComboBoxRazas);
-        Raza raza = new Raza(ID_RAZA_VALOR_POR_DEFECTO, NOMBRE_RAZA_VALOR_POR_DEFECTO);
-        comboBoxRaza.setValue(raza);
         comboBoxRaza.setItems(listaComboBoxRazas);
+        comboBoxRaza.setValue(listaRazas.get(5));
         if(personaje!=null){
             textFieldNombrePersronaje.setText(personaje.getNombre());
             labelValorFue.setText(String.valueOf(personaje.getFue()));
@@ -422,10 +442,20 @@ public class CrearPersonajeController implements Initializable {
         int sab = Integer.parseInt(labelValorSab.getText());
         int car = Integer.parseInt(labelValorCar.getText());
         int total = Integer.parseInt(labelTotal.getText());
-        Personaje personaje = new Personaje(nombre,fue,des,con,inte,sab,car,total);
+        String consultaIdPersonaje = "SELECT AUTO_INCREMENT AS id_personaje FROM INFORMATION_SCHEMA.TABLES \n" +
+            "WHERE TABLE_SCHEMA = 'alu_sergio_dungeon' \n" +
+            "AND TABLE_NAME = 'personaje'";
+        ResultSet rs = Conector.getSelect(consultaIdPersonaje, conector);
+        int idPersonaje = -1;
+        try{
+            if(rs.next())
+                idPersonaje = rs.getInt("id_personaje");
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        Personaje personaje = new Personaje(idPersonaje,nombre,fue,des,con,inte,sab,car,total);
         abrirPagina(personaje,clase,raza,subraza,this.trasfondo);
-        
-        
     }
 
     

@@ -28,6 +28,18 @@ public class Habilidad {
         this.bonoStat2 = bonoStat2;
     }
     
+    public Habilidad(String nombre,int bono){
+        this.nombre=nombre;
+        this.bono=bono;
+    }
+    
+    public Habilidad(String nombre,String descripcion,String adquisicion,String descCorta){
+        this.nombre=nombre;
+        this.descCorta=descCorta;
+        this.adquisicion=adquisicion;
+        this.descripcion=descripcion;
+    }
+    
     public Habilidad(String nombre, int base, int bono, boolean competencia, boolean pericia){
         this.nombre=nombre;
         this.base=base;
@@ -159,6 +171,13 @@ public class Habilidad {
 
     public void setPericia(boolean pericia) {
         this.pericia = pericia;
+    }
+
+    
+    
+    @Override
+    public String toString() {
+        return nombre;
     }
     
     

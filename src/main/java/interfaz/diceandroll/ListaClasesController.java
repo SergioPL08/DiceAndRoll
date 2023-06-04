@@ -4,7 +4,6 @@
  */
 package interfaz.diceandroll;
 
-import interfaz.diceandroll.ExplorarClaseController;
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Clase;
@@ -55,8 +54,6 @@ public class ListaClasesController implements Initializable {
     private TextField textFieldBuscador;
     @FXML
     private ComboBox<String> comboBox;
-    @FXML
-    private GridPane gridPane;
     @FXML
     private Button botonVolverInicio;
     @FXML
