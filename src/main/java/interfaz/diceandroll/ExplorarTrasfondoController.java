@@ -133,30 +133,35 @@ public class ExplorarTrasfondoController implements Initializable {
                 int contador = 1;
                 for(Object rasgo: listaRasgos){
                     Label nombre = new Label(contador+". "+rasgo.toString());
+                    nombre.setWrapText(true);
                     vboxRasgosPersonalidad.getChildren().add(nombre);
                     contador++;
                 }
                 contador = 1;
                 for(Object vinculo: listaVinculos){
                     Label nombre = new Label(contador+". "+vinculo.toString());
+                    nombre.setWrapText(true);
                     vboxVinculos.getChildren().add(nombre);
                     contador++;
                 }
                 contador = 1;
                 for(Object defecto: listaDefectos){
                     Label nombre = new Label(contador+". "+defecto.toString());
+                    nombre.setWrapText(true);
                     vboxDefectos.getChildren().add(nombre);
                     contador++;
                 }
                 contador = 1;
                 for(Object ideal: listaIdeles){
                     Label nombre = new Label(contador+". "+ideal.toString());
+                    nombre.setWrapText(true);
                     vboxIdeales.getChildren().add(nombre);
                     contador++;
                 }
                 contador = 1;
                 for(Object especialidad: listaEspecialidades){
                     Label nombre = new Label(contador+". "+especialidad.toString());
+                    nombre.setWrapText(true);
                     vboxExpecialidades.getChildren().add(nombre);
                     contador++;
                 }

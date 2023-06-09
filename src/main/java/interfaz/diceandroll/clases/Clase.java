@@ -44,6 +44,9 @@ public class Clase {
         this.id_clase = id_clase;
         this.nombre = nombre;
     }
+    public Clase(int id_clase) {
+        this.id_clase = id_clase;
+    }
     public Clase(int id_clase, String nombre,String descripcion) {
         this.id_clase = id_clase;
         this.nombre = nombre;

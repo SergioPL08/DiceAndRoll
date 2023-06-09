@@ -11,6 +11,7 @@ package interfaz.diceandroll.clases;
 public class Personaje {
     private int idPersonaje;
     private String nombre;
+    private int nivel;
     private int idRaza;
     private String nombreRaza;
     private String nombreSubRaza;    
@@ -202,6 +203,14 @@ public class Personaje {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
     
     

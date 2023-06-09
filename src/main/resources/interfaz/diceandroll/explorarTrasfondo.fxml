@@ -30,27 +30,9 @@
                      </font>
                   </Label>
                   <Label fx:id="labelNombreLibro" layoutX="72.0" layoutY="37.0" prefHeight="17.0" prefWidth="364.0" />
-                  <VBox fx:id="vbox1" layoutX="25.0" layoutY="67.0" prefHeight="122.0" prefWidth="516.0" spacing="5.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="724.0" AnchorPane.topAnchor="67.0">
-                     <children>
-                        <Label fx:id="labelDescripcion" alignment="TOP_LEFT" prefWidth="512.0" wrapText="true" />
-                        <Label fx:id="labelNombreRasgo" onMouseClicked="#abrilCerralRasgo" prefHeight="23.0" prefWidth="228.0" text="Rasgo: ">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelDescripcionRasgo" alignment="TOP_LEFT" prefWidth="502.0" wrapText="true" />
-                        <Label fx:id="labelNombreEspecialidad" onMouseClicked="#abrilCerralEspecialidad" prefHeight="23.0" prefWidth="228.0" text="Especialidad">
-                           <font>
-                              <Font name="Calibri Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelDescripcionEspecialidad" alignment="TOP_LEFT" prefWidth="507.0" wrapText="true" />
-                        <VBox fx:id="vboxExpecialidades" prefWidth="328.0" />
-                     </children>
-                  </VBox>
-                  <ScrollPane fx:id="scrollpaneRasgos" layoutX="555.0" layoutY="67.0" prefHeight="595.0" prefWidth="650.0" style="-fx-border-color: #FFF; -fx-background-color: #FFF;">
+                  <ScrollPane fx:id="scrollpaneRasgos" layoutX="555.0" layoutY="67.0" prefHeight="595.0" prefWidth="650.0" style="-fx-border-color: #FFF; -fx-background-color: #FFF;" stylesheets="@../../style.css">
                      <content>
-                        <VBox fx:id="vboxHabilidades" prefHeight="184.0" prefWidth="646.0" spacing="10.0" style="-fx-background-color: #FFF;">
+                        <VBox fx:id="vboxHabilidades" prefHeight="184.0" prefWidth="633.0" spacing="10.0" style="-fx-background-color: #FFF;">
                            <children>
                               <Label fx:id="labelDescripcionRasgos" alignment="TOP_LEFT" prefWidth="713.0" wrapText="true" />
                               <Label onMouseClicked="#abrilCerralRasgoPersonalidad" text="Rasgos de personalidad">
@@ -80,6 +62,28 @@
                                  </font>
                               </Label>
                               <VBox fx:id="vboxDefectos" prefWidth="100.0" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane layoutX="25.0" layoutY="67.0" prefHeight="614.0" prefWidth="518.0" style="-fx-background-color: #FFF;" stylesheets="@../../style.css">
+                     <content>
+                        <VBox fx:id="vbox1" prefHeight="122.0" prefWidth="506.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="labelDescripcion" alignment="TOP_LEFT" prefWidth="512.0" wrapText="true" />
+                              <Label fx:id="labelNombreRasgo" onMouseClicked="#abrilCerralRasgo" prefHeight="23.0" prefWidth="228.0" text="Rasgo: ">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDescripcionRasgo" alignment="TOP_LEFT" prefWidth="502.0" wrapText="true" />
+                              <Label fx:id="labelNombreEspecialidad" onMouseClicked="#abrilCerralEspecialidad" prefHeight="23.0" prefWidth="228.0" text="Especialidad">
+                                 <font>
+                                    <Font name="Calibri Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDescripcionEspecialidad" alignment="TOP_LEFT" prefWidth="507.0" wrapText="true" />
+                              <VBox fx:id="vboxExpecialidades" prefWidth="328.0" />
                            </children>
                         </VBox>
                      </content>

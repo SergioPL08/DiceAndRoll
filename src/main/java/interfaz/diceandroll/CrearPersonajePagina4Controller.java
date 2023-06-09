@@ -316,6 +316,7 @@ public class CrearPersonajePagina4Controller implements Initializable {
             
             while(rs.next()){
                 //(int idHabilidad, String nombre, String descripcion, String adquisicion, String descCorta, String stat1, String stat2, int nivel, int bonoStat1, int bonoStat2
+                int idHabilidad = rs.getInt("id_habilidad");
                 String nombre = rs.getString("nombre");
                 String descripcion = rs.getString("descripcion");
                 String adquisicion = rs.getString("adquisicion");
@@ -324,7 +325,7 @@ public class CrearPersonajePagina4Controller implements Initializable {
                 String stat2 = rs.getString("caracteristica2");
                 int bonoStat1 = rs.getInt("bono_caracteristica1");
                 int bonoStat2 = rs.getInt("bono_caracteristica2");
-                habilidad = new Habilidad(nombre, descripcion, adquisicion, descCorta);
+                habilidad = new Habilidad(idHabilidad,nombre, descripcion, adquisicion, descCorta);
                 if(adquisicion.equals("automatico"))
                     listaHabilidadesAutomaticas.add(habilidad);
                 else
@@ -344,7 +345,7 @@ public class CrearPersonajePagina4Controller implements Initializable {
             else{
                 labelRasgosElegir.setVisible(false);
                 vboxRasgosClaseElegir.setVisible(false);
-                comboBoxHabilidadesSeleccion.setVisible(false);
+                comboBoxHabilidadesSeleccion.setManaged(false);
                 labelEligeRasgos.setVisible(false);
             }
         } catch (SQLException ex) {
@@ -537,10 +538,10 @@ public class CrearPersonajePagina4Controller implements Initializable {
         
         
         
-    private void abrirMenuFichaPersonaje(Personaje personaje, String clase) {
+    private void abrirMenuFichaPersonaje(Personaje personaje, Clase clase) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fichaPersonaje.fxml"));
-            FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase);
+            FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase.getNombre()+" 1",clase);
             Parent root = fxmlLoader.load();
             fichaPersonaje.setPanePrincipal(contenedor);
             fxmlLoader.setController(fichaPersonaje);
@@ -714,7 +715,7 @@ public class CrearPersonajePagina4Controller implements Initializable {
         if(personaje.getNombre().equals("")){
             labelMensajeError.setText("Introduce el nombre del personaje");
         }
-        else if(comboBoxHabilidadesSeleccion.isVisible()&&comboBoxHabilidadesSeleccion.getValue()==null)
+        else if(comboBoxHabilidadesSeleccion.isManaged()&&comboBoxHabilidadesSeleccion.getValue()==null)
             labelMensajeError.setText("Selecciona una habilidad para el personaje");
         else if(comboBoxSubclase.isVisible()&&comboBoxSubclase.getValue()==null)
             labelMensajeError.setText("Elige la subclase para tu personaje");
@@ -778,10 +779,20 @@ public class CrearPersonajePagina4Controller implements Initializable {
                 for(Habilidad hab: listaBonosRaza){
                     addBonus(hab);
                 }
-                Conector.insertTable(insertPersonaje, conector);
-                Conector.insertTable(insertClase, conector);
-                Conector.insertTable(insertTS1, conector);
-                Conector.insertTable(insertTS2, conector);
+                if(Conector.insertTable(insertPersonaje, conector)<0)
+                    throw new SQLException();
+                if(Conector.insertTable(insertClase, conector)<0)
+                    throw new SQLException();
+                if(Conector.insertTable(insertTS1, conector)<0)
+                    throw new SQLException();
+                if(Conector.insertTable(insertTS2, conector)<0)
+                    throw new SQLException();
+                if(comboBoxHabilidadesSeleccion.isManaged()){
+                    String insertHabilidadesSeleccionadas = "INSERT INTO habilidades_clase_seleccionadas (id_personaje,id_habilidad) VALUES("+personaje.getIdPersonaje()+","+comboBoxHabilidadesSeleccion.getValue().getIdHabilidad()+")";
+                    System.out.println(insertHabilidadesSeleccionadas);
+                    if(Conector.insertTable(insertHabilidadesSeleccionadas, conector)<0)
+                        throw new SQLException();
+                }
                 for(Habilidad hab:listaHabilidadesPersonaje){
                     String insertHabilidadPersonaje = "INSERT INTO habilidad_personaje (id_personaje,habilidad,base,competencia,pericia) VALUES "
                             + "("+personaje.getIdPersonaje()+",\""+hab.getNombre()+"\","+hab.getBase()+","+hab.isCompetencia()+","+hab.isPericia()+")";
@@ -793,9 +804,10 @@ public class CrearPersonajePagina4Controller implements Initializable {
                     System.out.println(habilidadesPersonajeInsertadas);
                 }
                 conector.commit();
+                personaje.setNivel(1);
                 labelMensajeError.setStyle("-fx-text-fill: #00BF63");
                 labelMensajeError.setText("Personaje creado correctamente");
-                abrirMenuFichaPersonaje(personaje, clase.getNombre());
+                abrirMenuFichaPersonaje(personaje, this.clase);
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 try {

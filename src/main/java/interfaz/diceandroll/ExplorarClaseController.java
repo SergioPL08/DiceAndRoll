@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package interfaz.diceandroll;
-
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Libro;
 import interfaz.diceandroll.clases.Habilidad;

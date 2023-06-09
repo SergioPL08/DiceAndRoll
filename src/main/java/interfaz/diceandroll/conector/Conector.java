@@ -4,6 +4,9 @@
  */
 package interfaz.diceandroll.conector;
 
+import java.io.IOException;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,8 +23,11 @@ public class Conector {
     static final private String DBNAME = "alu_sergio_dungeon";
     static final private String USER = "unalumno";
     static final private String PASS = "soyunalumno2022";
+    static final private String SERVIDOR = "diceandroll.choto.es";
+    static final private int PUERTO = 21;
+    static final private String USERFTP = "ftp@diceandroll.choto.es";
+    static final private String PASSFTP = "diceandroll_2023";
     
-
 // Para usarlo con MariaDB en una base de datos local llamada javanet  -> Connnection conex = new Conexion("localhost","3306","javanet","javanet","1234qwerty").makeconnect();
     
     public static Connection makeConnect(){
@@ -33,6 +39,26 @@ public class Conector {
             return null;
         }
         
+    }
+    
+    public static void conectarFTP(FTPClient cliente){
+        try {
+            cliente.connect(SERVIDOR,PUERTO);
+            cliente.login(USERFTP, PASSFTP);
+            cliente.setFileType(FTP.BINARY_FILE_TYPE);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    public static void cierraConexionFTP(FTPClient cliente){
+        try {
+            cliente.logout();
+            cliente.disconnect();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     public static void closeConnect(Connection con){
         try {
@@ -64,4 +90,11 @@ public class Conector {
         return 0;
     }
 
+    public static String getSERVIDOR() {
+        return SERVIDOR;
+    }
+
+   
+
+    
 }

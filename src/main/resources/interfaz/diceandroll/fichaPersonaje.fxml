@@ -2,10 +2,10 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
 <AnchorPane id="AnchorPane" fx:id="contenedor" prefHeight="638.0" prefWidth="1280.0" style="-fx-background-color: #FFF;" stylesheets="@../../style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.diceandroll.FichaPersonajeController">
    <children>
@@ -41,10 +42,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorFuerza" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorFuerza" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -58,10 +62,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorDestreza" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorDestreza" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -75,10 +82,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorConstitucion" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorConstitucion" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -92,10 +102,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorInteligencia" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorInteligencia" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -109,10 +122,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorSabiduria" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorSabiduria" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -126,10 +142,13 @@
                         <Font name="Calibri Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelValorCarisma" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
+                  <Label fx:id="labelValorCarisma" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#tirarDado" prefHeight="28.0" prefWidth="28.0" text="0" textAlignment="CENTER">
                      <font>
                         <Font name="Source Sans Pro Bold" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
                <HBox.margin>
@@ -290,29 +309,38 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="labelTSFue" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="+1" textAlignment="CENTER">
+                        <Label fx:id="labelTSFue" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="+1" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelTSDes" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSDes" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelTSCon" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSCon" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </VBox>
@@ -374,29 +402,38 @@
                   </VBox>
                   <VBox prefHeight="0.0" prefWidth="41.0">
                      <children>
-                        <Label fx:id="labelTSInt" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSInt" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelTSSab" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSSab" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelTSCar" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
+                        <Label fx:id="labelTSCar" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" prefHeight="25.0" prefWidth="25.0" style="-fx-border-color: #D9D9D8; -fx-border-radius: 100; -fx-border-width: 2;" text="0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </VBox>
@@ -418,7 +455,7 @@
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelCompetenciaArmas" alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
+                  <Label fx:id="labelCompetenciaArmas" alignment="TOP_LEFT" prefWidth="205.0" wrapText="true">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
@@ -428,7 +465,7 @@
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelCompetenciaArmaduras" alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
+                  <Label fx:id="labelCompetenciaArmaduras" alignment="TOP_LEFT" prefWidth="205.0" wrapText="true">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
@@ -438,17 +475,7 @@
                         <Font name="Calibri Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelCompetenciaHerramientas" alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
-                     <font>
-                        <Font name="Calibri" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label text="Idiomas">
-                     <font>
-                        <Font name="Calibri Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelIdiomas" alignment="TOP_LEFT" prefHeight="33.0" prefWidth="205.0" wrapText="true">
+                  <Label fx:id="labelCompetenciaHerramientas" alignment="TOP_LEFT" prefWidth="205.0" wrapText="true">
                      <font>
                         <Font name="Calibri" size="12.0" />
                      </font>
@@ -921,149 +948,203 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="labelAcrobacias" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelAcrobacias" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelArcanos" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelArcanos" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelAtletismo" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelAtletismo" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelEngañar" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelEngañar" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelHistoria" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelHistoria" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelInterpretacion" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelInterpretacion" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelIntimidar" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelIntimidar" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelInvestigacion" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelInvestigacion" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelJuegoManos" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelJuegoManos" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelMedicina" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelMedicina" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelNaturaleza" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelNaturaleza" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelPercepcion" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelPercepcion" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelPerspicacia" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelPerspicacia" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelPersuasion" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelPersuasion" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelReligion" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelReligion" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelSigilo" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelSigilo" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelSupervivencia" alignment="CENTER_RIGHT" contentDisplay="CENTER" text="+0" textAlignment="RIGHT">
+                        <Label fx:id="labelSupervivencia" alignment="CENTER_RIGHT" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="RIGHT">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
-                        <Label fx:id="labelTratoConAnimales" alignment="CENTER" contentDisplay="CENTER" text="+0" textAlignment="CENTER">
+                        <Label fx:id="labelTratoConAnimales" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#tirarDado" text="+0" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="1.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </VBox>
@@ -1145,10 +1226,13 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelIniciativa" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="23.0" prefHeight="33.0" prefWidth="61.0" text="0" textAlignment="CENTER">
+            <Label fx:id="labelIniciativa" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="23.0" onMouseClicked="#tirarDado" prefHeight="33.0" prefWidth="61.0" text="0" textAlignment="CENTER">
                <font>
                   <Font name="Source Sans Pro Bold" size="25.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>
@@ -1175,7 +1259,7 @@
          <children>
             <HBox layoutX="14.0" layoutY="6.0" prefHeight="32.0" prefWidth="405.0">
                <children>
-                  <Label text="Rasgos" textFill="#3583f2">
+                  <Label fx:id="labelRasgos" onMouseClicked="#abrirPestaniaRasgos" text="Rasgos" textFill="#08b963">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
@@ -1183,7 +1267,7 @@
                         <Insets right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Inventario">
+                  <Label fx:id="labelInventario" onMouseClicked="#abrirPestaniaInventario" text="Inventario">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
@@ -1191,7 +1275,7 @@
                         <Insets right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Conjuros">
+                  <Label fx:id="labelConjuros" onMouseClicked="#abrirPestaniaConjuros" text="Conjuros">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
@@ -1199,7 +1283,7 @@
                         <Insets right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Trasfondo">
+                  <Label fx:id="labelTrasfondo" onMouseClicked="#abrirPestaniaTrasfondo" text="Trasfondo">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
@@ -1207,48 +1291,37 @@
                         <Insets right="24.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="Notas">
+                  <Label fx:id="labelNotas" onMouseClicked="#abrirPestaniaNotas" text="Notas">
                      <font>
                         <Font name="Calibri Bold" size="17.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <ScrollPane layoutX="14.0" layoutY="32.0" prefHeight="339.0" prefWidth="405.0" style="-fx-background-color: transparent;">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="401.0" style="-fx-background-color: transparent;">
-                     <children>
-                        <VBox layoutX="1.0" layoutY="1.0" prefHeight="327.0" prefWidth="405.0" style="-fx-background-color: transparent;" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+            <Pane fx:id="paneMenu" layoutX="14.0" layoutY="34.0" prefHeight="334.0" prefWidth="405.0" />
          </children>
       </Pane>
       <Pane fx:id="paneDescripcionHabilidad" layoutX="1013.0" layoutY="14.0" prefHeight="579.0" prefWidth="253.0" style="-fx-border-color: #B0B0B0; -fx-border-width: 2; -fx-background-radius: 20;" visible="false">
          <children>
-            <Label layoutX="13.0" layoutY="3.0" text="Nombre habilidad">
+            <Label fx:id="nombreHabilidad" layoutX="13.0" layoutY="3.0" text="Nombre habilidad">
                <font>
                   <Font name="Calibri Bold" size="17.0" />
                </font>
             </Label>
-            <ScrollPane fitToHeight="true" layoutX="6.0" layoutY="24.0" prefHeight="549.0" prefWidth="242.0" style="-fx-background-color: transparent;">
-               <content>
-                  <Label alignment="TOP_LEFT" prefHeight="545.0" prefWidth="225.0" wrapText="true">
-                     <font>
-                        <Font name="Calibri" size="12.0" />
-                     </font>
-                  </Label>
-               </content>
-            </ScrollPane>
+            <WebView fx:id="webView" layoutX="8.0" layoutY="25.0" prefHeight="541.0" prefWidth="234.0" />
          </children>
       </Pane>
-      <Button layoutX="501.0" layoutY="26.0" mnemonicParsing="false" onAction="#abrirMenuEditarPersonaje" prefHeight="45.0" prefWidth="119.0" style="-fx-background-color: transparent;" text="Editar">
+      <Button alignment="TOP_LEFT" layoutX="457.0" layoutY="23.0" mnemonicParsing="false" onAction="#abrirMenuSubirNivelPersonaje" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: transparent;" text="Subir de nivel" wrapText="true">
          <font>
             <Font name="Calibri Bold" size="19.0" />
          </font>
          <graphic>
-            <FontAwesomeIconView glyphName="EDIT" size="30" text="" wrappingWidth="33.0" />
+            <FontAwesomeIconView glyphName="ARROW_UP" size="30" />
          </graphic></Button>
+      <Label fx:id="labelMensaje" layoutX="249.0" layoutY="34.0" prefHeight="18.0" prefWidth="205.0">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

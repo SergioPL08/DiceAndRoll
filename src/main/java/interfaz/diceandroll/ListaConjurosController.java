@@ -486,10 +486,16 @@ public class ListaConjurosController implements Initializable {
         String idPane = panePulsado.getId();
         System.out.println(idPane);
         int longitudTexto = idPane.length();
-        System.out.println(longitudTexto);
+        //System.out.println(longitudTexto);
         int id = Integer.parseInt(idPane.substring(longitudTexto-1));
         System.out.println(id);
         int indice = inicio+(id-1);
+        if(idPane.equals("conjuro10"))
+            indice=inicio+9;
+        if(idPane.equals("conjuro11"))
+            indice=inicio+10;
+        if(idPane.equals("conjuro12"))
+            indice=inicio+11;
         //System.out.println(indice);
         //System.out.println(id-1);
         conjuro = listaConjuros.get(indice);

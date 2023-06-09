@@ -40,6 +40,11 @@ public class Dote {
         this.idLibro = idLibro;
         this.idPersonaje = idPersonaje;
     }
+    public Dote(int idDote, String nombre, String descripcion) {
+        this.idDote = idDote;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
     public Dote(int idDote, String nombre, String descripcion, String caracMod, String caracMod2, int mod, int idLibro) {
         this.idDote = idDote;
@@ -122,7 +127,12 @@ public class Dote {
         this.idPersonaje = idPersonaje;
     }
 
-   
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
+    
  
     
 }

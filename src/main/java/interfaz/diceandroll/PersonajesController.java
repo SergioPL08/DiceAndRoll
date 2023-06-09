@@ -6,7 +6,6 @@ package interfaz.diceandroll;
 
 import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
-import interfaz.diceandroll.CrearPersonajeController;
 import interfaz.diceandroll.clases.Clase;
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import interfaz.diceandroll.clases.Libro;
 import interfaz.diceandroll.clases.Personaje;
 import interfaz.diceandroll.clases.Usuario;
 import java.io.File;
@@ -37,7 +35,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 
 /**
@@ -266,7 +263,7 @@ public class PersonajesController implements Initializable {
                     consulta += " ORDER BY personaje.nombre desc ";
             }
             else
-                consulta += " order by personaje.nombre";
+                consulta += " ORDER BY personaje.id_personaje desc,personaje.nombre";
             //Establecemos la conexion con la base de datos y recogemos los datos encontrados
             //System.out.println(consulta);
             ResultSet personajes = Conector.getSelect(consulta, conector);
@@ -274,6 +271,7 @@ public class PersonajesController implements Initializable {
                 //Recogemos toda la información de la clase y creamos un objeto con ella, también para el libro de reglas asociado
                 int idPersonaje = personajes.getInt("id_personaje");
                 String nombre = personajes.getString("nombre");
+                int nivel = personajes.getInt("nivel");
                 int idRaza = personajes.getInt("raza");
                 String nombreRaza = personajes.getString("raza.nombre");
                 String nombreSubraza = personajes.getString("subraza.nombre");
@@ -290,6 +288,7 @@ public class PersonajesController implements Initializable {
                 int sab = personajes.getInt("sab");
                 int car = personajes.getInt("car");
                 interfaz.diceandroll.clases.Personaje personaje = new Personaje(idPersonaje,nombre,idRaza,nombreRaza,nombreSubraza,vel,puntosGolpeMax,puntosGolpeAct,iniciativa,ca,bonoComp,fue,des,con,inte,sab,car);
+                personaje.setNivel(nivel);
                 //Añadimos ambos a sus respectivas listas
                 listaPersonajes.add(personaje);
                 //System.out.println(icon);
@@ -311,8 +310,8 @@ public class PersonajesController implements Initializable {
                     consultaClases += " order by personaje.nombre desc, nivel_clase desc ";
             }
             else
-                consultaClases += " order by personaje.nombre, nivel_clase desc";
-            System.out.println(consultaClases);
+                consultaClases += " ORDER BY personaje.id_personaje desc,personaje.nombre";
+            //System.out.println(consultaClases);
             ResultSet rsClases = Conector.getSelect(consultaClases, conector);
             int contador = 0;
             int personajeAnterior=-1;
@@ -531,12 +530,12 @@ public class PersonajesController implements Initializable {
      * @param event 
      */
     @FXML
-    private void seleccionarPersonaje(MouseEvent event) {
+    private void seleccionarPersonaje(MouseEvent event) throws SQLException {
         Pane panePulsado = (Pane)event.getSource();
         String idPane = panePulsado.getId();
-        System.out.println(idPane);
+        //System.out.println(idPane);
         int longitudTexto = idPane.length();
-        System.out.println(longitudTexto);
+        //System.out.println(longitudTexto);
         int id = Integer.parseInt(idPane.substring(longitudTexto-1));
         //System.out.println(id);
         int indice = inicio+(id-1);
@@ -545,8 +544,47 @@ public class PersonajesController implements Initializable {
         personaje = listaPersonajes.get(indice);
         String clase = listaClases.get(indice);
         //Image imagen = listaImagenes.get(indice);
-        Clase clasePersonaje=listaClasesPersonaje.get(0);
-        abrirMenuFichaPersonaje(personaje,clase);
+        Clase clasePersonaje=getClasePersonaje(personaje.getIdPersonaje());
+        //System.out.println(personaje.getIdPersonaje());
+        if(clasePersonaje==null)
+            throw new SQLException();
+        else
+            abrirMenuFichaPersonaje(personaje,clase,clasePersonaje);
+    }
+    
+    private Clase getClasePersonaje(int idPersonaje){
+        String buscador = textFieldBuscador.getText();
+        String filtro = comboBox.getValue();
+        String consultaClasePersonaje = "SELECT * FROM clase_personaje "
+                + " INNER JOIN personaje on personaje.id_personaje=clase_personaje.id_personaje "
+                + " WHERE personaje.id_personaje="+idPersonaje+" ";
+        if(!buscador.equals(""))
+                consultaClasePersonaje += " AND personaje.nombre LIKE '%"+buscador+"%' ";
+            consultaClasePersonaje += " GROUP BY personaje.id_personaje ";
+            //Si queremos ordenar por nombre ascendente o descendente o por libro de reglas
+            if(filtro!=null){
+                if(filtro.equals("Nombre [a-z]"))
+                    consultaClasePersonaje += " ORDER BY personaje.nombre asc ";
+                else if(filtro.equals("Nombre [z-a]"))
+                    consultaClasePersonaje += " ORDER BY personaje.nombre desc ";
+            }
+            else
+                consultaClasePersonaje += " ORDER BY clase_personaje.id_personaje,personaje.nombre";
+            //Establecemos la conexion con la base de datos y recogemos l
+            //System.out.println(consultaClasePersonaje);
+        try{
+            ResultSet rs = Conector.getSelect(consultaClasePersonaje, conector);
+            while(rs.next()){
+                int idClase = rs.getInt("id_clase");
+                Clase clasePersonaje = new Clase(idClase);
+                listaClasesPersonaje.add(clasePersonaje);
+            }
+            return listaClasesPersonaje.get(0);
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
     
     
@@ -556,10 +594,10 @@ public class PersonajesController implements Initializable {
      * @param libro 
      */
     
-    private void abrirMenuFichaPersonaje(Personaje personaje, String clase){
+    private void abrirMenuFichaPersonaje(Personaje personaje, String clase, Clase clasePersonaje){
     try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fichaPersonaje.fxml"));
-        FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase);
+        FichaPersonajeController fichaPersonaje = new FichaPersonajeController(personaje,clase,clasePersonaje);
         Parent root = fxmlLoader.load();
         fichaPersonaje.setPanePrincipal(contenedor);
         fxmlLoader.setController(fichaPersonaje);

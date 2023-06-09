@@ -9,23 +9,27 @@ import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Habilidad;
 import interfaz.diceandroll.clases.Personaje;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 /**
  * FXML Controller class
@@ -85,8 +89,6 @@ public class FichaPersonajeController implements Initializable {
     private Label labelCompetenciaArmas;
     @FXML
     private Label labelCompetenciaArmaduras;
-    @FXML
-    private Label labelIdiomas;
     @FXML
     private Label labelArcanos;
     @FXML
@@ -236,6 +238,24 @@ public class FichaPersonajeController implements Initializable {
     private ImageView imagenPersonaje;
     @FXML
     private Label labelCompetenciaHerramientas;
+    @FXML
+    private Label labelMensaje;
+    @FXML
+    private Pane paneMenu;
+    @FXML
+    private WebView webView;
+    @FXML
+    private Label nombreHabilidad;
+    @FXML
+    private Label labelRasgos;
+    @FXML
+    private Label labelInventario;
+    @FXML
+    private Label labelConjuros;
+    @FXML
+    private Label labelTrasfondo;
+    @FXML
+    private Label labelNotas;
 
     /**
      * Initializes the controller class.
@@ -380,7 +400,7 @@ public class FichaPersonajeController implements Initializable {
         
         
         String consultaTS = "SELECT * FROM ts_personaje WHERE id_personaje="+personaje.getIdPersonaje();
-        System.out.println(consultaTS);
+        //System.out.println(consultaTS);
         ResultSet rsTS = Conector.getSelect(consultaTS, conector);
         contador = 0;
         int contadorTS = 0;
@@ -453,8 +473,8 @@ public class FichaPersonajeController implements Initializable {
                 contador++;
             }
             //String clasePersonaje = clase.;
-            String consultaClase = "SELECT * FROM clase WHERE nombre=\""+clase+"\"";
-            System.out.println(consultaClase);
+            String consultaClase = "SELECT * FROM clase WHERE id_clase="+clasePersonaje.getIdClase();
+            //System.out.println(consultaClase);
             ResultSet rs = Conector.getSelect(consultaClase, conector);
             while(rs.next()){
                 int idClase = rs.getInt("id_clase");
@@ -473,30 +493,30 @@ public class FichaPersonajeController implements Initializable {
                 String compStat1 = rs.getString("competencia_estadistica1");
                 String compStat2 = rs.getString("competencia_estadistica2");
                 int idLibro = rs.getInt("id_libro");
-                clase2 = new Clase(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,"",idLibro);
-                listaClases.add(clase2);
+                clase2 = new Clase(idClase, nombre, "",puntosGolpe, resquisito_multiclase,compArmasSimples,compArmasMarciales,compArmadurasLigeras,compArmadurasMedias,compArmadurasPesadas,compEscudo,textCompHab,caster,aptMag,compStat1,compStat2,"",idLibro); listaClases.add(clase2);
             }
+            String consultaCompetenciaArmas = "SELECT * FROM competencia_armas_clase "
+                + "INNER JOIN armas_base ON armas_base.id_arma = competencia_armas_clase.id_arma "
+                + "WHERE id_clase = "+clasePersonaje.getIdClase();
+            ResultSet rsCompetenciaArmas = Conector.getSelect(consultaCompetenciaArmas, conector);
             ArrayList armasCompetente = new ArrayList();
             String consultaCompetenciaEquipo = "SELECT * FROM competencias_equipo_clase "
                     + "INNER JOIN herramientas_base ON herramientas_base.id_herramienta = id_equipo "
-                    + "WHERE id_clase = "+listaClases.get(0).getIdClase();
+                    + "WHERE id_clase = "+clasePersonaje.getIdClase();
             ResultSet rs2 = Conector.getSelect(consultaCompetenciaEquipo, conector);
             ArrayList equipoCompetente = new ArrayList();
-            if(listaClases.get(0).isCompetenciaArmasSencillas())
+            if(clase2.isCompetenciaArmasSencillas())
                armasCompetente.add("Armas simples");
-            if(listaClases.get(0).isCompetenciaArmasMarciales())
+            if(clase2.isCompetenciaArmasMarciales())
                armasCompetente.add("Armas marciales");
             try {
-                if(rs!=null){
-                    while(rs.next()){
-                        armasCompetente.add(rs.getString("nombre"));
-                    }
+                while(rsCompetenciaArmas.next()){
+                    armasCompetente.add(rsCompetenciaArmas.getString("nombre"));
                 }
-                if(rs2!=null){
-                    while(rs2.next()){
-                        equipoCompetente.add(rs2.getString("nombre"));
-                    }
+                while(rs2.next()){
+                    equipoCompetente.add(rs2.getString("nombre"));
                 }
+               
             } catch (SQLException ex) {
                 System.out.println("Error al cargar las competencias con armas");
                 ex.printStackTrace();
@@ -521,8 +541,8 @@ public class FichaPersonajeController implements Initializable {
             List<String> ListCompetenciaEquipo = equipoCompetente;
             labelCompetenciaHerramientas.setText(String.join(", ",ListCompetenciaEquipo));
             //labelCompetenciaHabilidades.setText(clase.getTextoCompetenciasHabilidades());
+            abrirRasgosPersonaje(clase2,personaje);
             }
-            
         }
         catch(SQLException ex){
             System.out.println("Error al cargar la lista de TS del personaje");
@@ -640,13 +660,176 @@ public class FichaPersonajeController implements Initializable {
     public FichaPersonajeController(){
         
     }
-    public FichaPersonajeController(Personaje personaje,String clase){
+    public FichaPersonajeController(Personaje personaje,String clase, Clase clasePersonaje){
         this.personaje=personaje;
         this.clase=clase;
+        this.clasePersonaje=clasePersonaje;
     }
     
 
+
     @FXML
-    private void abrirMenuEditarPersonaje(ActionEvent event) {
+    private void tirarDado(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        labelMensaje.setStyle("-fx-text-fill: #000");
+        int valor = Integer.parseInt(label.getText());
+        int resultadoDado = (int)(Math.random()*20+1);
+        if(resultadoDado==20){
+            labelMensaje.setStyle("-fx-text-fill: #13B668");
+        }
+        if(resultadoDado==1){
+            labelMensaje.setStyle("-fx-text-fill: #DF5352");
+        }
+        int resultado = resultadoDado+valor;
+        labelMensaje.setText("Resultado tirada ("+resultadoDado+"+"+valor+")= "+String.valueOf(resultado));
+        
+    }
+    
+    public void abrirRasgosPersonaje(Clase clase, Personaje personaje){
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("rasgosPersonaje.fxml"));
+            RasgosPersonajeController rasgosPersonajeController = new RasgosPersonajeController(clase,personaje);
+            rasgosPersonajeController.setFichaPersonajeController(this);
+            Parent root = fxml.load();
+            paneMenu.getChildren().setAll(root);
+            rasgosPersonajeController.setPanePrincipal(contenedor);
+            fxml.setController(rasgosPersonajeController);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al abrir el menu principal");
+        }
+    }
+    
+    public void abrirInventario(){
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("inventarioPersonaje.fxml"));
+            InventarioPersonajeController inventarioController = new InventarioPersonajeController();
+            inventarioController.setFichaPersonajeController(this);
+            Parent root = fxml.load();
+            paneMenu.getChildren().setAll(root);
+            inventarioController.setPanePrincipal(contenedor);
+            fxml.setController(inventarioController);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al abrir el menu");
+        }
+    }
+    
+    public void abrirConjuros(){
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("conjurosPersonaje.fxml"));
+            ConjurosPersonajeController conjurosController = new ConjurosPersonajeController(personaje);
+            conjurosController.setFichaPersonajeController(this);
+            Parent root = fxml.load();
+            paneMenu.getChildren().setAll(root);
+            conjurosController.setPanePrincipal(contenedor);
+            fxml.setController(conjurosController);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al abrir el menu");
+        }
+    }
+    
+    public void abrirTrasfondo(){
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("trasfondoPersonaje.fxml"));
+            TrasfondoPersonajeController trasfondoController = new TrasfondoPersonajeController();
+            trasfondoController.setFichaPersonajeController(this);
+            Parent root = fxml.load();
+            paneMenu.getChildren().setAll(root);
+            trasfondoController.setPanePrincipal(contenedor);
+            fxml.setController(trasfondoController);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al abrir el menu");
+        }
+    }
+    
+    public void abrirNotas(){
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("notasPersonaje.fxml"));
+            NotasPersonajeController notasController = new NotasPersonajeController();
+            notasController.setFichaPersonajeController(this);
+            Parent root = fxml.load();
+            paneMenu.getChildren().setAll(root);
+            notasController.setPanePrincipal(contenedor);
+            fxml.setController(notasController);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al abrir el menu");
+        }
+    }
+    
+    public void abrirVistaDetallada(String nombre, String texto){
+        if(!paneDescripcionHabilidad.isVisible())
+            paneDescripcionHabilidad.setVisible(true);
+        nombreHabilidad.setText(nombre);
+        WebEngine webEngine = webView.getEngine();
+        webEngine.loadContent(texto);
+    }
+
+    @FXML
+    private void abrirPestaniaRasgos(MouseEvent event) {
+        abrirRasgosPersonaje(clase2, personaje);
+        labelRasgos.setStyle("-fx-text-fill:#08b963");
+        labelInventario.setStyle("-fx-text-fill:#000");
+        labelConjuros.setStyle("-fx-text-fill:#000");
+        labelTrasfondo.setStyle("-fx-text-fill:#000");
+        labelNotas.setStyle("-fx-text-fill:#000");
+        
+    }
+
+    @FXML
+    private void abrirPestaniaInventario(MouseEvent event) {
+        abrirInventario();
+        labelRasgos.setStyle("-fx-text-fill:#000");
+        labelInventario.setStyle("-fx-text-fill:#08b963");
+        labelConjuros.setStyle("-fx-text-fill:#000");
+        labelTrasfondo.setStyle("-fx-text-fill:#000");
+        labelNotas.setStyle("-fx-text-fill:#000");
+    }
+
+    @FXML
+    private void abrirPestaniaConjuros(MouseEvent event) {
+        abrirConjuros();
+        labelRasgos.setStyle("-fx-text-fill:#000");
+        labelInventario.setStyle("-fx-text-fill:#000");
+        labelConjuros.setStyle("-fx-text-fill:#08b963");
+        labelTrasfondo.setStyle("-fx-text-fill:#000");
+        labelNotas.setStyle("-fx-text-fill:#000");
+    }
+
+    @FXML
+    private void abrirPestaniaTrasfondo(MouseEvent event) {
+        abrirTrasfondo();
+        labelRasgos.setStyle("-fx-text-fill:#000");
+        labelInventario.setStyle("-fx-text-fill:#000");
+        labelConjuros.setStyle("-fx-text-fill:#000");
+        labelTrasfondo.setStyle("-fx-text-fill:#08b963");
+        labelNotas.setStyle("-fx-text-fill:#000");
+    }
+
+    @FXML
+    private void abrirPestaniaNotas(MouseEvent event) {
+        abrirNotas();
+        labelRasgos.setStyle("-fx-text-fill:#000");
+        labelInventario.setStyle("-fx-text-fill:#000");
+        labelConjuros.setStyle("-fx-text-fill:#000");
+        labelTrasfondo.setStyle("-fx-text-fill:#000");
+        labelNotas.setStyle("-fx-text-fill:#08b963");
+    }
+
+    @FXML
+    private void abrirMenuSubirNivelPersonaje(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subirNivelPersonaje.fxml"));
+            SubirNivelPersonajeController subirNivel = new SubirNivelPersonajeController(personaje,clase2);
+            Parent root = fxmlLoader.load();
+            subirNivel.setPanePrincipal(contenedor);
+            fxmlLoader.setController(subirNivel);
+            contenedor.getChildren().setAll(root);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

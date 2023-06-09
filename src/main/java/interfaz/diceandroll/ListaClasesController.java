@@ -8,8 +8,12 @@ import interfaz.diceandroll.conector.Conector;
 import static interfaz.diceandroll.App.conector;
 import interfaz.diceandroll.clases.Clase;
 import interfaz.diceandroll.clases.Libro;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +38,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import org.apache.commons.net.ftp.FTPClient;
 
 /**
  * FXML Controller class
@@ -214,7 +219,7 @@ public class ListaClasesController implements Initializable {
                 //System.out.println(icon);
                 Image imagen = new Image(getClass().getResourceAsStream(icon));
                 //System.out.println(imagen.toString());
-                listaImagenes.add(imagen);
+                    listaImagenes.add(imagen);
                 listaLibros.add(libro);
             }
             //Llamamos al metodo para rellenar el grid con los datos de ambas listas para que el usuario pueda ver las clases
